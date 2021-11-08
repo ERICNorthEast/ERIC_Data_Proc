@@ -1,0 +1,22 @@
+Package: ERIC_Data_Proc
+Title: Functions for data processing and validation
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "ERIC",
+           family = "NE",
+           role = c("aut", "cre"),
+           email = "eric.ne@twmuseums.org.uk",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Functions for Data Request and SLA processing.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: stringr,
+        dplyr,
+        openxlsx,
+        tibble,
+        janitor
+Depends: 
+    R (>= 2.10)
