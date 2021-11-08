@@ -1,0 +1,43 @@
+#' Setup config to split data for the Durham SLA
+#'
+#' @param bat_sp
+#' @param plant_sp
+#' @param Other_LA_Cols
+#'
+#' @return
+#' @export
+#'
+#' @examples
+getDurhamConfig <- function(bat_sp,plant_sp,Other_LA_Cols){
+
+  Durham_split <- tibble::tribble(~SheetLabel,~FilterString,
+                          "Reptiles_data","tolower(SLA_data$`Taxon group`)=='reptile'",
+                          "Water_Voles_data","SLA_data$`Latin Name`=='Arvicola amphibius'  & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Fish_Protected_data","stringr::str_detect(tolower(SLA_data$`Taxon group`),'^fish,') & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Red_Squirrel_data","SLA_data$`Latin Name`=='Sciurus vulgaris'  & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Plant_LowerPlantProtected_data",paste0("SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes' & stringr::str_detect(tolower(SLA_data$`Taxon group`),'",paste(plant_sp,collapse = '|'),"')" ),
+                          "Otters_data","(SLA_data$`Latin Name`=='Lutra lutra' | SLA_data$`Latin Name`=='Lutra')  & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Marine_Mammals_data","tolower(SLA_data$`Taxon group`)=='marine mammal' & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Butterflies_Protected_data","tolower(SLA_data$`Taxon group`)=='insect - butterfly' & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Birds_Protected_data","tolower(SLA_data$`Taxon group`)=='bird' & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Bats_data", paste0("SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes' & stringr::str_detect(SLA_data$`Latin Name`,'",paste(bat_sp,collapse = '|'),"')"),
+                          "Badgers_data","(SLA_data$`Latin Name`=='Meles meles' | SLA_data$`Latin Name`=='Meles')  & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Amphibians_data", "tolower(SLA_data$`Taxon group`)=='amphibian' & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Protected_Insects_data","stringr::str_detect(tolower(SLA_data$`Taxon group`), 'insect') & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "Polecat_data","stringr::str_detect(SLA_data$`Latin Name`,'Mustela putorius') & SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='Yes'",
+                          "WC_Crayfish_data","stringr::str_detect(SLA_data$`Latin Name`,'Austropotamobius pallipes')",
+                          "DBAP_Birds_data", "SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='No' & stringr::str_detect(SLA_data$`North East LBAP - Short Names`,'Durham BAP') & tolower(SLA_data$`Taxon group`)=='bird'",
+                          "DBAP_Fish_data","SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='No' & stringr::str_detect(SLA_data$`North East LBAP - Short Names`,'Durham BAP') & stringr::str_detect(tolower(SLA_data$`Taxon group`),'fish')",
+                          "DBAP_Insects_data","SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='No' & stringr::str_detect(SLA_data$`North East LBAP - Short Names`,'Durham BAP') & stringr::str_detect(tolower(SLA_data$`Taxon group`),'insect')",
+                          "DBAP_Mammals_data","SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='No' & stringr::str_detect(SLA_data$`North East LBAP - Short Names`,'Durham BAP') & tolower(SLA_data$`Taxon group`)=='terrestrial mammal'",
+                          "DBAP_Plants_LowerPlants_data",paste0("SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='No' & stringr::str_detect(SLA_data$`North East LBAP - Short Names`,'Durham BAP') & stringr::str_detect(tolower(SLA_data$`Taxon group`),'",paste(plant_sp,collapse = '|'),"')"),
+                          "Other_WACA9_data","SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='No' & (stringr::str_detect(SLA_data$`North East LBAP - Short Names`,'Durham BAP',negate=TRUE) | is.na(SLA_data$`North East LBAP - Short Names`)) & (SLA_data$`Wildlife & Countryside Act Sch 9 Part 1`=='Yes' | SLA_data$`Wildlife & Countryside Act Sch 9 Part 2`=='Yes')",
+                          "Other_Bird_data","SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='No' & (stringr::str_detect(SLA_data$`North East LBAP - Short Names`,'Durham BAP',negate=TRUE) | is.na(SLA_data$`North East LBAP - Short Names`))  & tolower(SLA_data$`Taxon group`)=='bird'  & is.na(SLA_data$`Wildlife & Countryside Act Sch 9 Part 1`) & is.na(SLA_data$`Wildlife & Countryside Act Sch 9 Part 2`)",
+                          "Other_Mammal_data","SLA_data$`All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated`=='No' & (stringr::str_detect(SLA_data$`North East LBAP - Short Names`,'Durham BAP',negate=TRUE) | is.na(SLA_data$`North East LBAP - Short Names`)) & tolower(SLA_data$`Taxon group`)=='terrestrial mammal' & is.na(SLA_data$`Wildlife & Countryside Act Sch 9 Part 1`) & is.na(SLA_data$`Wildlife & Countryside Act Sch 9 Part 2`)"
+
+
+  )
+
+  return (list("Source","",Durham_split,Other_LA_Cols))
+
+}
