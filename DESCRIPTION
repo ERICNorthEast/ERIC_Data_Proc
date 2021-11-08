@@ -1,4 +1,4 @@
-Package: ERIC_Data_Proc
+Package: ERICDataProc
 Title: Functions for data processing and validation
 Version: 0.0.0.9000
 Authors@R: 

@@ -17,9 +17,9 @@ E_and_N_calcs<- function(species_data) {
 
   species_data$prefix <- stringr::str_sub(species_data$`Sample.Spa`,end=2)
 
-  species_data <- dplyr::left_join(species_data,ERIC_Data_Proc:::prefixes,by="prefix")
+  species_data <- dplyr::left_join(species_data,ERICDataProc:::prefixes,by="prefix")
   species_data$Letter <- tolower(stringr::str_sub(species_data$`Sample.Spa`,5,5))
-  species_data <- dplyr::left_join(species_data,ERIC_Data_Proc:::suffices,b="Letter")
+  species_data <- dplyr::left_join(species_data,ERICDataProc:::suffices,b="Letter")
 
 
   species_data$Buffer <- ifelse(stringr::str_length(species_data$`Sample.Spa`)==5,1000,(1*10^(5-(stringr::str_length(species_data$`Sample.Spa`)-2)/2))/2)

@@ -21,7 +21,7 @@ check_house_numbers <- function(inputdata, locsToReplace, locsToIgnore) {
 
   #Check is what's left after removing numbers we're happy with
   check <- inputdata$`Location Name`
-  for (r in ERIC_Data_Proc:::allowed_numbers) {
+  for (r in ERICDataProc:::allowed_numbers) {
     check <- stringr::str_remove_all(check,r)
   }
 

@@ -12,7 +12,7 @@
 filter_by_distance <- function(species_data,distance,grid_ref) {
 
   dist_limit <- (distance * 1000) + 100
-  pinpoint <- dplyr::filter(ERIC_Data_Proc:::gridLetters,ERIC_Data_Proc:::gridLetters$Letters==stringr::str_sub(grid_ref,1,2))
+  pinpoint <- dplyr::filter(ERICDataProc:::gridLetters,ERICDataProc:::gridLetters$Letters==stringr::str_sub(grid_ref,1,2))
   gr_n <- stringr::str_pad(paste0(pinpoint$North,stringr::str_sub(grid_ref,(3+stringr::str_length(grid_ref)+2)/2)),6,"right",pad="0")
   gr_e <- stringr::str_pad(paste0(pinpoint$East,stringr::str_sub(grid_ref,3,(stringr::str_length(grid_ref)+2)/2)),6,"right",pad="0")
 

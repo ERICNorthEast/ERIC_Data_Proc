@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) 2021 ERIC_Data_Proc authors
+Copyright (c) 2021 ERICDataProc authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
