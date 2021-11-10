@@ -16,5 +16,13 @@ getSplitterConfig(LA, SLA_Split_config)
 Setup the config to split data depending on the local authority
 }
 \examples{
-getSplitterConfig(1)
+ config_keys <- c("bat_sp","plant_sp")
+ bat_sp <- c("Chiroptera","Rhinolophidae","Vespertilionidae","Myotis","Barbastella","Eptesicus","Nyctalus","Pipistrellus","Plecotus","Vespertilio","Lasiurus","Tadarida","Hypsugo")
+ plant_sp <- c("flowering plant" ,"clubmoss" ,"conifer" ,"fern" ,"fungus" ,"ginkgo" ,"horsetail" ,"lichen" ,"liverwort" ,"moss" ,"slime mould" ,"stonewort" ,"alga" ,"hornwort" ,"quillwort")
+ config_values <- list(bat_sp,plant_sp)
+ config_pairs <- list()                     # Create empty list
+ for(i in 1:length(config_keys)) {              # Add key/value pairs in for-loop
+   config_pairs[config_keys[i]] <- config_values[i]
+ }
+config <- getSplitterConfig(1,config_pairs)
 }

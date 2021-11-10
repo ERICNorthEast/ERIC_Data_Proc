@@ -18,5 +18,7 @@ setup_Sun_ST_split(bat_sp, plant_sp)
 Setup config for the Sunderland and South Tyneside SLA splitter
 }
 \examples{
-a <- setup_Sun_ST_split(bat_sp,plant_sp)
+bat_sp <- c("Chiroptera","Rhinolophidae","Vespertilionidae")
+plant_sp <- c("flowering plant" ,"clubmoss" ,"conifer")
+split <- setup_Sun_ST_split(bat_sp,plant_sp)
 }

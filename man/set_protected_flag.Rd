@@ -16,5 +16,11 @@ set_protected_flag(raw_data)
 Set the protected flag for appropriate species
 }
 \examples{
-data <- set_protected_flag(raw_data)
+a <- c('','')
+d <- c('insect - butterfly','bird')
+e <- c('Pieris rapae','Turdus merula')
+df <- data.frame(d,e,a)
+names(df) <- c('Taxon.grou', 'Taxon.Lati','AllUKLeg')
+
+data <- set_protected_flag(df)
 }

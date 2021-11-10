@@ -23,6 +23,3 @@ split_data_to_sheets(SLA_split, XL_wb, SLA_data, allDataSheet, outputCols)
 \description{
 Split data to sheets within Excel workbook depending on the config specified
 }
-\examples{
- split_data_to_sheets(SLA_split,XL_wb,SLA_data,allDataSheet,outputCols)
-}
