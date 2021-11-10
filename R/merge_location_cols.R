@@ -1,6 +1,6 @@
 #' Merge the two locations columns into one
 #'
-#' @param raw_data
+#' @param raw_data data frame of raw data
 #'
 #' @return
 #' @export

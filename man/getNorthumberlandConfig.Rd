@@ -11,7 +11,7 @@ getNorthumberlandConfig(plant_sp, Other_LA_Cols, SLA_Split_config)
 
 \item{Other_LA_Cols}{List of columns}
 
-\item{SLA_split_config}{config values}
+\item{SLA_Split_config}{config values}
 }
 \value{
 
@@ -35,4 +35,5 @@ for(i in 1:length(config_keys)) {              # Add key/value pairs in for-loop
  config_pairs[config_keys[i]] <- config_values[i]
 }
 list <- getNorthumberlandConfig(plant_sp,Other_LA_Cols,config_pairs)
+
 }

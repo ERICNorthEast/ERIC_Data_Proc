@@ -1,6 +1,6 @@
 #' Convert column names from those output by Recorder to match QGIS ones
 #'
-#' @param raw_data
+#' @param raw_data data frame of raw data
 #'
 #' @return
 #' @export

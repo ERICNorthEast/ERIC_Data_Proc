@@ -31,9 +31,9 @@
 #'s <- c('path','path')
 
 #'df <- data.frame(a,b,c,d,e,f,a,g,h,h,i,j,k,l,m,n,o,p,q,r,s,s,s,s,s,s)
-#' names(df) <- c('Designations', 'All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated', 'Wildlife & Countryside Act Sch 9 Part 1', 'Wildlife & Countryside Act Sch 9 Part 2', 'Taxon group', 'Latin Name', 'Abundances', ',Determination Type','Comments', 'Recorder', 'Location Name', 'Date', 'Grid Reference','Cent_East', 'Cent_North',' Buffer',' Precision',' 'Survey Run By', 'Survey Name', 'North East LBAP - Short Names', 'Common Name', 'England NERC S.41', 'Obs Changed Date', 'Obs Entry  Date', 'Obs Key', 'Additional Information'  )
+#' names(df) <- c('Designations', 'All UK Legally Protected (W&C Act, Badgers and Cons Regs) - Taxon Designated', 'Wildlife & Countryside Act Sch 9 Part 1', 'Wildlife & Countryside Act Sch 9 Part 2', 'Taxon group', 'Latin Name', 'Abundances', ',Determination Type','Comments', 'Recorder', 'Location Name', 'Date', 'Grid Reference','Cent_East', 'Cent_North',' Buffer',' Precision','Survey Run By', 'Survey Name', 'North East LBAP - Short Names', 'Common Name', 'England NERC S.41', 'Obs Changed Date', 'Obs Entry  Date', 'Obs Key', 'Additional Information'  )
 
-#' outputCols <- c("Designations" , "Taxon group" , "Latin Name" , "Abundances" , "Determination Type", "Comments" , "Recorder" , "Location Name", "Date" , "Grid Reference", "Cent_East" , "Cent_North" , "Buffer" , "Precision" , "Survey Run By", "Survey Name" , "Common Name" , "Obs Changed Date" "Obs Entry Date" "Obs Key" , "Additional Information")
+#' outputCols <- c("Designations" , "Taxon group" , "Latin Name" , "Abundances" , "Determination Type", "Comments" , "Recorder" , "Location Name", "Date" , "Grid Reference", "Cent_East" , "Cent_North" , "Buffer" , "Precision" , "Survey Run By", "Survey Name" , "Common Name" , "Obs Changed Date", "Obs Entry Date", "Obs Key" , "Additional Information")
 #'
 #' SLA_split <- tibble::tribble(~SheetLabel, ~FilterString,'Reptiles_data','tolower(SLA_data$`Taxon group`)=="reptile"')
 #' XL_wb <- openxlsx::createWorkbook()

@@ -7,7 +7,7 @@
 do_data_fixes(raw_data)
 }
 \arguments{
-\item{raw_data}{}
+\item{raw_data}{data frame of raw data}
 }
 \value{
 

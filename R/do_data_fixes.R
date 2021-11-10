@@ -1,6 +1,6 @@
 #' Perform various fixes to data
 #'
-#' @param raw_data
+#' @param raw_data data frame of raw data
 #'
 #' @return
 #' @export

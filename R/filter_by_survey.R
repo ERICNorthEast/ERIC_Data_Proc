@@ -1,6 +1,6 @@
 #' Remove data from a couple of surveys
 #'
-#' @param raw_data
+#' @param raw_data data frame of raw data
 #'
 #' @return filtered data
 #' @export

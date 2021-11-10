@@ -1,6 +1,6 @@
 #' Fix designations as they're incorrect in Recorder - not sure if this is still needed
 #'
-#' @param raw_data
+#' @param raw_data data frame of raw data
 #'
 #' @return
 #' @export

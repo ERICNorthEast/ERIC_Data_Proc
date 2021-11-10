@@ -1,6 +1,6 @@
 #' Set the protected flag for appropriate species
 #'
-#' @param raw_data
+#' @param raw_data data frame of raw data
 #'
 #' @return
 #' @export

@@ -1,6 +1,6 @@
 #' Remove zero abundance Great crested newt records
 #'
-#' @param raw_data
+#' @param raw_data data frame of raw data
 #'
 #' @return
 #' @export

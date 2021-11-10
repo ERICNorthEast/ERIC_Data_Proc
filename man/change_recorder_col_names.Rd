@@ -7,7 +7,7 @@
 change_recorder_col_names(raw_data)
 }
 \arguments{
-\item{raw_data}{}
+\item{raw_data}{data frame of raw data}
 }
 \value{
 

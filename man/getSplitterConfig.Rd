@@ -8,6 +8,8 @@ getSplitterConfig(LA, SLA_Split_config)
 }
 \arguments{
 \item{LA}{which local authority}
+
+\item{SLA_Split_config}{config values}
 }
 \value{
 
