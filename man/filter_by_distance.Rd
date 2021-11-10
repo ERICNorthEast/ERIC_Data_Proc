@@ -2,7 +2,7 @@
 % Please edit documentation in R/filter_by_distance.R
 \name{filter_by_distance}
 \alias{filter_by_distance}
-\title{Filter data by a given distance from a popint defined by eastings and northings}
+\title{Filter data by a given distance from a point defined by eastings and northings}
 \usage{
 filter_by_distance(species_data, distance, grid_ref)
 }
@@ -17,5 +17,29 @@ filter_by_distance(species_data, distance, grid_ref)
 
 }
 \description{
-Filter data by a given distance from a popint defined by eastings and northings
+Filter data by a given distance from a point defined by eastings and northings
+}
+\examples{
+a <- c('','BirdsDir-A2.2')
+b <- c('','')
+c <- c('','')
+d <- c('insect - butterfly','bird')
+e <- c('Pieris rapae','Turdus merula')
+f <- c('Small White','Blackbird')
+g <- c('Mike Jeffries','Alnwick Wildlife Group')
+h <- c('Morpeth Town','Morpeth Town')
+i <- c('04/09/2010','04/09/2010')
+j <- c('NZ18X','NZ18X')
+k <- c('Butterfly Conservation','Alnwick Wildlife Group')
+l <- c('Butterfly Conservation','Alnwick Wildlife Group')
+m <- c('2 Count','1 Count')
+n <- c('Considered Correct','Considered Correct')
+o <- c(419000,419000)
+p <- c(585000,585000)
+q <- c(1000,1000)
+r <- c('layer','layer')
+s <- c('path','path')
+df <- data.frame(a,b,c,d,e,f,a,g,h,h,i,j,k,l,m,n,o,p,q,r,s)
+names(df) <- c('All.Design', 'Wildlife..', 'Wildlife_1', 'Taxon.grou', 'Taxon.Lati', 'Taxon.Comm', 'Obs.Commen', 'Sample.Rec', 'Sample.Loc', 'Sample.L_1', 'Sample.Dat', 'Sample.Spa', 'Survey.Run', 'Survey.Nam', 'Obs.Abunda', 'Determinat', 'Eastings', 'Northings', 'Buffer', 'layer', 'path')
+data <- filter_by_distance(df,1.0,"NZ123456")
 }

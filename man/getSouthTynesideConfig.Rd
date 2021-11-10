@@ -7,11 +7,16 @@
 getSouthTynesideConfig(bat_sp, plant_sp)
 }
 \arguments{
-\item{plant_sp}{}
+\item{bat_sp}{List of bat species}
+
+\item{plant_sp}{List of plant species}
 }
 \value{
 
 }
 \description{
 Setup config to split data for the South Tyneside SLA (same as Sunderland)
+}
+\examples{
+list <- getSouthTynesideConfig(bat_sp,plant_sp)
 }

@@ -4,7 +4,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples locs <- setup_locs_to_ignore()
 setup_locs_to_ignore <- function(){
     file_name <-  "LocationsToIgnore.csv"
     file_path <- system.file("extdata",file_name,package = "ERICDataProc")

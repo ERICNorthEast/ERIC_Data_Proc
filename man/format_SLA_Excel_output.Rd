@@ -23,3 +23,50 @@ format_SLA_Excel_output(XL_wb, sheet_name, outputdata, SLA_config, SLA_type)
 \description{
 format_SLA_Excel_output
 }
+\examples{
+a <- c('','BirdsDir-A2.2')
+b <- c('','')
+c <- c('','')
+d <- c('insect - butterfly','bird')
+e <- c('Pieris rapae','Turdus merula')
+f <- c('Small White','Blackbird')
+g <- c('Mike Jeffries','Alnwick Wildlife Group')
+h <- c('Morpeth Town','Morpeth Town')
+i <- c('04/09/2010','04/09/2010')
+j <- c('NZ18X','NZ18X')
+k <- c('Butterfly Conservation','Alnwick Wildlife Group')
+l <- c('Butterfly Conservation','Alnwick Wildlife Group')
+m <- c('2 Count','1 Count')
+n <- c('Considered Correct','Considered Correct')
+o <- c(419000,419000)
+p <- c(585000,585000)
+q <- c(1000,1000)
+r <- c('layer','layer')
+s <- c('path','path')
+t <- c(1567,890)
+df <- data.frame(a,b,c,d,e,f,a,g,h,h,i,j,k,l,m,n,o,p,q,r,s,t)
+names(df) <- c('All.Design', 'Wildlife..', 'Wildlife_1', 'Taxon.grou', 'Taxon.Lati', 'Taxon.Comm', 'Obs.Commen', 'Sample.Rec', 'Sample.Loc', 'Sample.L_1', 'Sample.Dat', 'Sample.Spa', 'Survey.Run', 'Survey.Nam', 'Obs.Abunda', 'Determinat', 'Central_Ea', 'Central_No', 'Buffer', 'layer', 'path','distance')
+XL_wb <- openxlsx::createWorkbook()
+config_keys <- c("locationCol","abundanceCol","commentCol","recorderCol","speciesCol","lastCol","dateCol","distanceCol","colCount","LAlocationCol", "LAabundanceCol", "LAcommentCol", "LArecorderCol", "LAlastCol")
+locationCol <- 9
+abundanceCol <- 5
+commentCol <- 7
+recorderCol <- 8
+speciesCol <- 3
+lastCol <- 14
+dateCol <- 10
+distanceCol <- 12
+colCount <- 15
+LAlocationCol <- 11
+LAabundanceCol <- 7
+LAcommentCol <- 9
+LArecorderCol <- 10
+LAlastCol <- 26
+
+config_values <- list(locationCol,abundanceCol,commentCol,recorderCol,speciesCol,lastCol,dateCol,distanceCol,colCount, LAlocationCol, LAabundanceCol, LAcommentCol, LArecorderCol, LAlastCol)
+config_pairs <- list()                     # Create empty list
+for(i in 1:length(config_keys)) {              # Add key/value pairs in for-loop
+ config_pairs[config_keys[i]] <- config_values[i]
+}
+XL_wb <- format_SLA_Excel_output(XL_wb,"Data sheet",df,config_pairs,1)
+}

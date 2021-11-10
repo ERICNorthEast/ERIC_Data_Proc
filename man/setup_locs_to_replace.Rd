@@ -12,3 +12,6 @@ setup_locs_to_replace()
 \description{
 Read list of locations to replace from a CSV file
 }
+\examples{
+locs <- setup_locs_to_replace()
+}

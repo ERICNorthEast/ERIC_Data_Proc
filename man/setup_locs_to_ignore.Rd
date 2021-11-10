@@ -12,3 +12,6 @@ setup_locs_to_ignore()
 \description{
 Read list of locations to ignore from a CSV file
 }
+\examples{
+locs <- setup_locs_to_ignore()
+}

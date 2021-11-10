@@ -5,7 +5,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples data <- merge_location_cols(raw_data)
 merge_location_cols <- function(raw_data) {
   raw_data$Sample.Loc <- ifelse(raw_data$Sample.Loc=='',stringr::str_replace_na(raw_data$Sample.L_1,''),raw_data$Sample.Loc)
   return(raw_data)

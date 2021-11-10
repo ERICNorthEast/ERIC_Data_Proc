@@ -7,6 +7,8 @@
 remove_optional_desigs(pandn_data, optional_desigs, config_vals)
 }
 \arguments{
+\item{pandn_data}{data to process}
+
 \item{optional_desigs}{Designations selected by the user}
 
 \item{config_vals}{List of config values}
@@ -16,4 +18,7 @@ remove_optional_desigs(pandn_data, optional_desigs, config_vals)
 }
 \description{
 Remove the optional designations selected by the user
+}
+\examples{
+data <- remove_optional_desigs(pandn_data,optional_desigs,config_vals)
 }

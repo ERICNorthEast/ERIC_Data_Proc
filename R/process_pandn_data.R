@@ -1,13 +1,13 @@
 #' Filter data to just protected & notable species
 #'
-#' @param pandn_data
+#' @param pandn_data data to process
 #' @param DR_config list of config values
 #' @param optional_desigs optional designations selectd by the user
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples pandn_data <- process_pandn_data(pandn_data,DR_config,optional_desigs)
 process_pandn_data <- function(pandn_data,DR_config,optional_desigs){
 
   # #For the P&N data remove the designations we'd delete manually

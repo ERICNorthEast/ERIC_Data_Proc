@@ -12,3 +12,6 @@ setup_recorders_to_ignore()
 \description{
 Real list of recorders to ignore from a csv file
 }
+\examples{
+recs <- setup_recorders_to_ignore()
+}

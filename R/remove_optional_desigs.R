@@ -1,13 +1,13 @@
 #' Remove the optional designations selected by the user
 #'
-#' @param pandn_data
+#' @param pandn_data data to process
 #' @param optional_desigs Designations selected by the user
 #' @param config_vals List of config values
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples data <- remove_optional_desigs(pandn_data,optional_desigs,config_vals)
 remove_optional_desigs <- function(pandn_data,optional_desigs,config_vals) {
 
   DURHAM_DESIGS <- config_vals["DURHAM_DESIGS"]

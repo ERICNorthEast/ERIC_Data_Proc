@@ -5,7 +5,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples data <- set_protected_flag(raw_data)
 set_protected_flag <- function(raw_data) {
   #Not sure prot species is correct - = not "in"
   raw_data$AllUKLeg <- ifelse((raw_data$Taxon.grou=='amphibian' & raw_data$Taxon.Lati != 'Mesotriton alpestris'),'Yes',raw_data$AllUKLeg)

@@ -7,11 +7,18 @@
 getDurhamConfig(bat_sp, plant_sp, Other_LA_Cols)
 }
 \arguments{
-\item{Other_LA_Cols}{}
+\item{bat_sp}{List of bat species}
+
+\item{plant_sp}{List of plant species}
+
+\item{Other_LA_Cols}{List of columns}
 }
 \value{
 
 }
 \description{
 Setup config to split data for the Durham SLA
+}
+\examples{
+list <- getDurhamConfig(bat_sp,plant_sp,Other_LA_Cols)
 }

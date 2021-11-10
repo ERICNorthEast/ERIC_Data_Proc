@@ -4,7 +4,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples locs <- setup_locs_to_replace()
 setup_locs_to_replace <- function(){
   file_name <-  "LocationsToReplace.csv"
   file_path <- system.file("extdata",file_name,package = "ERICDataProc")

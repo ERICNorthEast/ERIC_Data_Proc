@@ -9,7 +9,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples  split_data_to_sheets(SLA_split,XL_wb,SLA_data,allDataSheet,outputCols)
 split_data_to_sheets <- function(SLA_split,XL_wb,SLA_data,allDataSheet,outputCols) {
   rowCount <- 0
 

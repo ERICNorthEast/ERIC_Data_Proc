@@ -6,7 +6,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples a <- setup_Sun_ST_split(bat_sp,plant_sp)
 setup_Sun_ST_split <- function(bat_sp,plant_sp) {
   Sun_ST_split <- tibble::tribble(~SheetLabel,~FilterString,
                         "Reptiles_data","tolower(SLA_data$`Taxon group`)=='reptile'",

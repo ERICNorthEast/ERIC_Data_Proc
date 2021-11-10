@@ -17,3 +17,6 @@ setup_Sun_ST_split(bat_sp, plant_sp)
 \description{
 Setup config for the Sunderland and South Tyneside SLA splitter
 }
+\examples{
+a <- setup_Sun_ST_split(bat_sp,plant_sp)
+}

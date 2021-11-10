@@ -15,3 +15,6 @@ getSplitterConfig(LA, SLA_Split_config)
 \description{
 Setup the config to split data depending on the local authority
 }
+\examples{
+getSplitterConfig(1)
+}

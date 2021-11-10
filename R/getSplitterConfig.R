@@ -5,7 +5,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples getSplitterConfig(1)
 getSplitterConfig <- function(LA,SLA_Split_config) {
   bat_sp <- SLA_Split_config["bat_sp"]
   plant_sp <- SLA_Split_config["plant_sp"]

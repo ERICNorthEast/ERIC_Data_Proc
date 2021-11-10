@@ -7,6 +7,8 @@
 remove_manual_desigs(pandn_data, config_vals)
 }
 \arguments{
+\item{pandn_data}{data to process}
+
 \item{config_vals}{list of config values}
 }
 \value{
@@ -14,4 +16,7 @@ remove_manual_desigs(pandn_data, config_vals)
 }
 \description{
 Filter out designations we used to remove manually
+}
+\examples{
+data <- remove_manual_desigs(pandn_data,config_vals)
 }

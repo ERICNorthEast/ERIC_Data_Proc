@@ -1,12 +1,12 @@
 #' Setup config to split data for the Sunderland SLA
 #'
-#' @param bat_sp
-#' @param plant_sp
+#' @param bat_sp List of bat species
+#' @param plant_sp List of plant species
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples list <- getSunderlandConfig(bat_sp,plant_sp)
 getSunderlandConfig <- function(bat_sp,plant_sp){
   #Sunderland and South Tyneside are identical apart from sheet name
 

@@ -1,12 +1,12 @@
 #' Filter out designations we used to remove manually
 #'
-#' @param pandn_data
+#' @param pandn_data data to process
 #' @param config_vals list of config values
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples data <- remove_manual_desigs(pandn_data,config_vals)
 remove_manual_desigs <- function(pandn_data,config_vals){
 
   FEP_DESIG <- config_vals["FEP_DESIG"]

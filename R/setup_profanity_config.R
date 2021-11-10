@@ -3,7 +3,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples words <- setup_profanity_config()
 setup_profanity_config <- function(){
   file_name <-  "SwearWords.csv"
   file_path <- system.file("extdata",file_name,package = "ERICDataProc")

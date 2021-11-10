@@ -1,13 +1,13 @@
 #' Setup config to split data for the Northumberland SLA
 #'
-#' @param plant_sp
-#' @param Other_LA_Cols
-#' @param SLA_split_config
+#' @param plant_sp List of plant species
+#' @param Other_LA_Cols List of columns
+#' @param SLA_split_config config values
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples list <- getNorthumberlandConfig(plant_sp,Other_LA_Cols,SLA_split_config)
 getNorthumberlandConfig<- function(plant_sp,Other_LA_Cols,SLA_split_config){
 
   pearl_mussel_select <- SLA_Split_config["pearl_mussel_select"]

@@ -21,3 +21,6 @@ format_and_check_data(raw_data, OutputCols, newColNames, sensitivecheck)
 \description{
 Format the data for output and perform some checks
 }
+\examples{
+data <- format_and_check_data(raw_data,OutputCols,newColNames, 0)
+}

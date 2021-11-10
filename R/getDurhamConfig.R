@@ -1,13 +1,13 @@
 #' Setup config to split data for the Durham SLA
 #'
-#' @param bat_sp
-#' @param plant_sp
-#' @param Other_LA_Cols
+#' @param bat_sp List of bat species
+#' @param plant_sp List of plant species
+#' @param Other_LA_Cols List of columns
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples list <- getDurhamConfig(bat_sp,plant_sp,Other_LA_Cols)
 getDurhamConfig <- function(bat_sp,plant_sp,Other_LA_Cols){
 
   Durham_split <- tibble::tribble(~SheetLabel,~FilterString,

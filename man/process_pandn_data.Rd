@@ -7,6 +7,8 @@
 process_pandn_data(pandn_data, DR_config, optional_desigs)
 }
 \arguments{
+\item{pandn_data}{data to process}
+
 \item{DR_config}{list of config values}
 
 \item{optional_desigs}{optional designations selectd by the user}
@@ -16,4 +18,7 @@ process_pandn_data(pandn_data, DR_config, optional_desigs)
 }
 \description{
 Filter data to just protected & notable species
+}
+\examples{
+pandn_data <- process_pandn_data(pandn_data,DR_config,optional_desigs)
 }

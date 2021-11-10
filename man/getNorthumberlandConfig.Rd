@@ -7,11 +7,18 @@
 getNorthumberlandConfig(plant_sp, Other_LA_Cols, SLA_split_config)
 }
 \arguments{
-\item{SLA_split_config}{}
+\item{plant_sp}{List of plant species}
+
+\item{Other_LA_Cols}{List of columns}
+
+\item{SLA_split_config}{config values}
 }
 \value{
 
 }
 \description{
 Setup config to split data for the Northumberland SLA
+}
+\examples{
+list <- getNorthumberlandConfig(plant_sp,Other_LA_Cols,SLA_split_config)
 }

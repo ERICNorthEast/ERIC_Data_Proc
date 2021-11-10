@@ -12,3 +12,6 @@ setup_profanity_config()
 \description{
 Read list of words for profanity check from a CSV file
 }
+\examples{
+words <- setup_profanity_config()
+}

@@ -15,3 +15,6 @@ merge_location_cols(raw_data)
 \description{
 Merge the two locations columns into one
 }
+\examples{
+data <- merge_location_cols(raw_data)
+}

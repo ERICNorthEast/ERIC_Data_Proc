@@ -1,13 +1,13 @@
 #' Setup config to split data for the Gateshead SLA
 #'
-#' @param bat_sp
-#' @param plant_sp
-#' @param Other_LA_Cols
+#' @param bat_sp List of bat species
+#' @param plant_sp List of plant species
+#' @param Other_LA_Cols List of columns
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples list <- getGatesheadConfig(bat_sp,plant_sp,Other_LA_Cols)
 getGatesheadConfig <- function(bat_sp,plant_sp,Other_LA_Cols){
   Gateshead_split <- tibble::tribble(~SheetLabel,~FilterString,
                              "Reptiles_data","tolower(SLA_data$`Taxon group`)=='reptile'",

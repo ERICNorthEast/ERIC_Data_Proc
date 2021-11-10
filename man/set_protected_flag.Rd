@@ -15,3 +15,6 @@ set_protected_flag(raw_data)
 \description{
 Set the protected flag for appropriate species
 }
+\examples{
+data <- set_protected_flag(raw_data)
+}
