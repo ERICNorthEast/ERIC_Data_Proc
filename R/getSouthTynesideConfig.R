@@ -6,7 +6,11 @@
 #' @return
 #' @export
 #'
-#' @examples list <- getSouthTynesideConfig(bat_sp,plant_sp)
+#' @examples
+#' bat_sp <- c("Chiroptera","Rhinolophidae","Vespertilionidae")
+#' plant_sp <- c("flowering plant" ,"clubmoss" ,"conifer")
+#' Other_LA_Cols <- c("Taxon group","Latin Name","Abundances","Determination Type")
+#' list <- getSouthTynesideConfig(bat_sp,plant_sp)
 getSouthTynesideConfig <- function(bat_sp,plant_sp){
 
   Sun_ST_split <- setup_Sun_ST_split(bat_sp,plant_sp)

@@ -18,5 +18,8 @@ getSouthTynesideConfig(bat_sp, plant_sp)
 Setup config to split data for the South Tyneside SLA (same as Sunderland)
 }
 \examples{
+bat_sp <- c("Chiroptera","Rhinolophidae","Vespertilionidae")
+plant_sp <- c("flowering plant" ,"clubmoss" ,"conifer")
+Other_LA_Cols <- c("Taxon group","Latin Name","Abundances","Determination Type")
 list <- getSouthTynesideConfig(bat_sp,plant_sp)
 }

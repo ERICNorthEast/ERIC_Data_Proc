@@ -8,7 +8,34 @@
 #' @return
 #' @export
 #'
-#' @examples data <- format_and_check_data(raw_data,OutputCols,newColNames, 0)
+#' @examples
+#'a <- c('','BirdsDir-A2.2')
+#'b <- c('','')
+#'c <- c('','')
+#'d <- c('insect - butterfly','bird')
+#'e <- c('Pieris rapae','Turdus merula')
+#'f <- c('Small White','Blackbird')
+#'g <- c('Mike Jeffries','Alnwick Wildlife Group')
+#'h <- c('Morpeth Town','Morpeth Town')
+#'i <- c('04/09/2010','04/09/2010')
+#'j <- c('NZ18X','NZ18X')
+#'k <- c('Butterfly Conservation','Alnwick Wildlife Group')
+#'l <- c('Butterfly Conservation','Alnwick Wildlife Group')
+#'m <- c('2 Count','1 Count')
+#'n <- c('Considered Correct','Considered Correct')
+#'o <- c(419000,419000)
+#'p <- c(585000,585000)
+#'q <- c(1000,1000)
+#'r <- c('layer','layer')
+#'s <- c('path','path')
+
+#'df <- data.frame(a,b,c,d,e,f,a,g,h,h,i,j,k,l,m,n,o,p,q,r,s,b)
+
+
+#'names(df) <- c('All.Design', 'Wildlife..', 'Wildlife_1', 'Taxon.grou', 'Taxon.Lati', 'Taxon.Comm', 'Obs.Commen', 'Sample.Rec', 'Sample.Loc', 'Sample.L_1', 'Sample.Dat', 'Sample.Spa', 'Survey.Run', 'Survey.Nam', 'Obs.Abunda', 'Determinat', 'Central_Ea', 'Central_No', 'Buffer', 'layer', 'path','Info')
+#'OutputCols <- c("All.Design","Taxon.grou", "Taxon.Lati","Taxon.Comm", "Obs.Abunda", "Determinat","Obs.Commen","Sample.Rec",  "Sample.Loc",  "Sample.Dat","Sample.Spa","Survey.Run","Survey.Nam","Info")
+#'newColNames <- c("Designations","Taxon group","Latin Name","Common Name","Abundances","Determination Type","Comments","Recorder","Location Name","Date","Grid Reference","Survey Run By","Survey Name","Additional Information")
+#'data <- format_and_check_data(df,OutputCols,newColNames, 0)
 format_and_check_data <- function(raw_data,OutputCols,newColNames, sensitivecheck) {
 
   locsToReplace <- setup_locs_to_replace()

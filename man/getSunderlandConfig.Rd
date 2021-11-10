@@ -18,5 +18,7 @@ getSunderlandConfig(bat_sp, plant_sp)
 Setup config to split data for the Sunderland SLA
 }
 \examples{
+bat_sp <- c("Chiroptera","Rhinolophidae","Vespertilionidae")
+plant_sp <- c("flowering plant" ,"clubmoss" ,"conifer")
 list <- getSunderlandConfig(bat_sp,plant_sp)
 }

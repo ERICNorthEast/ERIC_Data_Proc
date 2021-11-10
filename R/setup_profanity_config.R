@@ -7,7 +7,8 @@
 setup_profanity_config <- function(){
   file_name <-  "SwearWords.csv"
   file_path <- system.file("extdata",file_name,package = "ERICDataProc")
-  swearWords <- readr::read_csv(file_path)
+  #swearWords <- readr::read_csv(file_path)
+  swearWords <- read.csv(file_path)
 
   return(swearWords)
 }

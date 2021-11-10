@@ -5,7 +5,16 @@
 #' @return
 #' @export
 #'
-#' @examples data <- set_protected_flag(raw_data)
+#' @examples
+#'a <- c('','')
+#'d <- c('insect - butterfly','bird')
+#'e <- c('Pieris rapae','Turdus merula')
+
+#'df <- data.frame(d,e,a)
+
+#'names(df) <- c('Taxon.grou', 'Taxon.Lati','AllUKLeg')
+#'
+#' data <- set_protected_flag(df)
 set_protected_flag <- function(raw_data) {
   #Not sure prot species is correct - = not "in"
   raw_data$AllUKLeg <- ifelse((raw_data$Taxon.grou=='amphibian' & raw_data$Taxon.Lati != 'Mesotriton alpestris'),'Yes',raw_data$AllUKLeg)

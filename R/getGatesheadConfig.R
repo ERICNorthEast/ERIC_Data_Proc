@@ -7,7 +7,11 @@
 #' @return
 #' @export
 #'
-#' @examples list <- getGatesheadConfig(bat_sp,plant_sp,Other_LA_Cols)
+#' @examples
+#' bat_sp <- c("Chiroptera","Rhinolophidae","Vespertilionidae")
+#' plant_sp <- c("flowering plant" ,"clubmoss" ,"conifer")
+#' Other_LA_Cols <- c("Taxon group","Latin Name","Abundances","Determination Type")
+#' list <- getGatesheadConfig(bat_sp,plant_sp,Other_LA_Cols)
 getGatesheadConfig <- function(bat_sp,plant_sp,Other_LA_Cols){
   Gateshead_split <- tibble::tribble(~SheetLabel,~FilterString,
                              "Reptiles_data","tolower(SLA_data$`Taxon group`)=='reptile'",

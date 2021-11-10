@@ -6,7 +6,10 @@
 #' @return
 #' @export
 #'
-#' @examples list <- getSunderlandConfig(bat_sp,plant_sp)
+#' @examples
+#' bat_sp <- c("Chiroptera","Rhinolophidae","Vespertilionidae")
+#' plant_sp <- c("flowering plant" ,"clubmoss" ,"conifer")
+#' list <- getSunderlandConfig(bat_sp,plant_sp)
 getSunderlandConfig <- function(bat_sp,plant_sp){
   #Sunderland and South Tyneside are identical apart from sheet name
 

@@ -16,5 +16,8 @@ merge_location_cols(raw_data)
 Merge the two locations columns into one
 }
 \examples{
-data <- merge_location_cols(raw_data)
+h <- c('Morpeth Town','Morpeth Town')
+df <- data.frame(h,h)
+names(df) <- c('Sample.Loc', 'Sample.L_1')
+data <- merge_location_cols(df)
 }

@@ -7,7 +7,11 @@
 #' @return
 #' @export
 #'
-#' @examples list <- getDurhamConfig(bat_sp,plant_sp,Other_LA_Cols)
+#' @examples
+#' bat_sp <- c("Chiroptera","Rhinolophidae","Vespertilionidae")
+#' plant_sp <- c("flowering plant" ,"clubmoss" ,"conifer")
+#' Other_LA_Cols <- c("Taxon group","Latin Name","Abundances","Determination Type")
+#' list <- getDurhamConfig(bat_sp,plant_sp,Other_LA_Cols)
 getDurhamConfig <- function(bat_sp,plant_sp,Other_LA_Cols){
 
   Durham_split <- tibble::tribble(~SheetLabel,~FilterString,
