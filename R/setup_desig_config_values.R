@@ -6,7 +6,8 @@
 #' @examples config_pairs <- setup_desig_config_values()
 setup_desig_config_values <- function(){
 
-  config_keys <- c("BIRD_AMBER","BIRD_RED","DURHAM_BAP","NLAND_BAP","TV_BAP","amber_sp","red_sp","red_from_amber_sp","amber_from_red_sp","nland_bap_sp","tv_bap_sp","WACA1","WACA2","NO_DESIG","WAXCAPS","waxcap_sp")
+  #config_keys <- c("BIRD_AMBER","BIRD_RED","DURHAM_BAP","NLAND_BAP","TV_BAP","amber_sp","red_sp","red_from_amber_sp","amber_from_red_sp","nland_bap_sp","tv_bap_sp","WACA1","WACA2","NO_DESIG","WAXCAPS","waxcap_sp")
+  config_keys <- c("WACA1","WACA2","NO_DESIG","WAXCAPS","waxcap_sp","BIRD_AMBER","BIRD_RED","DURHAM_BAP","NLAND_BAP","TV_BAP","amber_sp","red_sp","red_from_amber_sp","amber_from_red_sp","nland_bap_sp","tv_bap_sp")
 
 
   WACA1 <-"Wildlife & Countryside Act Sch 9 Part 1,"
