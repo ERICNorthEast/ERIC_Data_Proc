@@ -84,7 +84,7 @@ fix_designations <- function(raw_data){
   prot_groups <- prot_config["prot_groups"]
 
   raw_data$All.Design <- ifelse((raw_data$All.Design=='' & (raw_data$Taxon.grou=='amphibian' & raw_data$Taxon.Lati != 'Mesotriton alpestris')),NO_DESIG,raw_data$All.Design)
-  raw_data$All.Design <- ifelse((raw_data$All.Design=='' & (stringr::str_detect(raw_data$Taxon.grou,paste(prot_groups,collapse = '|')) | raw_data$Taxon.Lati == prot_species[1]| raw_data$Taxon.Lati == prot_species[2]| raw_data$Taxon.Lati == prot_species[3]| raw_data$Taxon.Lati == prot_species[4])),NO_DESIG,raw_data$All.Design)
+  raw_data$All.Design <- ifelse((raw_data$All.Design=='' & (stringr::str_detect(raw_data$Taxon.grou,paste(unlist(prot_groups),collapse = '|')) | raw_data$Taxon.Lati == prot_species[1]| raw_data$Taxon.Lati == prot_species[2]| raw_data$Taxon.Lati == prot_species[3]| raw_data$Taxon.Lati == prot_species[4])),NO_DESIG,raw_data$All.Design)
 
   #Waxcaps
   WAXCAPS <- desig_config["WAXCAPS"]
