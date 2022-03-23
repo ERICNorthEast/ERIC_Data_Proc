@@ -54,21 +54,21 @@ fix_designations <- function(raw_data){
 
 
   #Sort out designations (EA doesn't need this)
-  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(amber_sp,collapse = '|')),paste(BIRD_AMBER,raw_data$All.Design),raw_data$All.Design)
-  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(red_sp,collapse = '|')),paste(BIRD_RED,raw_data$All.Design),raw_data$All.Design)
+  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(amber_sp),collapse = '|')),paste(BIRD_AMBER,raw_data$All.Design),raw_data$All.Design)
+  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(red_sp),collapse = '|')),paste(BIRD_RED,raw_data$All.Design),raw_data$All.Design)
 
   #Red from amber
-  raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(red_from_amber_sp,collapse = '|')) & stringr::str_detect(raw_data$All.Design,unlist(BIRD_AMBER))),stringr::str_replace_all(raw_data$All.Design,BIRD_AMBER,BIRD_RED),raw_data$All.Design)
-  raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(red_from_amber_sp,collapse = '|')) & !stringr::str_detect(raw_data$All.Design,unlist(BIRD_AMBER))),paste(BIRD_RED,raw_data$All.Design),raw_data$All.Design)
+  raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(red_from_amber_sp),collapse = '|')) & stringr::str_detect(raw_data$All.Design,unlist(BIRD_AMBER))),stringr::str_replace_all(raw_data$All.Design,BIRD_AMBER,BIRD_RED),raw_data$All.Design)
+  raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(red_from_amber_sp),collapse = '|')) & !stringr::str_detect(raw_data$All.Design,unlist(BIRD_AMBER))),paste(BIRD_RED,raw_data$All.Design),raw_data$All.Design)
 
   #Amber from red
-  raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(amber_from_red_sp,collapse = '|')) & stringr::str_detect(raw_data$All.Design,unlist(BIRD_RED))),stringr::str_replace_all(raw_data$All.Design,BIRD_RED,BIRD_AMBER),raw_data$All.Design)
-  raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(amber_from_red_sp,collapse = '|')) & !stringr::str_detect(raw_data$All.Design,unlist(BIRD_RED))),paste(BIRD_AMBER,raw_data$All.Design),raw_data$All.Design)
+  raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(amber_from_red_sp),collapse = '|')) & stringr::str_detect(raw_data$All.Design,unlist(BIRD_RED))),stringr::str_replace_all(raw_data$All.Design,BIRD_RED,BIRD_AMBER),raw_data$All.Design)
+  raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(amber_from_red_sp),collapse = '|')) & !stringr::str_detect(raw_data$All.Design,unlist(BIRD_RED))),paste(BIRD_AMBER,raw_data$All.Design),raw_data$All.Design)
 
   #Local BAPs (NELBAP column is SLA only)
-  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(durham_bap_sp,collapse = '|')),paste(DURHAM_BAP,raw_data$All.Design),raw_data$All.Design)
-  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(nland_bap_sp,collapse = '|')), paste(NLAND_BAP,raw_data$All.Design),raw_data$All.Design)
-  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(tv_bap_sp,collapse = '|')),    paste(TV_BAP,raw_data$All.Design),raw_data$All.Design)
+  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(durham_bap_sp),collapse = '|')),paste(DURHAM_BAP,raw_data$All.Design),raw_data$All.Design)
+  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(nland_bap_sp),collapse = '|')), paste(NLAND_BAP,raw_data$All.Design),raw_data$All.Design)
+  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(tv_bap_sp),collapse = '|')),    paste(TV_BAP,raw_data$All.Design),raw_data$All.Design)
 
   WACA1 <- desig_config["WACA1"]
   WACA2 <- desig_config["WACA2"]
