@@ -44,9 +44,12 @@ format_and_check_data <- function(raw_data,OutputCols,newColNames, sensitivechec
   recordersToIgnore <- setup_recorders_to_ignore()
 
   #Get the columns we're going to output  sort by taxon group & latin name & discard duplicates
-  outputdata <- dplyr::distinct(raw_data[with(raw_data,order(raw_data$Taxon.grou,raw_data$Taxon.Lati)),] )
+  data_subset <- dplyr::select(raw_data,dplyr::all_of(unlist(OutputCols)))
+  outputdata <- dplyr::distinct(data_subset[with(data_subset,order(data_subset$Taxon.grou,data_subset$Taxon.Lati)),] )
 
-  outputdata <- dplyr::select(outputdata,dplyr::all_of(unlist(OutputCols)))
+  # outputdata <- dplyr::distinct(raw_data[with(raw_data,order(raw_data$Taxon.grou,raw_data$Taxon.Lati)),] )
+  #
+  # outputdata <- dplyr::select(outputdata,dplyr::all_of(unlist(OutputCols)))
   colnames(outputdata) <- unlist(newColNames)
 
 
