@@ -45,6 +45,7 @@ format_and_check_data <- function(raw_data,OutputCols,newColNames, sensitivechec
 
   #Get the columns we're going to output  sort by taxon group & latin name & discard duplicates
   data_subset <- dplyr::select(raw_data,dplyr::all_of(unlist(OutputCols)))
+  data_subset <- dplyr::select(raw_data,dplyr::all_of(unlist(OutputCols)))
   outputdata <- dplyr::distinct(data_subset[with(data_subset,order(data_subset$Taxon.grou,data_subset$Taxon.Lati)),] )
 
 
