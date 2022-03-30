@@ -47,7 +47,7 @@ format_and_check_data <- function(raw_data,OutputCols,newColNames, sensitivechec
   data_subset <- dplyr::select(raw_data,dplyr::all_of(unlist(OutputCols)))
   #data_subset <- dplyr::select(raw_data,dplyr::all_of(unlist(OutputCols)))
   #outputdata <- dplyr::distinct(data_subset[with(data_subset,order(data_subset$Taxon.grou,data_subset$Taxon.Lati)),] )
-  colnames(outputdata) <- unlist(newColNames)
+  colnames(data_subset) <- unlist(newColNames)
   outputdata <- dplyr::distinct(a[with(data_subset,order(data_subset$`Taxon group`,data_subset$`Latin Name`)),])
 
   # outputdata <- dplyr::distinct(raw_data[with(raw_data,order(raw_data$Taxon.grou,raw_data$Taxon.Lati)),] )
