@@ -70,6 +70,10 @@ fix_designations <- function(raw_data){
   raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(nland_bap_sp),collapse = '|')), paste(NLAND_BAP,raw_data$All.Design),raw_data$All.Design)
   raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(tv_bap_sp),collapse = '|')),    paste(TV_BAP,raw_data$All.Design),raw_data$All.Design)
 
+  raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(durham_bap_sp),collapse = '|')),paste(DURHAM_BAP,raw_data$NELBAP),raw_data$NELBAP)
+  raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(nland_bap_sp),collapse = '|')), paste(NLAND_BAP,raw_data$NELBAP),raw_data$NELBAP)
+  raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(tv_bap_sp),collapse = '|')),    paste(TV_BAP,raw_data$NELBAP),raw_data$NELBAP)
+
   WACA1 <- desig_config["WACA1"]
   WACA2 <- desig_config["WACA2"]
 
