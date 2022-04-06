@@ -22,8 +22,7 @@ set_protected_flag <- function(raw_data) {
   prot_config <- setup_prot_config()
   prot_species <- prot_config["prot_species"]
   prot_groups <- prot_config["prot_groups"]
-  #raw_data$AllUKLeg <- ifelse((stringr::str_detect(raw_data$Taxon.grou,paste(prot_groups,collapse = '|')) | stringr::str_detect(raw_data$Taxon.Lati,paste(prot_species,collapse = '|'))),'Yes',raw_data$AllUKLeg)
-  raw_data$AllUKLeg <- ifelse((stringr::str_detect(raw_data$Taxon.grou,paste(unlist(prot_groups),collapse = '|')) | stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(prot_species),collapse = '|'))),'Yes',raw_data$AllUKLeg)
+  raw_data$AllUKLeg <- ifelse((stringr::str_detect(raw_data$Taxon.grou,paste(unlist(prot_groups),collapse = '|')) | stringr::str_detect(raw_data$Taxon.Lati,paste(prot_species,collapse = '|'))),'Yes',raw_data$AllUKLeg)
 
   return(raw_data)
 }
