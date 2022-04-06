@@ -1,6 +1,7 @@
 #' Fix designations as they're incorrect in Recorder - not sure if this is still needed
 #'
 #' @param raw_data data frame of raw data
+#' @param SLA is this an SLA dataset
 #'
 #' @return
 #' @export
@@ -30,8 +31,8 @@
 
 
 #'names(df) <- c('All.Design', 'Wildlife..', 'Wildlife_1', 'Taxon.grou', 'Taxon.Lati', 'Taxon.Comm', 'Obs.Commen', 'Sample.Rec', 'Sample.Loc', 'Sample.L_1', 'Sample.Dat', 'Sample.Spa', 'Survey.Run', 'Survey.Nam', 'Obs.Abunda', 'Determinat', 'Central_Ea', 'Central_No', 'Buffer', 'layer', 'path')
-#' data <- fix_designations(df)
-fix_designations <- function(raw_data){
+#' data <- fix_designations(df,FALSE)
+fix_designations <- function(raw_data,SLA){
 
   desig_config <- setup_desig_config_values()
 
@@ -54,8 +55,12 @@ fix_designations <- function(raw_data){
 
 
   #Sort out designations (EA doesn't need this)
-  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(amber_sp),collapse = '|')),paste(BIRD_AMBER,raw_data$All.Design),raw_data$All.Design)
-  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(red_sp),collapse = '|')),paste(BIRD_RED,raw_data$All.Design),raw_data$All.Design)
+  #Need to finish looking at this
+   raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(amber_sp),collapse = '|')),paste(BIRD_AMBER,raw_data$All.Design),raw_data$All.Design)
+   raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(red_sp),collapse = '|')),paste(BIRD_RED,raw_data$All.Design),raw_data$All.Design)
+  #raw_data$All.Design<-ifelse(stringr::str_detect(raw_data$Taxon.Lati, paste(unlist(amber_sp), collapse = "|")) && !stringr::str_detect(raw_data$All.Design,BIRD_AMBER), paste(BIRD_AMBER, raw_data$All.Design), raw_data$All.Design)
+  #raw_data$All.Design<-ifelse(stringr::str_detect(raw_data$Taxon.Lati, paste(unlist(red_sp), collapse = "|")) && !stringr::str_detect(raw_data$All.Design,BIRD_RED), paste(BIRD_RED, raw_data$All.Design), raw_data$All.Design)
+
 
   #Red from amber
   raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(red_from_amber_sp),collapse = '|')) & stringr::str_detect(raw_data$All.Design,unlist(BIRD_AMBER))),stringr::str_replace_all(raw_data$All.Design,BIRD_AMBER,BIRD_RED),raw_data$All.Design)
@@ -74,28 +79,31 @@ fix_designations <- function(raw_data){
   raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(nland_bap_sp),collapse = '|')), paste(NLAND_BAP,raw_data$NELBAP),raw_data$NELBAP)
   raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(tv_bap_sp),collapse = '|')),    paste(TV_BAP,raw_data$NELBAP),raw_data$NELBAP)
 
-  WACA1 <- desig_config["WACA1"]
-  WACA2 <- desig_config["WACA2"]
+  #The following are only needed for non-SLA datasets
+  if (SLA == FALSE) {
+    WACA1 <- desig_config["WACA1"]
+    WACA2 <- desig_config["WACA2"]
 
-  #WACA
-  raw_data$All.Design <-ifelse((raw_data$Wildlife_1=='Yes' &!is.na(raw_data$Wildlife_1)),paste0(WACA1,raw_data$All.Design),raw_data$All.Design)
-  raw_data$All.Design <-ifelse((raw_data$Wildlife..=='Yes' &!is.na(raw_data$Wildlife..)) ,paste0(WACA2,raw_data$All.Design),raw_data$All.Design)
+    #WACA - don't do this for SLAs
+    raw_data$All.Design <-ifelse((raw_data$Wildlife_1=='Yes' &!is.na(raw_data$Wildlife_1)),paste0(WACA1,raw_data$All.Design),raw_data$All.Design)
+    raw_data$All.Design <-ifelse((raw_data$Wildlife..=='Yes' &!is.na(raw_data$Wildlife..)) ,paste0(WACA2,raw_data$All.Design),raw_data$All.Design)
 
-  #Protected species
-  NO_DESIG <- desig_config["NO_DESIG"]
-  prot_config <- setup_prot_config()
-  prot_species <- prot_config["prot_species"]
-  prot_groups <- prot_config["prot_groups"]
+    #Protected species - don't do this for SLAs
+    NO_DESIG <- desig_config["NO_DESIG"]
+    prot_config <- setup_prot_config()
+    prot_species <- prot_config["prot_species"]
+    prot_groups <- prot_config["prot_groups"]
 
-  raw_data$All.Design <- ifelse((raw_data$All.Design=='' & (raw_data$Taxon.grou=='amphibian' & raw_data$Taxon.Lati != 'Mesotriton alpestris')),NO_DESIG,raw_data$All.Design)
-  raw_data$All.Design <- ifelse((raw_data$All.Design=='' & (stringr::str_detect(raw_data$Taxon.grou,paste(unlist(prot_groups),collapse = '|')) | raw_data$Taxon.Lati == prot_species[1]| raw_data$Taxon.Lati == prot_species[2]| raw_data$Taxon.Lati == prot_species[3]| raw_data$Taxon.Lati == prot_species[4])),NO_DESIG,raw_data$All.Design)
+    raw_data$All.Design <- ifelse((raw_data$All.Design=='' & (raw_data$Taxon.grou=='amphibian' & raw_data$Taxon.Lati != 'Mesotriton alpestris')),NO_DESIG,raw_data$All.Design)
+    raw_data$All.Design <- ifelse((raw_data$All.Design=='' & (stringr::str_detect(raw_data$Taxon.grou,paste(unlist(prot_groups),collapse = '|')) | raw_data$Taxon.Lati == prot_species[1]| raw_data$Taxon.Lati == prot_species[2]| raw_data$Taxon.Lati == prot_species[3]| raw_data$Taxon.Lati == prot_species[4])),NO_DESIG,raw_data$All.Design)
 
-  #Waxcaps
-  WAXCAPS <- desig_config["WAXCAPS"]
-  waxcap_sp <- desig_config["waxcap_sp"]
+    #Waxcaps - don't do this for SLAs
+    WAXCAPS <- desig_config["WAXCAPS"]
+    waxcap_sp <- desig_config["waxcap_sp"]
 
-  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(waxcap_sp),collapse = '|')),paste(WAXCAPS,raw_data$All.Design),raw_data$All.Design)
-  raw_data$All.Design <-  stringr::str_replace(stringr::str_replace_all(raw_data$All.Design,' ,',','),',$','')
+    raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(waxcap_sp),collapse = '|')),paste(WAXCAPS,raw_data$All.Design),raw_data$All.Design)
+    raw_data$All.Design <-  stringr::str_replace(stringr::str_replace_all(raw_data$All.Design,' ,',','),',$','')
+  }
 
   fixed_data <- raw_data
 
