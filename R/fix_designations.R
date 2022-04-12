@@ -69,13 +69,16 @@ fix_designations <- function(raw_data,SLA){
   # raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(amber_from_red_sp),collapse = '|')) & !stringr::str_detect(raw_data$All.Design,unlist(BIRD_RED))),paste(BIRD_AMBER,raw_data$All.Design),raw_data$All.Design)
 
   #Local BAPs (NELBAP column is SLA only)
+
   raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(durham_bap_sp),collapse = '|')),paste(DURHAM_BAP,raw_data$All.Design),raw_data$All.Design)
   raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(nland_bap_sp),collapse = '|')), paste(NLAND_BAP,raw_data$All.Design),raw_data$All.Design)
   raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(tv_bap_sp),collapse = '|')),    paste(TV_BAP,raw_data$All.Design),raw_data$All.Design)
 
-  raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(durham_bap_sp),collapse = '|')),paste(DURHAM_BAP,raw_data$NELBAP),raw_data$NELBAP)
-  raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(nland_bap_sp),collapse = '|')), paste(NLAND_BAP,raw_data$NELBAP),raw_data$NELBAP)
-  raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(tv_bap_sp),collapse = '|')),    paste(TV_BAP,raw_data$NELBAP),raw_data$NELBAP)
+  if (SLA == TRUE) {
+    raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(durham_bap_sp),collapse = '|')),paste(DURHAM_BAP,raw_data$NELBAP),raw_data$NELBAP)
+    raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(nland_bap_sp),collapse = '|')), paste(NLAND_BAP,raw_data$NELBAP),raw_data$NELBAP)
+    raw_data$NELBAP <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(tv_bap_sp),collapse = '|')),    paste(TV_BAP,raw_data$NELBAP),raw_data$NELBAP)
+  }
 
   #The following are only needed for non-SLA datasets
   if (SLA == FALSE) {
