@@ -19,10 +19,14 @@
 getSplitterConfig <- function(LA,SLA_Split_config) {
   bat_sp <- SLA_Split_config["bat_sp"]
   plant_sp <- SLA_Split_config["plant_sp"]
+  pearl_mussel_select <- SLA_Split_config["pearl_mussel_select"]
+  protected_mammals <- SLA_Split_config["protected_mammals"]
+  non_inverts <- SLA_Split_config["non_inverts"]
+  s41_mammals <- SLA_Split_config["s41_mammals"]
 
   Other_LA_Cols <- c("Taxon group","Latin Name","Abundances","Determination Type","Comments","Recorder","Location Name","Date",
                      "Grid Reference","Cent_East","Cent_North","Buffer","Precision","Survey Run By","Survey Name","Common Name",
                      "Additional Information")
-  switch(LA,getDurhamConfig(bat_sp,plant_sp,Other_LA_Cols),getGatesheadConfig(bat_sp,plant_sp,Other_LA_Cols),getNorthumberlandConfig(plant_sp,Other_LA_Cols,SLA_split_config),getSouthTynesideConfig(bat_sp,plant_sp),getSunderlandConfig(bat_sp,plant_sp))
+  switch(LA,getDurhamConfig(bat_sp,plant_sp,Other_LA_Cols),getGatesheadConfig(bat_sp,plant_sp,Other_LA_Cols),getNorthumberlandConfig(plant_sp,Other_LA_Cols,pearl_mussel_select,protected_mammals,non_inverts,s41_mammals),getSouthTynesideConfig(bat_sp,plant_sp),getSunderlandConfig(bat_sp,plant_sp))
 
 }
