@@ -4,10 +4,12 @@
 \alias{fix_designations}
 \title{Fix designations as they're incorrect in Recorder - not sure if this is still needed}
 \usage{
-fix_designations(raw_data)
+fix_designations(raw_data, SLA)
 }
 \arguments{
 \item{raw_data}{data frame of raw data}
+
+\item{SLA}{is this an SLA dataset}
 }
 \value{
 
@@ -37,5 +39,5 @@ r <- c('layer','layer')
 s <- c('path','path')
 df <- data.frame(a,b,c,d,e,f,a,g,h,h,i,j,k,l,m,n,o,p,q,r,s)
 names(df) <- c('All.Design', 'Wildlife..', 'Wildlife_1', 'Taxon.grou', 'Taxon.Lati', 'Taxon.Comm', 'Obs.Commen', 'Sample.Rec', 'Sample.Loc', 'Sample.L_1', 'Sample.Dat', 'Sample.Spa', 'Survey.Run', 'Survey.Nam', 'Obs.Abunda', 'Determinat', 'Central_Ea', 'Central_No', 'Buffer', 'layer', 'path')
-data <- fix_designations(df)
+data <- fix_designations(df,FALSE)
 }
