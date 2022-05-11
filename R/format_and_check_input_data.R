@@ -39,7 +39,8 @@
 #'OutputCols <- c("All.Design","Taxon.grou", "Taxon.Lati","Taxon.Comm", "Obs.Abunda", "Determinat","Obs.Commen","Sample.Rec",  "Sample.Loc",  "Sample.Dat","Sample.Spa","Survey.Run","Survey.Nam","Info")
 #'newColNames <- c("Designations","Taxon group","Latin Name","Common Name","Abundances","Determination Type","Comments","Recorder","Location Name","Date","Grid Reference","Survey Run By","Survey Name","Additional Information")
 #'data <- format_and_check_data(df,OutputCols,newColNames, 0)
-format_and_check_input_data <- function(raw_data,OutputCols,newColNames, dataSource) {
+#format_and_check_input_data <- function(raw_data,OutputCols,newColNames, dataSource)
+format_and_check_input_data <- function(raw_data) {
 
   locsToReplace <- setup_locs_to_replace()
   locsToIgnore <- setup_locs_to_ignore()
@@ -47,9 +48,11 @@ format_and_check_input_data <- function(raw_data,OutputCols,newColNames, dataSou
   recordersToIgnore <- setup_recorders_to_ignore()
 
   #Get the columns we're going to output  sort by taxon group & latin name & discard duplicates
-  data_subset <- dplyr::select(raw_data,dplyr::all_of(unlist(OutputCols)))
-
-  colnames(data_subset) <- unlist(newColNames)
+  # data_subset <- dplyr::select(raw_data,dplyr::all_of(unlist(OutputCols)))
+  #
+  newColNames <- c("Recorder","Common Name","Species Name", "Date", "Grid Reference", "Location Name", "Abundances","Comments")
+  outputData <- raw_data
+  colnames(outputData) <- unlist(newColNames)
 
   #FORMATTING
 
@@ -69,28 +72,43 @@ format_and_check_input_data <- function(raw_data,OutputCols,newColNames, dataSou
   #If datasource is standard no special formatting
 
 
-  outputdata <- dplyr::distinct(data_subset[with(data_subset,order(data_subset$`Taxon group`,data_subset$`Latin Name`)),])
+  #outputData <- dplyr::distinct(data_subset[with(data_subset,order(data_subset$`Taxon group`,data_subset$`Latin Name`)),])
+
 
   #Check grid refs
+
+  #Check recorder
+  outputData$flag5 <- is.na(outputData$Recorder == "")
+
+  #Check species
+  outputData$flag6 <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "")
+
+  #Check for blank location name
+  outputData$flag1 <- is.na(outputData$`Location Name` == "")
+
+  #Check abundance length
+  outputData$flag2 <- is.na(str_length(outputData$Abundances) >=10)
+
   #Check comment length
+  outputData$flag4 <- is.na(str_length(outputData$Comments) >= 150)
 
   #Code to check house nums
-  outputdata <- check_house_numbers(outputdata,locsToReplace,locsToIgnore)
+  outputData <- check_house_numbers(outputData,locsToReplace,locsToIgnore)
 
   #Check for 0 counts that we haven't already sorted
-  outputdata$flag2 <- tolower(outputdata$Abundances) =="0 count"
+  outputData$flag2 <- outputData$Abundances =="0"
 
 
   #Check for swear words
-  outputdata$flag3 <- stringr::str_detect(tolower(outputdata$Comments),paste(c(swearWords$word),collapse = "|"))
+  outputData$flag3 <- stringr::str_detect(tolower(outputData$Comments),paste(c(swearWords$word),collapse = "|"))
 
 
   #Check for e-mail addresses
-  outputdata$flag4 <- stringr::str_detect(outputdata$Comments,"@")
-  outputdata$flag5 <- stringr::str_detect(outputdata$Recorder,"@") & is.na(match(outputdata$`Recorder`,table = recordersToIgnore$`Recorder`))
+  outputData$flag4 <- stringr::str_detect(outputData$Comments,"@")
+  outputData$flag5 <- stringr::str_detect(outputData$Recorder,"@") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
 
 
   #Add dup check column
 
-  return(outputdata)
+  return(outputData)
 }
