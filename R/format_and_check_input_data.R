@@ -45,6 +45,7 @@ format_and_check_input_data <- function(raw_data) {
   locsToReplace <- setup_locs_to_replace()
   locsToIgnore <- setup_locs_to_ignore()
   swearWords <- setup_profanity_config()
+  species <- setup_species_config()
   recordersToIgnore <- setup_recorders_to_ignore()
 
   #Get the columns we're going to output  sort by taxon group & latin name & discard duplicates
@@ -78,7 +79,7 @@ format_and_check_input_data <- function(raw_data) {
   #Check grid refs
 
   #Check recorder
-  outputData$flag5 <- is.na(outputData$Recorder == "")
+  outputData$flag7 <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ")
 
   #Check species
   outputData$flag6 <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "")
