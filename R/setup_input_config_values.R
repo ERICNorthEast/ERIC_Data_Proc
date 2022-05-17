@@ -6,7 +6,7 @@
 #' @examples input_config <- setup_input_config_values()
 setup_input_config_values <- function(){
 
-  config_keys <- c("locationCol","abundanceCol","commentCol","recorderCol","speciesCol","lastCol","dateCol")
+  config_keys <- c("locationCol","abundanceCol","commentCol","recorderCol","speciesCol","lastCol","dateCol","grCol")
 
   locationCol <- 6
   abundanceCol <- 7
@@ -16,9 +16,10 @@ setup_input_config_values <- function(){
   lastCol <- 8
   dateCol <- 4
   colCount <- 15
+  grCol <- 5
 
 
-  config_values <- list(locationCol,abundanceCol,commentCol,recorderCol,speciesCol,lastCol,dateCol)
+  config_values <- list(locationCol,abundanceCol,commentCol,recorderCol,speciesCol,lastCol,dateCol,grCol)
 
   config_pairs <- list()                     # Create empty list
   for(i in 1:length(config_keys)) {              # Add key/value pairs in for-loop

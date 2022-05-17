@@ -4,9 +4,7 @@
 #' Flag whether iRecord, ERIC, standard data, NTBC, and
 #'
 #' @param raw_data Set of species data
-#' @param OutputCols List of the columns to be output
-#' @param newColNames Labels for output columns
-#' @param dataSource Where has the data originated
+#' @param locCheck whether to check for blnak locations
 #'
 #' @return
 #' @export
@@ -39,8 +37,8 @@
 #'OutputCols <- c("All.Design","Taxon.grou", "Taxon.Lati","Taxon.Comm", "Obs.Abunda", "Determinat","Obs.Commen","Sample.Rec",  "Sample.Loc",  "Sample.Dat","Sample.Spa","Survey.Run","Survey.Nam","Info")
 #'newColNames <- c("Designations","Taxon group","Latin Name","Common Name","Abundances","Determination Type","Comments","Recorder","Location Name","Date","Grid Reference","Survey Run By","Survey Name","Additional Information")
 #'data <- format_and_check_data(df,OutputCols,newColNames, 0)
-#format_and_check_input_data <- function(raw_data,OutputCols,newColNames, dataSource)
-format_and_check_input_data <- function(raw_data) {
+
+format_and_check_input_data <- function(raw_data,locCheck) {
 
   locsToReplace <- setup_locs_to_replace()
   locsToIgnore <- setup_locs_to_ignore()
@@ -78,36 +76,44 @@ format_and_check_input_data <- function(raw_data) {
 
   #Check grid refs
 
-  #Check recorder
-  outputData$flag7 <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ")
+  #Check recorder for blanks, email addresses but ignore allowed values
+  outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
 
   #Check species
-  outputData$flag6 <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "")
+  outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "")
 
-  #Check for blank location name
-  outputData$flag1 <- is.na(outputData$`Location Name` == "")
 
-  #Check abundance length
-  outputData$flag2 <- is.na(str_length(outputData$Abundances) >=10)
 
-  #Check comment length
-  outputData$flag4 <- is.na(str_length(outputData$Comments) >= 150)
+  #Check abundance length & zero counts
+  outputData$flagAbun <- str_length(outputData$Abundances) >=10 | outputData$Abundances == "0"
+
+  #Check comment length, for swearwords and e-mail addresses
+  outputData$flagCom <- str_length(outputData$Comments) >= 150 | stringr::str_detect(tolower(outputData$Comments),paste(c(swearWords$word),collapse = "|")) | stringr::str_detect(outputData$Comments,"@")
 
   #Code to check house nums
   outputData <- check_house_numbers(outputData,locsToReplace,locsToIgnore)
+  #Check for blank location name
+  if (locCheck) {
+    outputData$flagLoc <- is.na(outputData$`Location Name` == "") | outputData$flag1
+  } else {
+
+    outputData$flagLoc <- outputData$flag1
+  }
 
   #Check for 0 counts that we haven't already sorted
-  outputData$flag2 <- outputData$Abundances =="0"
+  #outputData$flag2 <- outputData$Abundances =="0"
 
 
   #Check for swear words
-  outputData$flag3 <- stringr::str_detect(tolower(outputData$Comments),paste(c(swearWords$word),collapse = "|"))
+  #outputData$flag3 <- stringr::str_detect(tolower(outputData$Comments),paste(c(swearWords$word),collapse = "|"))
 
 
   #Check for e-mail addresses
-  outputData$flag4 <- stringr::str_detect(outputData$Comments,"@")
-  outputData$flag5 <- stringr::str_detect(outputData$Recorder,"@") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
+  #outputData$flag4 <- stringr::str_detect(outputData$Comments,"@")
+  #outputData$flag5 <- stringr::str_detect(outputData$Recorder,"@") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
 
+  #Check grid ref
+  outputData$flagGR <- is.na(outputData$`Grid Reference` =="") | is.na(str_length(outputData$`Grid Reference`) <=4) | str_length(outputData$`Grid Reference`) %% 2 | str_detect(outputData$`Grid Reference`, "[ .,-]") | !apply(sapply(c("NT","NU","NY","NZ"),grepl,str_sub(outputData$`Grid Reference`,1,2)),1,any)
 
   #Add dup check column
 
