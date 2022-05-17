@@ -13,7 +13,7 @@ setup_input_config_values <- function(){
   commentCol <- 8
   recorderCol <- 1
   speciesCol <- 3
-  lastCol <- 8
+  lastCol <- 9
   dateCol <- 4
   colCount <- 15
   grCol <- 5

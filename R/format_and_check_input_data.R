@@ -82,10 +82,8 @@ format_and_check_input_data <- function(raw_data,locCheck) {
   #Check species
   outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "")
 
-
-
   #Check abundance length & zero counts
-  outputData$flagAbun <- str_length(outputData$Abundances) >=10 | outputData$Abundances == "0"
+  outputData$flagAbun <- str_length(outputData$Abundances) >=10 | outputData$Abundances == "0" | str_detect(outputData$Abundances,"-/")
 
   #Check comment length, for swearwords and e-mail addresses
   outputData$flagCom <- str_length(outputData$Comments) >= 150 | stringr::str_detect(tolower(outputData$Comments),paste(c(swearWords$word),collapse = "|")) | stringr::str_detect(outputData$Comments,"@")
@@ -114,6 +112,11 @@ format_and_check_input_data <- function(raw_data,locCheck) {
 
   #Check grid ref
   outputData$flagGR <- is.na(outputData$`Grid Reference` =="") | is.na(str_length(outputData$`Grid Reference`) <=4) | str_length(outputData$`Grid Reference`) %% 2 | str_detect(outputData$`Grid Reference`, "[ .,-]") | !apply(sapply(c("NT","NU","NY","NZ"),grepl,str_sub(outputData$`Grid Reference`,1,2)),1,any)
+
+  #Add row number column
+  rowNo <- seq_len(nrow(outputData))
+  outputData<-cbind(outputData,rowNo)
+  names(outputData)[names(outputData) == 'rowNo'] <- 'Row No'
 
   #Add dup check column
 
