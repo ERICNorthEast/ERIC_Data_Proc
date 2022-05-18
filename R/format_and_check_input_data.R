@@ -55,12 +55,10 @@ format_and_check_input_data <- function(raw_data,locCheck,inputformat) {
     raw_data["Verifier"][is.na(raw_data["Verifier"])] <- ""
     raw_data$Recorder<-paste(raw_data$Recorder,raw_data$Verifier,sep=", ")
 
-<<<<<<< HEAD
+
   #Replace "present" in Abundances
     raw_data["Abundances"][(raw_data["Abundances"])=="Present"] <- ""
 
-=======
->>>>>>> 5348b41a5f8c2bf3a5619ab279aa482a0980a920
   # Build comment field
 
     raw_data["Sample method"][(raw_data["Sample method"])=="Unknown"] <- ""
@@ -90,13 +88,26 @@ format_and_check_input_data <- function(raw_data,locCheck,inputformat) {
     raw_data["Biotope"][is.na(raw_data["Biotope"])] <- ""
     raw_data$Biotope <- ifelse(raw_data$Biotope=="","",paste("Biotope:",raw_data$Biotope))
 
+    raw_data$Comments<-paste(raw_data$Comments, raw_data$`Sample comment`,raw_data$Biotope,raw_data$`Sample method`,raw_data$Sex,raw_data$Stage)
   }
 
+  if (inputformat == "bt") {
+    #Setup a column for the observer name - ask for it
+    raw_data$Recorder <- "Birdtrack recorder"
+
+    #Remove any "present" values in abundance column
+    raw_data["Abundances"][(raw_data["Abundances"])=="Present"] <- ""
+
+    #Build comment field
+    raw_data$Comments<-paste(raw_data$Comments, raw_data$Plumage,raw_data$Biotope,raw_data$`Sample method`,raw_data$Sex,raw_data$Stage)
+
+    #Get the grid ref from one of two columns
+    raw_data$`Grid Reference`<- ifelse(is.na(raw_data$Pinpoint),raw_data$`Grid Reference`,raw_data$Pinpoint)
+
+    }
+
   #If dataSource is BirdTrack
-  #Setup a column for the observer name - ask for it
-  #Remove any "present" values in abundance column
-  #Build comment field
-  #Get the grid ref from one of two columns
+
 
   #If datasource is standard no special formatting
 
