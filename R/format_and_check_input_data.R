@@ -5,6 +5,7 @@
 #'
 #' @param raw_data Set of species data
 #' @param locCheck whether to check for blank locations
+#' @param inputformat the source of the data, e.g. iRecord
 #'
 #' @return
 #' @export
@@ -38,7 +39,7 @@
 #'newColNames <- c("Designations","Taxon group","Latin Name","Common Name","Abundances","Determination Type","Comments","Recorder","Location Name","Date","Grid Reference","Survey Run By","Survey Name","Additional Information")
 #'data <- format_and_check_data(df,OutputCols,newColNames, 0)
 
-format_and_check_input_data <- function(raw_data,locCheck) {
+format_and_check_input_data <- function(raw_data,locCheck,inputformat) {
 
   locsToReplace <- setup_locs_to_replace()
   locsToIgnore <- setup_locs_to_ignore()
