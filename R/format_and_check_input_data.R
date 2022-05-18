@@ -50,9 +50,25 @@ format_and_check_input_data <- function(raw_data,locCheck,inputformat) {
   #FORMATTING
 
   #If dataSource is iRecord
+  if (inputformat == "irecord") {
   # Add verifier to observer
+    raw_data["Verifier"][is.na(raw_data["Verifier"])] <- ""
+    raw_data$Recorder<-paste(raw_data$Recorder,raw_data$Verifier,sep=", ")
+
   # Build comment field
 
+    raw_data["Sample method"][(raw_data["Sample method"])=="Unknown"] <- ""
+    raw_data["Sample method"][is.na(raw_data["Sample method"])] <- ""
+    raw_data["Sex"][(raw_data["Sex"])=="not recorded"] <- ""
+    raw_data["Sex"][is.na(raw_data["Sex"])] <- ""
+    raw_data["Stage"][(raw_data["Sex"])=="not recorded"] <- ""
+    raw_data["Stage"][is.na(raw_data["Sex"])] <- ""
+    raw_data["Biotope"][is.na(raw_data["Biotope"])] <- ""
+    raw_data$Biotope <- ifelse(raw_data$Biotope=="","",paste("Biotope:",raw_data$Biotope))
+
+    raw_data$Comments<-paste(raw_data$Comments, raw_data$`Sample comment`,raw_data$Biotope,raw_data$`Sample method`,raw_data$Sex,raw_data$Stage)
+
+  }
   #If dataSource is ERIC website
   #Build comment field
 
@@ -101,7 +117,11 @@ format_and_check_input_data <- function(raw_data,locCheck,inputformat) {
 
   #Add dup check column
 
-  return(outputData)
+
+  #Return only the columns we want
+  OutputCols <- c("Recorder","Common Name","Species Name","Date","Grid Reference","Location Name","Abundances","Comments","Row No")
+  data_subset <- dplyr::select(outputData,dplyr::all_of(unlist(OutputCols)))
+  return(data_subset)
 
 
 }
