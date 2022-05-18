@@ -55,9 +55,12 @@ format_and_check_input_data <- function(raw_data,locCheck,inputformat) {
     raw_data["Verifier"][is.na(raw_data["Verifier"])] <- ""
     raw_data$Recorder<-paste(raw_data$Recorder,raw_data$Verifier,sep=", ")
 
+<<<<<<< HEAD
   #Replace "present" in Abundances
     raw_data["Abundances"][(raw_data["Abundances"])=="Present"] <- ""
 
+=======
+>>>>>>> 5348b41a5f8c2bf3a5619ab279aa482a0980a920
   # Build comment field
 
     raw_data["Sample method"][(raw_data["Sample method"])=="Unknown"] <- ""
