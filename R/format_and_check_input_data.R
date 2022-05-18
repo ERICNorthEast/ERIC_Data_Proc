@@ -4,7 +4,7 @@
 #' Flag whether iRecord, ERIC, standard data, NTBC, and
 #'
 #' @param raw_data Set of species data
-#' @param locCheck whether to check for blnak locations
+#' @param locCheck whether to check for blank locations
 #'
 #' @return
 #' @export
@@ -46,13 +46,6 @@ format_and_check_input_data <- function(raw_data,locCheck) {
   species <- setup_species_config()
   recordersToIgnore <- setup_recorders_to_ignore()
 
-  #Get the columns we're going to output  sort by taxon group & latin name & discard duplicates
-  # data_subset <- dplyr::select(raw_data,dplyr::all_of(unlist(OutputCols)))
-  #
-  newColNames <- c("Recorder","Common Name","Species Name", "Date", "Grid Reference", "Location Name", "Abundances","Comments")
-  outputData <- raw_data
-  colnames(outputData) <- unlist(newColNames)
-
   #FORMATTING
 
   #If dataSource is iRecord
@@ -71,10 +64,13 @@ format_and_check_input_data <- function(raw_data,locCheck) {
   #If datasource is standard no special formatting
 
 
-  #outputData <- dplyr::distinct(data_subset[with(data_subset,order(data_subset$`Taxon group`,data_subset$`Latin Name`)),])
 
 
-  #Check grid refs
+  #Add row number column
+  rowNo <- seq_len(nrow(raw_data))
+  outputData<-cbind(raw_data,rowNo)
+  names(outputData)[names(outputData) == 'rowNo'] <- 'Row No'
+
 
   #Check recorder for blanks, email addresses but ignore allowed values
   outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
@@ -98,27 +94,13 @@ format_and_check_input_data <- function(raw_data,locCheck) {
     outputData$flagLoc <- outputData$flag1
   }
 
-  #Check for 0 counts that we haven't already sorted
-  #outputData$flag2 <- outputData$Abundances =="0"
-
-
-  #Check for swear words
-  #outputData$flag3 <- stringr::str_detect(tolower(outputData$Comments),paste(c(swearWords$word),collapse = "|"))
-
-
-  #Check for e-mail addresses
-  #outputData$flag4 <- stringr::str_detect(outputData$Comments,"@")
-  #outputData$flag5 <- stringr::str_detect(outputData$Recorder,"@") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
-
   #Check grid ref
   outputData$flagGR <- is.na(outputData$`Grid Reference` =="") | is.na(str_length(outputData$`Grid Reference`) <=4) | str_length(outputData$`Grid Reference`) %% 2 | str_detect(outputData$`Grid Reference`, "[ .,-]") | !apply(sapply(c("NT","NU","NY","NZ"),grepl,str_sub(outputData$`Grid Reference`,1,2)),1,any)
 
-  #Add row number column
-  rowNo <- seq_len(nrow(outputData))
-  outputData<-cbind(outputData,rowNo)
-  names(outputData)[names(outputData) == 'rowNo'] <- 'Row No'
 
   #Add dup check column
 
   return(outputData)
+
+
 }

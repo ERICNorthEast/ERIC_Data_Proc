@@ -4,16 +4,12 @@
 \alias{format_and_check_input_data}
 \title{Format the data for input and perform some checks}
 \usage{
-format_and_check_input_data(raw_data)
+format_and_check_input_data(raw_data, locCheck)
 }
 \arguments{
 \item{raw_data}{Set of species data}
 
-\item{OutputCols}{List of the columns to be output}
-
-\item{newColNames}{Labels for output columns}
-
-\item{dataSource}{Where has the data originated}
+\item{locCheck}{whether to check for blank locations}
 }
 \value{
 
