@@ -99,7 +99,9 @@ format_and_check_input_data <- function(raw_data,locCheck,inputformat) {
     raw_data["Abundances"][(raw_data["Abundances"])=="Present"] <- ""
 
     #Build comment field
-    raw_data$Comments<-paste(raw_data$Comments, raw_data$Plumage,raw_data$Biotope,raw_data$`Sample method`,raw_data$Sex,raw_data$Stage)
+    raw_data["Comments"][is.na(raw_data["Comments"])] <- ""
+    raw_data["Plumage"][is.na(raw_data["Plumage"])] <- ""
+    raw_data$Comments<-paste(raw_data$Comments, raw_data$Plumage,"Breeding status")
 
     #Get the grid ref from one of two columns
     raw_data$`Grid Reference`<- ifelse(is.na(raw_data$Pinpoint),raw_data$`Grid Reference`,raw_data$Pinpoint)
