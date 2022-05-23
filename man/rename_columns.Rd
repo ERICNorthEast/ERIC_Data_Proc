@@ -4,10 +4,12 @@
 \alias{rename_columns}
 \title{Rename colums}
 \usage{
-rename_columns(data_set)
+rename_columns(data_set, data_format)
 }
 \arguments{
 \item{data_set}{Set of species data}
+
+\item{data_format}{Source format of the data}
 }
 \value{
 

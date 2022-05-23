@@ -4,7 +4,7 @@
 \alias{check_required_columns}
 \title{check_required_columns}
 \usage{
-check_required_columns(data_set)
+check_required_columns(data_set, data_format)
 }
 \arguments{
 \item{data_set}{}

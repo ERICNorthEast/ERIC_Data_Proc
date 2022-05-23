@@ -10,6 +10,7 @@ setup_bto_breeding_codes <- function(){
     file_path <- system.file("extdata",file_name,package = "ERICDataProc")
 
     btoBreedingCodes <- read.csv(file_path)
-
+    btoBreedingCodes <- dplyr::rename(btoBreedingCodes,'Breeding status' = 'Number')
+    btoBreedingCodes$`Breeding status` <- as.character(btoBreedingCodes$`Breeding status`)
     return(btoBreedingCodes)
 }

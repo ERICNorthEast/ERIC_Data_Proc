@@ -5,7 +5,8 @@
 #'
 #' @param raw_data Set of species data
 #' @param locCheck whether to check for blank locations
-#' @param inputformat the source of the data, e.g. iRecord
+#' @param inputFormat the source of the data, e.g. iRecord
+#' @param recorderName name of recorder to insert into BirdTrack data
 #'
 #' @return
 #' @export
@@ -39,7 +40,7 @@
 #'newColNames <- c("Designations","Taxon group","Latin Name","Common Name","Abundances","Determination Type","Comments","Recorder","Location Name","Date","Grid Reference","Survey Run By","Survey Name","Additional Information")
 #'data <- format_and_check_data(df,OutputCols,newColNames, 0)
 
-format_and_check_input_data <- function(raw_data,locCheck,inputformat) {
+format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderName) {
 
   locsToReplace <- setup_locs_to_replace()
   locsToIgnore <- setup_locs_to_ignore()
@@ -50,71 +51,79 @@ format_and_check_input_data <- function(raw_data,locCheck,inputformat) {
   #FORMATTING
 
   #If dataSource is iRecord
-  if (inputformat == "irecord") {
+  if (inputFormat == "irecord") {
   # Add verifier to observer
     raw_data["Verifier"][is.na(raw_data["Verifier"])] <- ""
     raw_data$Recorder<-paste(raw_data$Recorder,raw_data$Verifier,sep=", ")
 
 
-  #Replace "present" in Abundances
-    raw_data["Abundances"][(raw_data["Abundances"])=="Present"] <- ""
-
-  # Build comment field
-
-    raw_data["Sample method"][(raw_data["Sample method"])=="Unknown"] <- ""
-    raw_data["Sample method"][is.na(raw_data["Sample method"])] <- ""
-    raw_data["Sex"][(raw_data["Sex"])=="not recorded"] <- ""
-    raw_data["Sex"][is.na(raw_data["Sex"])] <- ""
-    raw_data["Stage"][(raw_data["Sex"])=="not recorded"] <- ""
-    raw_data["Stage"][is.na(raw_data["Sex"])] <- ""
-    raw_data["Biotope"][is.na(raw_data["Biotope"])] <- ""
-    raw_data$Biotope <- ifelse(raw_data$Biotope=="","",paste("Biotope:",raw_data$Biotope))
-
-    raw_data$Comments<-paste(raw_data$Comments, raw_data$`Sample comment`,raw_data$Biotope,raw_data$`Sample method`,raw_data$Sex,raw_data$Stage)
-
-  }
-  #If dataSource is ERIC website
-  if (inputformat == "eric") {
     #Replace "present" in Abundances
     raw_data["Abundances"][(raw_data["Abundances"])=="Present"] <- ""
 
+    #Remove NA throughout
+    raw_data[is.na(raw_data)]<-""
+
+    # Build comment field
+
+    raw_data["Sample method"][(raw_data["Sample method"])=="Unknown"] <- ""
+
+    raw_data["Sex"][(raw_data["Sex"])=="not recorded"] <- ""
+
+    raw_data["Stage"][(raw_data["Sex"])=="not recorded"] <- ""
+
+
+    raw_data$Biotope <- ifelse(raw_data$Biotope=="","",paste("Biotope:",raw_data$Biotope))
+
+    raw_data$Comments<-str_trim(paste(raw_data$Comments, raw_data$`Sample comment`,raw_data$Biotope,raw_data$`Sample method`,raw_data$Sex,raw_data$Stage))
+
+  }
+  #If dataSource is ERIC website
+  if (inputFormat == "eric") {
+    #Replace "present" in Abundances
+    raw_data["Abundances"][(raw_data["Abundances"])=="Present"] <- ""
+
+
+    #Remove NA throughout
+    raw_data[is.na(raw_data)]<-""
+
     #Build comment field
     raw_data["Sample method"][(raw_data["Sample method"])=="Unknown"] <- ""
-    raw_data["Sample method"][is.na(raw_data["Sample method"])] <- ""
     raw_data["Sex"][(raw_data["Sex"])=="not recorded"] <- ""
-    raw_data["Sex"][is.na(raw_data["Sex"])] <- ""
     raw_data["Stage"][(raw_data["Sex"])=="not recorded"] <- ""
-    raw_data["Stage"][is.na(raw_data["Sex"])] <- ""
     raw_data["Biotope"][is.na(raw_data["Biotope"])] <- ""
     raw_data$Biotope <- ifelse(raw_data$Biotope=="","",paste("Biotope:",raw_data$Biotope))
 
-    raw_data$Comments<-paste(raw_data$Comments, raw_data$`Sample comment`,raw_data$Biotope,raw_data$`Sample method`,raw_data$Sex,raw_data$Stage)
+
+    raw_data$Comments<-str_trim(paste(raw_data$Comments, raw_data$`Sample comment`,raw_data$Biotope,raw_data$`Sample method`,raw_data$Sex,raw_data$Stage))
   }
 
-  if (inputformat == "bt") {
-    #Setup a column for the observer name - ask for it
-    raw_data$Recorder <- "Birdtrack recorder"
+  #If dataSource is BirdTrack
+  if (inputFormat == "bt") {
+
+    #Get breeding codes
+    breeding_codes <- setup_bto_breeding_codes()
+    raw_data <- dplyr::left_join(raw_data,breeding_codes)
+
+    #Setup a column for the observer name
+    raw_data$Recorder <- recorderName
 
     #Remove any "present" values in abundance column
     raw_data["Abundances"][(raw_data["Abundances"])=="Present"] <- ""
 
+    #Remove NA throughout
+    raw_data[is.na(raw_data)]<-""
+
     #Build comment field
-    raw_data["Comments"][is.na(raw_data["Comments"])] <- ""
-    raw_data["Plumage"][is.na(raw_data["Plumage"])] <- ""
-    raw_data$Comments<-paste(raw_data$Comments, raw_data$Plumage,"Breeding status")
+    raw_data$Comments<-str_trim(paste(raw_data$Comments, raw_data$Plumage,ifelse(raw_data$`Breeding details`=="",ifelse(raw_data$`Status`=="","",paste("Breeding status:",raw_data$`Status`)),raw_data$`Breeding details`)))
 
     #Get the grid ref from one of two columns
-    raw_data$`Grid Reference`<- ifelse(is.na(raw_data$Pinpoint),raw_data$`Grid Reference`,raw_data$Pinpoint)
+    raw_data$`Grid Reference`<- ifelse(raw_data$Pinpoint=="",raw_data$`Grid Reference`,raw_data$Pinpoint)
 
     }
 
-  #If dataSource is BirdTrack
 
-
-  #If datasource is standard no special formatting
-
-
-
+  #Remove NA throughout
+  raw_data[is.na(raw_data)]<-""
 
   #Add row number column
   rowNo <- seq_len(nrow(raw_data))

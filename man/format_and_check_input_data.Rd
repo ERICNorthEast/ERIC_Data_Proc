@@ -4,12 +4,16 @@
 \alias{format_and_check_input_data}
 \title{Format the data for input and perform some checks}
 \usage{
-format_and_check_input_data(raw_data, locCheck)
+format_and_check_input_data(raw_data, locCheck, inputFormat, recorderName)
 }
 \arguments{
 \item{raw_data}{Set of species data}
 
 \item{locCheck}{whether to check for blank locations}
+
+\item{inputFormat}{the source of the data, e.g. iRecord}
+
+\item{recorderName}{name of recorder to insert into BirdTrack data}
 }
 \value{
 
