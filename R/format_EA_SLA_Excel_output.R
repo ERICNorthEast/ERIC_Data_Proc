@@ -72,7 +72,6 @@ format_EA_SLA_Excel_output <- function(XL_wb, sheet_name,outputdata,SLA_config) 
   locationCol <- unlist(SLA_config["locationCol"])
   abundanceCol <- unlist(SLA_config["abundanceCol"])
   commentCol <- unlist(SLA_config["commentCol"])
-  recorderCol <- unlist(SLA_config["recorderCol"])
   dateCol <- unlist(SLA_config["dateCol"])
   lastCol <- unlist(SLA_config["lastCol"])
 
@@ -85,12 +84,11 @@ format_EA_SLA_Excel_output <- function(XL_wb, sheet_name,outputdata,SLA_config) 
   openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=which(outputdata$flag2 == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=which(outputdata$flag3 == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=which(outputdata$flag4 == TRUE)+1,style = highlightStyle)
-  openxlsx::addStyle(XL_wb,sheet_name,cols=recorderCol,rows=which(outputdata$flag5 == TRUE)+1,style = highlightStyle)
 
   if (sum(outputdata$flag1,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=1,style = highlightStyle)}
   if (sum(outputdata$flag2,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=1,style = highlightStyle)}
   if (sum(outputdata$flag3,na.rm=TRUE)+sum(outputdata$flag4,na.rm=TRUE)>0 ) {openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=1,style = highlightStyle)}
-  if (sum(outputdata$flag5,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=recorderCol,rows=1,style = highlightStyle)}
+
 
   #Format the date column
   openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=2:nrow(outputdata), style=dateStyle)

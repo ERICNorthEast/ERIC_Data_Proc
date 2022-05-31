@@ -39,17 +39,12 @@ format_and_check_EA_SLA_data <- function(raw_data,EAOutputCols,newColNames) {
   locsToReplace <- setup_locs_to_replace()
   locsToIgnore <- setup_locs_to_ignore()
   swearWords <- setup_profanity_config()
-  recordersToIgnore <- setup_recorders_to_ignore()
-
-
-  #AED Not sure on ordering the data
-
-  #outputdata <- dplyr::distinct(raw_data[with(raw_data,order(raw_data$Taxon.grou,raw_data$Taxon.Lati)),] )
 
   outputdata <- dplyr::select(raw_data,dplyr::all_of(unlist(EAOutputCols)))
-  #Rename cols
+
+  #Rename columns so we can reuse some functions
   colnames(outputdata) <- unlist(newColNames)
-  #WIll need to rename them back again later
+
   outputdata <- check_house_numbers(outputdata,locsToReplace,locsToIgnore)
 
   #Check for 0 counts that we haven't already sorted
@@ -62,10 +57,12 @@ format_and_check_EA_SLA_data <- function(raw_data,EAOutputCols,newColNames) {
 
   #Check for e-mail addresses
   outputdata$flag4 <- stringr::str_detect(outputdata$Comments,"@")
-  #outputdata$flag5 <- stringr::str_detect(outputdata$Recorder,"@") & is.na(match(outputdata$`Recorder`,table = recordersToIgnore$`Recorder`))
+
 
   #Rename cols back to EA format
-  colnames(outputdata) <- unlist(EAOutputCols)
+
+  newEACols <- append(unlist(EAOutputCols),c("Replacement","flag1","flag2","flag3","flag4"))
+  colnames(outputdata) <- unlist(newEACols)
 
   return (outputdata)
 }

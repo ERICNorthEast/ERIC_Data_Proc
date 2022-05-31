@@ -3,17 +3,15 @@
 #' @return
 #' @export
 #'
-#' @examples config <- setup_SLA_config_values()
+#' @examples config <- setup_EA_SLA_config_values()
 setup_EA_SLA_config_values <- function(){
   config_keys <- c("locationCol", "abundanceCol", "commentCol", "recorderCol", "lastCol", "dateCol", "EAOutputCols", "TempColNames")
 
 
-  #AD do we need all of these?
   locationCol <- 4
   abundanceCol <- 3
   commentCol <- 16
-  recorderCol <- 11
-  lastCol <- 19
+  lastCol <- 18
   dateCol <- 5
 
 
