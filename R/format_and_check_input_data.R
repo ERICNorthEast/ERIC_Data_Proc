@@ -121,7 +121,6 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
 
     }
 
-
   #Remove NA throughout
   raw_data[is.na(raw_data)]<-""
 
@@ -131,8 +130,13 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   names(outputData)[names(outputData) == 'rowNo'] <- 'Row No'
 
 
-  #Check recorder for blanks, email addresses but ignore allowed values
+  #Strip commas and full stops from the end of the Recorder name
+  outputData$Recorder <- str_replace(outputData$Recorder,"[.,]$","")
+
+
+  #Check recorder for blanks, email addresses, ampersands or "Mr and mrs" type but ignore allowed values
   outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
+  outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") | stringr::str_detect(outputData$Recorder," and ") | stringr::str_detect(outputData$Recorder,"&") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
 
   #Check species
   outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "")
@@ -160,8 +164,8 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   #Add dup check column
 
 
-  #Return only the columns we want
-  OutputCols <- c("Recorder","Common Name","Species Name","Date","Grid Reference","Location Name","Abundances","Comments","Row No")
+  #Return only the columns we want including the flags so we can highlight issues later
+  OutputCols <- c("Recorder","Common Name","Species Name","Date","Grid Reference","Location Name","Abundances","Comments","Row No","flagRec","flagSpecies","flagAbun","flagCom","flagLoc","flagGR")
   data_subset <- dplyr::select(outputData,dplyr::all_of(unlist(OutputCols)))
   return(data_subset)
 
