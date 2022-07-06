@@ -49,7 +49,8 @@ rename_columns <- function(data_set,data_format) {
     names(data_set)[tolower(names(data_set)) == "species"] <- "Species Name"
     names(data_set)[tolower(names(data_set)) == "taxon"] <- "Species Name"
 
-    names(data_set)[tolower(names(data_set)) == "date to"] <- "Date"
+    #names(data_set)[tolower(names(data_set)) == "date to"] <- "Date"
+    names(data_set)[tolower(names(data_set)) == "date interpreted"] <- "Date"
 
     names(data_set)[tolower(names(data_set)) == "output map ref"] <- "Grid Reference"
 
