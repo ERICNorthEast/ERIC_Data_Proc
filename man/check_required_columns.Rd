@@ -15,3 +15,16 @@ check_required_columns(data_set, data_format)
 \description{
 check_required_columns
 }
+\examples{
+sn <- c('Pieris rapae','Turdus merula')
+cn <- c('Small White','Blackbird')
+rec <- c('Mike Jeffries','Alnwick Wildlife Group')
+loc <- c('Morpeth Town','Morpeth Town')
+dt <- c('04/09/2010','04/09/2010')
+gr <- c('NZ18X','NZ18X')
+com <- c('Butterfly Conservation','Alnwick Wildlife Group')
+ab <- c('2 Count','1 Count')
+data <- data.frame(rec,cn,sn,dt,gr,loc,ab,com)
+colmames(data) <- c("Recorder","Common Name","Species Name", "Date", "Grid Reference", "Location Name", "Abundances","Comments")
+  result <- check_required_columns(data,'std')
+}

@@ -17,3 +17,16 @@ rename_columns(data_set, data_format)
 \description{
 Rename colums
 }
+\examples{
+#'sn <- c('Pieris rapae','Turdus merula')
+cn <- c('Small White','Blackbird')
+rec <- c('Mike Jeffries','Alnwick Wildlife Group')
+loc <- c('Morpeth Town','Morpeth Town')
+dt <- c('04/09/2010','04/09/2010')
+gr <- c('NZ18X','NZ18X')
+com <- c('Butterfly Conservation','Alnwick Wildlife Group')
+ab <- c('2 Count','1 Count')
+data <- data.frame(rec,cn,sn,dt,gr,loc,ab,com)
+colmames(data) <- c("observer","Common Name","latin Name", "Date", "Grid Ref", "Location", "Abundance","Comments")
+result <- rename_columns(data,'std')
+}
