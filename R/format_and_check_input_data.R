@@ -47,6 +47,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   swearWords <- setup_profanity_config()
   species <- setup_species_config()
   recordersToIgnore <- setup_recorders_to_ignore()
+  scientific <- setup_scientific_config()
 
   #FORMATTING
 
@@ -135,11 +136,13 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
 
 
   #Check recorder for blanks, email addresses, ampersands or "Mr and mrs" type but ignore allowed values
-  outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
+  #outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
   outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") | stringr::str_detect(tolower(outputData$Recorder)," and ") | stringr::str_detect(outputData$Recorder,"&") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
 
   #Check species
-  outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "")
+  #outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "")
+  outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "") | stringr::str_detect(tolower(outputData$'Common Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(scientific$term)),collapse = "|"))
+
 
   #Check abundance length & zero counts
   outputData$flagAbun <- str_length(outputData$Abundances) >=10 | outputData$Abundances == "0" | str_detect(outputData$Abundances,"-/")
