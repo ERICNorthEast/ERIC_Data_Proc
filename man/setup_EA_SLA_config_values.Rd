@@ -13,5 +13,5 @@ setup_EA_SLA_config_values()
 Setup confid values for EA SLAs
 }
 \examples{
-config <- setup_SLA_config_values()
+config <- setup_EA_SLA_config_values()
 }
