@@ -70,7 +70,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
 
     raw_data["Sex"][(raw_data["Sex"])=="not recorded"] <- ""
 
-    raw_data["Stage"][(raw_data["Sex"])=="not recorded"] <- ""
+    raw_data["Stage"][(raw_data["Stage"])=="not recorded"] <- ""
 
 
     raw_data$Biotope <- ifelse(raw_data$Biotope=="","",paste("Biotope:",raw_data$Biotope))
@@ -90,7 +90,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
     #Build comment field
     raw_data["Sample method"][(raw_data["Sample method"])=="Unknown"] <- ""
     raw_data["Sex"][(raw_data["Sex"])=="not recorded"] <- ""
-    raw_data["Stage"][(raw_data["Sex"])=="not recorded"] <- ""
+    raw_data["Stage"][(raw_data["Stage"])=="not recorded"] <- ""
     raw_data["Biotope"][is.na(raw_data["Biotope"])] <- ""
     raw_data$Biotope <- ifelse(raw_data$Biotope=="","",paste("Biotope:",raw_data$Biotope))
 
