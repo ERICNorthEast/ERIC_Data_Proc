@@ -65,11 +65,11 @@ fix_designations <- function(raw_data,SLA){
     WACA1 <- desig_config["WACA1"]
     WACA2 <- desig_config["WACA2"]
 
-    #WACA - don't do this for SLAs
+    #WACA Sch 9 designations
     raw_data$All.Design <-ifelse((raw_data$Wildlife_1=='Yes' &!is.na(raw_data$Wildlife_1)),paste0(WACA1,raw_data$All.Design),raw_data$All.Design)
     raw_data$All.Design <-ifelse((raw_data$Wildlife..=='Yes' &!is.na(raw_data$Wildlife..)) ,paste0(WACA2,raw_data$All.Design),raw_data$All.Design)
 
-    #Protected species - don't do this for SLAs
+    #Protected species - no designation has been provided
     NO_DESIG <- desig_config["NO_DESIG"]
     prot_config <- setup_prot_config()
     prot_species <- prot_config["prot_species"]
@@ -78,7 +78,7 @@ fix_designations <- function(raw_data,SLA){
     raw_data$All.Design <- ifelse((raw_data$All.Design=='' & (raw_data$Taxon.grou=='amphibian' & raw_data$Taxon.Lati != 'Mesotriton alpestris')),NO_DESIG,raw_data$All.Design)
     raw_data$All.Design <- ifelse((raw_data$All.Design=='' & (stringr::str_detect(raw_data$Taxon.grou,paste(unlist(prot_groups),collapse = '|')) | raw_data$Taxon.Lati == prot_species[1]| raw_data$Taxon.Lati == prot_species[2]| raw_data$Taxon.Lati == prot_species[3]| raw_data$Taxon.Lati == prot_species[4])),NO_DESIG,raw_data$All.Design)
 
-    #Waxcaps - don't do this for SLAs
+    #Waxcaps - waxcap grassland indicator species
     WAXCAPS <- desig_config["WAXCAPS"]
     waxcap_sp <- desig_config["waxcap_sp"]
 
