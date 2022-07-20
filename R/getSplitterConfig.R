@@ -17,6 +17,8 @@
 #'  }
 #' config <- getSplitterConfig(1,config_pairs)
 getSplitterConfig <- function(LA,SLA_Split_config) {
+
+  #Get species lists from config
   bat_sp <- SLA_Split_config["bat_sp"]
   plant_sp <- SLA_Split_config["plant_sp"]
 
@@ -28,9 +30,12 @@ getSplitterConfig <- function(LA,SLA_Split_config) {
     s41_mammals <- SLA_Split_config["s41_mammals"]
   }
 
+  #Output columns for LAs apart from Sunderland and South Tyneside
   Other_LA_Cols <- c("Taxon group","Latin Name","Abundances","Determination Type","Comments","Recorder","Location Name","Date",
                      "Grid Reference","Cent_East","Cent_North","Buffer","Precision","Survey Run By","Survey Name","Common Name",
                      "Additional Information")
+
+  #Setup the worksheet/criteria mapping depending on the LA
   switch(LA,getDurhamConfig(bat_sp,plant_sp,Other_LA_Cols),getGatesheadConfig(bat_sp,plant_sp,Other_LA_Cols),getNorthumberlandConfig(plant_sp,Other_LA_Cols,pearl_mussel_select,protected_mammals,non_inverts,s41_mammals),getSouthTynesideConfig(bat_sp,plant_sp),getSunderlandConfig(bat_sp,plant_sp))
 
 }

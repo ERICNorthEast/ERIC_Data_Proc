@@ -42,20 +42,25 @@
 split_data_to_sheets <- function(SLA_split,XL_wb,SLA_data,allDataSheet,outputCols) {
   rowCount <- 0
 
-  #AED where to put this?
   bold_style <- openxlsx::createStyle(textDecoration = "Bold")
 
   firstWrite <- TRUE
+
+  #Loop through the worksheet/selection criteria mapping
   for (j in 1:nrow(SLA_split))
   {
 
+    #If data exists for this criteria
     if (dplyr::tally(SLA_data,eval(str2expression(unlist(SLA_split$FilterString[j]))))>0) {
+
+      #Create a worksheet and output the selected data to it
       openxlsx::addWorksheet(XL_wb,SLA_split$SheetLabel[j])
       outputData<-dplyr::filter(SLA_data,eval(str2expression(unlist(SLA_split$FilterString[j]))))
       outputData <- dplyr::select(outputData,unlist(outputCols))
       openxlsx::writeData(XL_wb,SLA_split$SheetLabel[j],outputData,headerStyle = bold_style)
 
       if (allDataSheet != "") {
+        #If an all data sheet is required append the selected data to that sheet
         outputData<-dplyr::filter(SLA_data,eval(str2expression(unlist(SLA_split$FilterString[j]))))
         outputData <- dplyr::select(outputData,unlist(outputCols))
         openxlsx::writeData(XL_wb,allDataSheet,outputData,headerStyle = bold_style, startRow = rowCount+1,colNames = firstWrite)

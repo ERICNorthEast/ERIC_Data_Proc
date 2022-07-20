@@ -22,7 +22,7 @@
 getNorthumberlandConfig<- function(plant_sp,Other_LA_Cols,pearl_mussel_select,protected_mammals,non_inverts,s41_mammals){
 
 
-  #Northumberland
+  #Breeding birds
   may_june_birds <- c("Recurvirostra avosetta", "Tyto alba", "Panurus biarmicus", "Tetrao tetrix", "Podiceps nigricollis", "Emberiza calandra",                     "Numenius arquata", "Calidris alpina", "Anas strepera",
                       "Pluvialis apricaria", "Bucephala clangula", "Accipiter gentilis",
                       "Locustella naevia", "Perdix perdix", "Coccothraustes coccothraustes",
@@ -36,16 +36,20 @@ getNorthumberlandConfig<- function(plant_sp,Other_LA_Cols,pearl_mussel_select,pr
                       "Anas penelope", "Phylloscopus sibilatrix", "Scolopax rusticola", "Motacilla flava")
 
 
+  #Schedule 1 birds
   schedule1_birds <- c("Recurvirostra avosetta","Alcedo atthis", "Tyto alba", "Charadrius dubius","Panurus biarmicus")
 
+  #GCN and toads
   amphibian_sp <- c("Triturus cristatus", "Bufo bufo")
 
+  #Marine invasives
   marine_invasives <- c("Crassostrea gigas", "Codium fragile", "Caprella mutica",
                         "Eriocheir sinensis", "Sargassum muticum", "Elminius modestus",
                         "Corella eumyota", "Colpomenia peregrina", "Crepidula fornicata",
                         "Undaria pinnatifida", "Didemnum vexillum", "Asparagopsis armata",
                         "Haliplanella lineata", "Styela clava")
 
+  #Setup mapping
   Northumberland_split <- tibble::tribble(~SheetLabel,~FilterString,
                                   "Amphibians_data", paste0("stringr::str_detect(SLA_data$`Latin Name`,'",paste(unlist(amphibian_sp),collapse='|'),"')"),
                                   #"Freshwater_Pearl_Mussel_data",paste0("stringr::str_detect(SLA_data$`Latin Name`,'",paste0(pearl_mussel_sp,collapse='|'),"')"),
