@@ -38,37 +38,17 @@ fix_designations <- function(raw_data,SLA){
 
 
   #Designations for corrections
-  # BIRD_AMBER <-  desig_config["BIRD_AMBER"]
-  # BIRD_RED <-  desig_config["BIRD_RED"]
   DURHAM_BAP <-  desig_config["DURHAM_BAP"]
   NLAND_BAP <-  desig_config["NLAND_BAP"]
   TV_BAP <-  desig_config["TV_BAP"]
 
   #Species lists
-  # amber_sp <- desig_config["amber_sp"]
-  # red_sp <- desig_config["red_sp"]
-  # red_from_amber_sp <- desig_config["red_from_amber_sp"]
-  # amber_from_red_sp <- desig_config["amber_from_red_sp"]
   durham_bap_sp <- desig_config["durham_bap_sp"]
   nland_bap_sp <- desig_config["nland_bap_sp"]
   tv_bap_sp <- desig_config["tv_bap_sp"]
 
 
-  #Sort out designations (EA doesn't need this)
-  #Don't need to do this - data is correct
-  #  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(amber_sp),collapse = '|')),paste(BIRD_AMBER,raw_data$All.Design),raw_data$All.Design)
-  #  raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(red_sp),collapse = '|')),paste(BIRD_RED,raw_data$All.Design),raw_data$All.Design)
-  #
-  #
-  # #Red from amber
-  # raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(red_from_amber_sp),collapse = '|')) & stringr::str_detect(raw_data$All.Design,unlist(BIRD_AMBER))),stringr::str_replace_all(raw_data$All.Design,BIRD_AMBER,BIRD_RED),raw_data$All.Design)
-  # raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(red_from_amber_sp),collapse = '|')) & !stringr::str_detect(raw_data$All.Design,unlist(BIRD_AMBER))),paste(BIRD_RED,raw_data$All.Design),raw_data$All.Design)
-  #
-  # #Amber from red
-  # raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(amber_from_red_sp),collapse = '|')) & stringr::str_detect(raw_data$All.Design,unlist(BIRD_RED))),stringr::str_replace_all(raw_data$All.Design,BIRD_RED,BIRD_AMBER),raw_data$All.Design)
-  # raw_data$All.Design <- ifelse((stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(amber_from_red_sp),collapse = '|')) & !stringr::str_detect(raw_data$All.Design,unlist(BIRD_RED))),paste(BIRD_AMBER,raw_data$All.Design),raw_data$All.Design)
-
-  #Local BAPs (NELBAP column is SLA only)
+  #Local BAPs (NELBAP column is SLA only) - add appropriate text for the specified species
 
   raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(durham_bap_sp),collapse = '|')),paste(DURHAM_BAP,raw_data$All.Design),raw_data$All.Design)
   raw_data$All.Design <- ifelse(stringr::str_detect(raw_data$Taxon.Lati,paste(unlist(nland_bap_sp),collapse = '|')), paste(NLAND_BAP,raw_data$All.Design),raw_data$All.Design)
