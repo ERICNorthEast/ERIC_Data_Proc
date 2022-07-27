@@ -71,6 +71,7 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   abundanceCol<-unlist(input_config["abundanceCol"])
   commentCol<-unlist(input_config["commentCol"])
   speciesCol<-unlist(input_config["speciesCol"])
+  commonCol <-unlist(input_config["commonCol"])
   recorderCol<-unlist(input_config["recorderCol"])
   dateCol<-unlist(input_config["dateCol"])
   lastCol<-unlist(input_config["lastCol"])
@@ -86,12 +87,14 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=which(outputdata$flagCom == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=recorderCol,rows=which(outputdata$flagRec == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=speciesCol,rows=which(outputdata$flagSpecies == TRUE)+1,style = highlightStyle)
+  openxlsx::addStyle(XL_wb,sheet_name,cols=commonCol,rows=which(outputdata$flagCommon == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=grCol,rows=which(outputdata$flagGR == TRUE)+1,style = highlightStyle)
 
   if (sum(outputdata$flagLoc,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagAbun,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagCom,na.rm=TRUE)>0 ) {openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagRec,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=recorderCol,rows=1,style = highlightBoldStyle)}
+  if (sum(outputdata$flagCommon,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=commonCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagSpecies,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=speciesCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagGR,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=grCol,rows=1,style = highlightBoldStyle)}
 

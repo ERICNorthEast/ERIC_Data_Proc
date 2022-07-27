@@ -45,7 +45,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   locsToReplace <- setup_locs_to_replace()
   locsToIgnore <- setup_locs_to_ignore()
   swearWords <- setup_profanity_config()
-  species <- setup_species_config()
+  speciesToFlag <- setup_species_config()
   recordersToIgnore <- setup_recorders_to_ignore()
   speciesToIgnore <- setup_speciesnames_to_ignore()
   scientific <- setup_scientific_config()
@@ -140,7 +140,17 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") | stringr::str_detect(tolower(outputData$Recorder)," and ") | stringr::str_detect(outputData$Recorder,"&") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
 
   #Check species
-  outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "") | (!stringr::str_detect(tolower(outputData$`Species Name`)," ") & (is.na(match(tolower(outputData$`Species Name`),speciesToIgnore$Species)))) | stringr::str_detect(tolower(outputData$'Common Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(scientific$term)),collapse = "|"))
+  #outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "") | (!stringr::str_detect(tolower(outputData$`Species Name`)," ") & (is.na(match(tolower(outputData$`Species Name`),speciesToIgnore$Species)))) | stringr::str_detect(tolower(outputData$'Common Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(scientific$term)),collapse = "|"))
+  #outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "") |  stringr::str_detect(tolower(outputData$'Common Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(scientific$term)),collapse = "|"))
+  outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "") |  stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(scientific$term)),collapse = "|"))
+  speciesToFlag$match <- "yes"
+  cnMatch <- dplyr::left_join(outputData, speciesToFlag, by=c("Common Name"="species"))
+  snMatch <- dplyr::left_join(outputData, speciesToFlag, by=c("Species Name"="species"))
+
+  outputData$flagSpecies <- outputData$flagSpecies | (snMatch$match == "yes")
+
+  outputData$flagCommon <- (cnMatch$match == "yes")
+
 
   #Check abundance length & zero counts
   outputData$flagAbun <- str_length(outputData$Abundances) >=10 | outputData$Abundances == "0" | str_detect(outputData$Abundances,"-/")
@@ -166,7 +176,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
 
 
   #Return only the columns we want including the flags so we can highlight issues later
-  OutputCols <- c("Recorder","Common Name","Species Name","Date","Grid Reference","Location Name","Abundances","Comments","Row No","flagRec","flagSpecies","flagAbun","flagCom","flagLoc","flagGR")
+  OutputCols <- c("Recorder","Common Name","Species Name","Date","Grid Reference","Location Name","Abundances","Comments","Row No","flagRec","flagSpecies","flagAbun","flagCom","flagLoc","flagGR", "flagCommon")
   data_subset <- dplyr::select(outputData,dplyr::all_of(unlist(OutputCols)))
   return(data_subset)
 
