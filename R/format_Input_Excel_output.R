@@ -95,13 +95,16 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   if (sum(outputdata$flagSpecies,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=speciesCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagGR,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=grCol,rows=1,style = highlightBoldStyle)}
 
-  #Format date and distance columns
+  #Format date columns
   openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=2:nrow(outputdata), style=dateStyle)
 
+  #Make the columns a decent width
   openxlsx::setColWidths(XL_wb,sheet_name,cols=1:lastCol,widths = 13.4)
 
+  #Turn on the filter by
   openxlsx::addFilter(XL_wb,sheet_name, rows= 1, cols=1:lastCol)
 
+  #Remove the temporary flag columns
   delete_temp_XL_cols(XL_wb,1,lastCol+1,nrow(outputdata)+1)
 
   return (XL_wb)
