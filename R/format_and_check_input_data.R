@@ -140,15 +140,14 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") | stringr::str_detect(tolower(outputData$Recorder)," and ") | stringr::str_detect(outputData$Recorder,"&") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
 
   #Check species
-  #outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "") | (!stringr::str_detect(tolower(outputData$`Species Name`)," ") & (is.na(match(tolower(outputData$`Species Name`),speciesToIgnore$Species)))) | stringr::str_detect(tolower(outputData$'Common Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(scientific$term)),collapse = "|"))
-  #outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "") |  stringr::str_detect(tolower(outputData$'Common Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(species$species)),collapse = "|")) | stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(scientific$term)),collapse = "|"))
   outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "") |  stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(scientific$term)),collapse = "|"))
   speciesToFlag$match <- "yes"
+
+  #Check both columns against species flag list
   cnMatch <- dplyr::left_join(outputData, speciesToFlag, by=c("Common Name"="species"))
   snMatch <- dplyr::left_join(outputData, speciesToFlag, by=c("Species Name"="species"))
 
   outputData$flagSpecies <- outputData$flagSpecies | (snMatch$match == "yes")
-
   outputData$flagCommon <- (cnMatch$match == "yes")
 
 
