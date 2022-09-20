@@ -2,7 +2,7 @@
 % Please edit documentation in R/setup_desig_config_values.R
 \name{setup_desig_config_values}
 \alias{setup_desig_config_values}
-\title{Setup a list of config keys and values for designations}
+\title{Setup a list of config keys and values for designations that need correcting}
 \usage{
 setup_desig_config_values()
 }
@@ -10,7 +10,7 @@ setup_desig_config_values()
 list
 }
 \description{
-Setup a list of config keys and values for designations
+Setup a list of config keys and values for designations that need correcting
 }
 \examples{
 config_pairs <- setup_desig_config_values()
