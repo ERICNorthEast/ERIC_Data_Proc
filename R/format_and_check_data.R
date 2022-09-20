@@ -42,6 +42,7 @@ format_and_check_data <- function(raw_data,OutputCols,newColNames, sensitivechec
   locsToIgnore <- setup_locs_to_ignore()
   swearWords <- setup_profanity_config()
   recordersToIgnore <- setup_recorders_to_ignore()
+  emailsToIgnore <- setup_emails_to_ignore()
 
   #Get the columns we're going to output  sort by taxon group & latin name & discard duplicates
   data_subset <- dplyr::select(raw_data,dplyr::all_of(unlist(OutputCols)))
@@ -64,7 +65,7 @@ format_and_check_data <- function(raw_data,OutputCols,newColNames, sensitivechec
 
 
   #Check for e-mail addresses
-  outputdata$flag4 <- stringr::str_detect(outputdata$Comments,"@")
+  outputdata$flag4 <- stringr::str_detect(outputdata$Comments,"@") & is.na(match(outputdata$`Comments`,table = emailsToIgnore$`Email`))
   outputdata$flag5 <- stringr::str_detect(outputdata$Recorder,"@") & is.na(match(outputdata$`Recorder`,table = recordersToIgnore$`Recorder`))
 
   #Sensitive species check
