@@ -61,6 +61,7 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   bold_style <- openxlsx::createStyle(textDecoration = "Bold")
   highlightStyle <- openxlsx::createStyle(fgFill="#FFFF00")
   highlightBoldStyle <- openxlsx::createStyle(fgFill="#FFFF00",textDecoration = "Bold")
+  invasiveStyle <- openxlsx::createStyle(fgFill="salmon", fontColour = "royalblue")
 
 
   dateStyle <- openxlsx::createStyle(numFmt="DATE")
@@ -88,6 +89,8 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   openxlsx::addStyle(XL_wb,sheet_name,cols=recorderCol,rows=which(outputdata$flagRec == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=speciesCol,rows=which(outputdata$flagSpecies == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=commonCol,rows=which(outputdata$flagCommon == TRUE)+1,style = highlightStyle)
+  openxlsx::addStyle(XL_wb,sheet_name,cols=speciesCol,rows=which(outputdata$flagInvasive == TRUE)+1,style = invasiveStyle)
+  openxlsx::addStyle(XL_wb,sheet_name,cols=commonCol,rows=which(outputdata$flagInvasive == TRUE)+1,style = invasiveStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=grCol,rows=which(outputdata$flagGR == TRUE)+1,style = highlightStyle)
 
   if (sum(outputdata$flagLoc,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=1,style = highlightBoldStyle)}
