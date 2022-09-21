@@ -1,11 +1,14 @@
 Location name
 37.1
 37.2
+37.200000000000003
+37.299999999999997
 37.3
 37.4
 37.5
 37.6
 37.7
+37.700000000000003
 60.1
 60.2
 60.3
@@ -23,16 +26,22 @@ Location name
 101.9
 161.1
 161.11
+161.11000000000001
 161.12
 161.13
+161.13999999999999
 161.14
+161.19999999999999
 161.2
 161.3
+161.30000000000001
 161.4
 161.5
 161.6
+161.69999999999999
 161.7
 161.8
+161.80000000000001
 161.9
 2901.1
 2901.2
@@ -190,6 +199,12 @@ Location name
 2946.7
 2946.8
 2946.9
+2950.1
+2950.2
+2950.3
+2950.4
+2950.5
+2950.6
 2952.1
 2952.2
 2952.3
@@ -218,12 +233,41 @@ Location name
 2957.7
 2957.8
 2957.9
+2958.1
+2958.11
+2958.2
+2958.3
+2958.4
+2958.7
+2958.8
+2958.9
 2959.1
 2959.2
 2959.3
 2960.1
 2960.2
+3422.1
+3422.11
+3422.2
+3422.3
+3422.4
+3422.5
+3422.6
+3422.7
+3422.8
+3422.9
+3431.1
+3431.2
+3431.3
+3431.4
+3431.5
+3431.6
+3431.7
+3431.8
+3431.9
 3436.1
+3436.2
+3436.3
 3436.4
 3436.5
 3436.6
@@ -233,11 +277,13 @@ Location name
 #NCN1 Coastal path Boulmer Longhoughton burn mouth
 #NCN1 Howick (PRoW 124/020) North end
 (East/)South Bank of River Tees NZ40072 10352 to NZ40121 10615
+(Near) Sect 5 Doxford farmwalk B
 (sample 3)
 *mid Teesdale (up to Newbiggin) 06 g
 *mid Teesdale (up to Newbiggin) 06 h
 "0.5Km E of Cuckoo House, Walworth"
 "1/2km, SE of Charlton, North Tyne"
+1000m south ofSinderhope on roadside.
 100yd below burn left bank
 100yd below burn right bank
 "100yd below burn,left bank"
@@ -271,6 +317,9 @@ Location name
 13th field on public footpath past Meadow View
 14th field on public footpath past Meadow View
 15th field on public footpath past Meadow View
+1km. north of Shilbottle
+1km. northwest of High Buston
+1km. west of High Buston
 200yds prior to the charity hall turn off on the flottterton to sharperton road
 250yd above shotley bridge
 "250yd,above shotley bridge"
@@ -278,6 +327,8 @@ Location name
 250yd. above Shotly Bridge
 250yd.above shotley bridge
 250yds above shotley bridge
+"28-36, A694"
+2km. northeast of Shilbottle
 2nd field on public footpath past Meadow View
 "2nd pond in Dam Wood, Beggarside Burn"
 300yd below gas works
@@ -285,12 +336,15 @@ Location name
 300yd.below gas works
 3761 Welton
 3rd field on public footpath past Meadow View
+"400865 , 519071"
 "4307 Cheswick Barns, Northumberland"
 "4630 Temperance Yard, Ebchester"
 4647 Nelson Industrial Estate
 4677 Wylam
 4677 Wylam 
 4th field on public footpath past Meadow View
+"54.836210,-1.470609"
+"54.862679,-1.467717"
 5th field on public footpath past Meadow View
 6th field on public footpath past Meadow View
 7-Mile farm wood: Blagdon
@@ -347,6 +401,7 @@ At sea 55 25.834N 01 33.228W
 Aycliffe Nature Park CWS 7.40
 Aycliffe Park 2000 pond
 "Aycliffe Park 2000, pond imediately north west."
+"Aycliffe Village, Newton Aycliffe DL5, UK"
 "B 6344, Cragside"
 b6307
 "Backworth, new (2003) pond and banks"
@@ -359,9 +414,13 @@ Baldersdale 04 d
 Baldersdale 09 a
 Baldersdale 10 a
 Baldersdale 10 b
+Bamburgh golf course PRoW 204/003
 "Bank of R. Wear, downstream of Stanhope, Weardale, North Pennines AONB_25 Apr 2020"
 "Bank of River Tees, NZ34453 12021 to NZ34628 12108"
+Barlow Burn NR DWT NZ 15989 62061
+barnes park sunderland sr4
 "Basselton Beck, NZ45429 14124 to NZ45301 14700"
+"Bay 1, Spittal"
 "Bay 2, Spittal"
 "Baydale Beck, Between sites 8 and 4 above"
 "Baydale Beck, Upstream of site 4 above"
@@ -383,10 +442,13 @@ Bearpark Woods - S8
 Beldon Burn CWS 3.29
 "Bellyside Burn, west of stream ca. 1900'"
 "Bellyside Burn, west of stream ca. 2200'"
+"Belmont, Durham DH1"
+"Belmont, Durham DH1, UK"
 below Milecastle 49 on Hadrians Wall
 Berwick - by the 1895 Gate
 "Berwick Coast, 100 metres S of path down cliff"
 "Berwick Coast,100 metres S of big cave"
+Berwick Riverside North-S3
 "Between Ponds 2 & 3, Rainton Meadows"
 "Between Ponds 3 & 4, Rainton Meadows"
 Billingham : Pond At 47 Barton Crescent
@@ -394,6 +456,7 @@ Billingham Beck Country Park 2 - Footbridge pond
 "Billingham Beck, St Columbus Av 2, Billingham Beck"
 Billingham Sewage Treatment Works Tank 1 north
 Billingham Sewage Treatment Works Tank 2 south
+"Billingham, Stockton 0n Tees"
 Birk Hat; Site b06b
 Bishop Auckland DL6RP
 Bishop Middleham 3-Mile Walk
@@ -436,14 +499,20 @@ BOLAM5
 Bothal: Sitecode - Nr02.0770
 Bowbank; Site lo1c
 bowes to brough a66
+Bowes Valley NR (Kibblesworth Brickworks) NZ 2505 655984
+Bowes Valley NR NZ 2505 655984
 Bowesfield loop 1 perimeter ditch
 Bowesfield Loop 1 pond
 Bowesfield Loop 2 pond
 Bowesfield Loop 3 pond
+"Bowlees Visitor Centre garden, Teesdale, North Pennines AONB_12 May 21"
 Bowlees; Site nm8
 Bowlees_2
 Bp.Middleham 3Mile Walk
 "Brambles Farm petrol station, TS3"
+Brasside Pond Durham SSI NZ 29149 45477
+"Brasside, Durham DH1"
+"Brasside, Durham DH1, UK"
 Bridge Of Aln: Sitecode - Nr02.0340
 Bridge on Pond 1 - Rainton Meadows
 "Bridge on Pond 1 - Rainton Meadows, Pond 1"
@@ -462,10 +531,28 @@ Broomhope Farm (7552)
 Broomhope Farm (9854)
 "Broughton Beck, NZ54079 08061 to NZ 54656 08387"
 Brusselton Reservoir Pond CWS 7.33
+Burdon Moor Gateshead NZ 21580 57413
+Burn Hill - S1
+Burn Hill - S10
+Burn Hill - S11
+Burn Hill - S12
+Burn Hill - S13
+Burn Hill - S14
+Burn Hill - S15
+Burn Hill - S2
+Burn Hill - S3
+Burn Hill - S4
+Burn Hill - S5
+Burn Hill - S6
+Burn Hill - S7
+Burn Hill - S8
+Burn Hill - S9
 Burnhill Junction and Longburn Ford CWS 1.51
 Burnhope Burn Wood CWS 1.3
 Burnhope Pond CWS 1.17 pond and marsh
+Burnhope Ponds DWT NZ 18467 48272
 "Butsfield and Quick Burn CWS 1.13, Byerley House Wood"
+"Buttercross on Ravensworth estate. "
 Byrness Local Wildlife Site (Parcel 1 with elec/gas substation)
 Byrness Local Wildlife Site (Parcel 2 most like a meadow)
 "Byrness Local Wildlife Site (Parcel 3 riverside, with the ruts)"
@@ -478,6 +565,20 @@ Carlin How 1 - large
 "Carry Burn, 70 yards south of burn"
 "Carshope 1, River Coquet"
 Carway Bank. Road to West Blackdene from Section 1 road
+Cassop NNR - S1
+Cassop NNR - S10
+Cassop NNR - S11
+Cassop NNR - S12
+Cassop NNR - S13
+Cassop NNR - S14
+Cassop NNR - S2
+Cassop NNR - S3
+Cassop NNR - S4
+Cassop NNR - S5
+Cassop NNR - S6
+Cassop NNR - S7
+Cassop NNR - S8
+Cassop NNR - S9
 Cassop Vale 12B
 Cassop Vale Circular Walk (NZ3438-NZ3337/8/9)
 Castle Eden Dene - 100m. West of the twin bridges on the South Side Path
@@ -507,6 +608,20 @@ Castle Eden Dene - South Side Path from No.8 Bridge
 Castle Eden Dene 1 RIS site 467
 Castle Eden Dene 2 RIS site 484
 Castle Eden Dene 43J
+Castle Eden Dene NNR - Bellister Park  - S1
+Castle Eden Dene NNR - Bellister Park  - S2
+Castle Eden Dene NNR - Bellister Park  - S3
+Castle Eden Dene NNR - Bellister Park  - S4
+Castle Eden Dene NNR - Bellister Park  - S5
+Castle Eden Dene NNR - Bellister Park  - S6
+Castle Eden Dene NNR - Bellister Park  - S7
+Castle Eden Dene NNR - Bellister Park - S1
+Castle Eden Dene NNR - Bellister Park - S2
+Castle Eden Dene NNR - Bellister Park - S3
+Castle Eden Dene NNR - Bellister Park - S4
+Castle Eden Dene NNR - Bellister Park - S5
+Castle Eden Dene NNR - Bellister Park - S6
+Castle Eden Dene NNR - Bellister Park - S7
 Castle Eden Dene NNR - West End - S1
 Castle Eden Dene NNR - West End - S2
 Castle Eden Dene NNR - West End - S3
@@ -527,8 +642,13 @@ casual a66
 "Cat Back, C.5 Miles N. Of Wolsingham"
 "Cat Castle Quarry pond, CWS 6.33"
 Cawfields - milecastle 42 and roman wall
+Chapel House NE5
+Chapman’s Well Pond NZ 18115 49169
+Chapmans Well Pond NZ 18115 49169
 Charlton burn 126/026
+Chester Le Street River Wear NZ 28145 51225
 Chester-le-Street - Park View 6th Form Centre Grou
+"Chester-le-Street DH2, Vereinigtes Königreich"
 Cheviot SSSI Cmpt 10 NW
 Cheviot SSSI Cmpt 10 SE
 Cheviot SSSI Cmpt 10 SW
@@ -547,6 +667,7 @@ Cheviot SSSI Compartment 9 SW
 Chillingham Castle 1; The Lake
 Chollerton: Sitecode - Nr02.1810
 "Church Burn 2, Church Burn"
+"Church, Dipton, Stanley DH9, UK"
 "Clara Vale 2, River Tyne"
 "Clara Vale, 12 North View (garden)"
 Claremont Rd. Newcastle. NE2
@@ -555,9 +676,12 @@ Claremont Rd. Newcastle. NE2
 Clennell (3)
 Clennell (4)
 Cliff Rigg SSSI (Community 1)
+Cliff Rigg SSSI (Community 2)
+"Clockburn Lake, Derwent Trail NZ 18438 60277"
 "Close to site 5 above, River Derwent"
 Coastal path Howick burn to bathing house 124/020
 Coastal path Winstonescarp sect NCC F/P 12/039section
+Coastal path Winstonescarp sect NCC F/P 12/039section 
 Coatham Common (Site 1)
 Coatham Common (Site 10)
 Coatham Common (Site 2)
@@ -568,6 +692,10 @@ Coatham Common (Site 6)
 Coatham Common (Site 7)
 Coatham Common (Site 8)
 Coatham Common (Site 9)
+Coatham Woods NZ 39805 15884
+Coathham Woods (NZ 39805 15884)
+Coathham Woods NZ 39805 15884
+"Cock o the North - South Road, Durham DH1, UK"
 "Cockfield Fell 1, River Gaunless"
 "Cockfield Fell 2, River Gaunless"
 "Cockfield Fell 3 - footbridge, River Gaunless"
@@ -592,14 +720,20 @@ Consett no.1 Pond
 "Consett, No.1 Ind. Est. Pond"
 Cooper House 2 / River Tees
 "Cor Burn 1, Cor Burn"
+Corus pond 1 - lagoon
+Corus pond 3 - shaded ditch
 Corus Ponds 5 & 6
 Corus South works - pond 7 'lake windermere
 "Cottonshope Burn 1, Cottonshope Burn"
 "Cottonshope Burn 2, Cottonshope Burn"
 "Coul Beck and Goulton Beck, NZ47632 03818 to NZ47382 06011,"
+"County Hospital - North Road, Durham DH1"
+"County Hospital - North Road, Durham DH1, UK"
 "Cow Hill, D4 Cow Hill Butterfly Transect 1"
 Cowpen Bewley 2 (Woodland Park)
 Cowpen Bewley 3 Ponds
+Cowpen Bewley NR NZ 48870 25208
+Cowpen Bewley Woodland Park TS23 3NF 3NF
 "Cowpen Bewley, 3 Ponds"
 "Cowpen Bewley, 3Ponds"
 "Cowshill. Red Site 8, A689 North verge, junction to Copthill"
@@ -629,6 +763,9 @@ Crowden Hill Plantation - S4
 Crowden Hill Plantation - S5
 Cumby Pond CWS 7.11
 D1 Haltonlea Fell Buyers Pike
+D1 Haltonlea Fell Buyers Pike : Buyers Pike
+D2 Haltonlea Fell Midgeholme Quarry
+D2 Haltonlea Fell Midgeholme Quarry : Black Burn (south of track
 D2 Haltonlea Fell Midgeholme Quarry : Planting Area
 D2 Midgeholme Quarry Track Butterfly Transect 2
 D4 Haltonleagate Pasture : Cow Hill
@@ -639,30 +776,54 @@ D4 Haltonleagate Pasture : Cow Hill
 Daisy Hill 1/2
 Daisy Hill 3/4
 Daisy Hill 7/8/9/10
+Daisy Hill NR (NZ 25112 48945)
+Daisy Hill NR NZ 25112 48945
 -Daisy Hill South Pond NZ 25113 48473
 Darlington (45 Brinkburn Avenue)
 Darlington DL1 2 DQ
+"Darlington DL3, UK"
 "Deepdale Beck, Upstream of site 1 above"
+"Deernes Valley, Ushaw Moor, Durham DH7, UK"
 "Delf Burn 1, Delf Burn"
+Denemouth NNR - S1
+Denemouth NNR - S2
+Denemouth NNR - S3
+Denemouth NNR - S4
+Denemouth NNR - S5
+Denemouth NNR - S6
+Denemouth South Bank - S1
+Denemouth South Bank - S2
+Denemouth South Bank - S3
+Denemouth South Bank - S4
+Denemouth South Bank - S5
+Denemouth South Bank - S6
 "Derwent Street, Middlesbrough, TS3"
 Derwent Valley 07 d
 Derwent Valley 09 a
 Derwent Walk C.5
 Derwent Walk C4 9 Arches
 Derwent Walk Country Park - Valley - 9 Arches Viaduct
+Devils Water NE of Juniper North&#039;d
 "DH1, Durham, England, GB"
 DH2
+"DH3, Chester-Le-Street, England, GB"
 "DH4, Houghton-le-Spring, England, GB"
 DH7 garden
 "DH8, Consett, England, GB"
 "DH8, Durham, England, GB"
+"Dickens, McClean-Cooks 3in1 pond -Hutton Hall GC"
+DL2
 "DL2, Darlington, England, GB"
+DL3
+"DL3, Darlington, England, GB"
 Doctor's Gate Quarry ponds (2)
 "Dormouse Box 74, Stawardpeel Wood, Catton"
 "Downstream of site 1 above, Moors Burn/Rainton Burn"
 "Downstream of site 1 above, River Wear"
 "Downstream of Site 5 above, River Gaunless"
 Doxford bridleway 126/026
+Doxford butterfly transect A sect.2
+Doxford butterfly transect A section1
 Doxford farm bridleway 126/026
 Doxford Farm Walk A - S1
 Doxford Farm Walk A - S2
@@ -676,6 +837,7 @@ Doxford Farm Walk B - S2
 Doxford Farm Walk B - S3
 Doxford Farm Walk B - S4
 Doxford Farm Walk B - S5
+Doxford farm walk B section1
 Doxford farm walk PRoW 126/026
 Druridge Bay - S1
 Druridge Bay - S10
@@ -701,6 +863,7 @@ Durham. No.4 Brinefield (grassland)
 Durham. No.6 Brinefield
 Durham. Sunderland 2 RIS site 327
 Durham. Thrislington Quarry NNR (Comp 6)
+E/B 100y East of Stainmore Café
 "E3 Offices, Wark"
 Eaglescliffe Golf course 3 - Millenium pond 1
 East Allen at Byerhope - 1.5km stretch downstream from NY8512846440
@@ -732,6 +895,7 @@ East Allendale 39 b
 "East Bank of River Tees, NZ35194 10726 to NZ34625 11404"
 East Briscoe; Site b01b
 "East end Crawley Edge, Stanhope, Weardale, North Pennines AONB_6 May 2020"
+"East Loftus (001), Saltburn-by-the-Sea, UK"
 "East of site 1 above, Brasside Ponds"
 east of the island right up to the No1a bridge next to the A19 tunnel.
 East Park - Hardwick Park - S1
@@ -745,6 +909,7 @@ EGGLESTON BURN. Red Site 10 Disued Quarry North Verge Opp Ornella Farm
 EGGLESTON BURN. Red Site 11 Foggerthwaite Opp View point Car Park
 EGGLESTON BURN. Red Site 12 Whistle Crag B6282 North Verge
 EGGLESTON BURN. Red Site 2 West of entrance to Burncroft Farm north verge
+EGGLESTON BURN. Red Site 2 West of entrance to Burncroft Farm north verge 
 EGGLESTON BURN. Red Site 3 opposite Burncroft Farm Gateway  South Verge
 EGGLESTON BURN. Red Site 5 Toby Hill Farm entrance south verge
 EGGLESTON BURN. Red Site 6 opp access to Burncroft
@@ -757,11 +922,21 @@ Elsdon Burn 1 & 2 sites
 "Elsdon Burn 2, Elsdon Burn"
 Elton Rookery Wood Compartment 4 (Wilderness)
 Elton Rookery Wood Compartment 5 (Wilderness)
+Embleton Quarry - S1
+Embleton Quarry - S2
+Embleton Quarry - S3
+Embleton Quarry - S4
+Embleton Quarry - S5
+Embleton Quarry - S6
+Embleton Quarry - S7
+Embleton Quarry - S8
 English Coastal path PRoW 126/001 Long Nanny -Newton Links
 ETTERSGILL. Red site 1 B6277 west of East Friar House access road
 ETTERSGILL. Red site 2 B6277 west of Ettersgill road junction
+"Ewbank Avenue, Fenham, Ne4"
 Fallowden hall footpath 126/021
 Fallowden mill footpath 126/023
+"Far Pasture Ponds (Lockhaugh), Derwent Walk  NZ 17250 59138"
 Feeder 03 - Arcot Hall Golf Club
 Feeder 03/ Arcot Hall Golf Club
 Feeder 04 - Arcot Hall Golf Club
@@ -947,6 +1122,7 @@ Feeder R58 - Seaton Delaval.
 "Ferryhill Cut CWS 7.3, southern pond area."
 Ferryhill Cut. 1m. East of.
 field below 2nd field along footpath from Meadow view
+Field corner PRoW 204/003
 "Fisher Lane Ends,No 1 Pond"
 "Fisher Lane Ends,No 2 Pond"
 "Fisher Lane Ends,No 4 Pond"
@@ -960,6 +1136,8 @@ Flatts Lane Eston Moor - S7
 Flatts Lane Eston Moor - S8
 Flatts Lane Eston Moor - S9
 Flatts Wood CWS 6.36
+FlattsLaneNormanby1
+FlattsLaneNormanby2
 FlattsLaneNormanby3
 FlattsLaneNormanby4
 "Fletchertown, Cumbria, CA& 1bd"
@@ -972,6 +1150,7 @@ Ford & Etal (71)
 Ford & Etal (72)
 Ford Moss NR 3; Main ditch
 "Forest Drive 2, Bedburn Beck"
+"Forest in Teesdale, upper Teesdale, North Pennines AONB_4 Aug 21"
 Forest-in-Teesdale; Site nm4
 Formby L37 2DF 3 St Luke's Church Road
 "Forthburn Beck, Downstream of site 5 above"
@@ -982,8 +1161,11 @@ From NY 64474 56000 to NY63999 57124
 "Frosterley. Red Site 5, A689 North verge opp Green Bank layby"
 "Frosterley. Red Site 6, A689 east of Willow Green Bridge"
 Gainford Spa Wood CWS 6.22
+"Gateshead NE8, Verenigd Koninkrijk"
 Gateshead NE9 UK
 Gauging Wr: Sitecode - Nr02.0790
+GELTSDALE COMPARTMENT D1 Byers Pike D1 Haltonlea Fell Buyers Pike
+GELTSDALE COMPARTMENT D2 Midgeholme Quarry D2 Haltonlea Fell Midgeholme Quarry
 "Geltsdale, GELTSDALE_RSPB, D4 Haltonleagate Pasture : Cow Hill"
 Gibside - S1
 Gibside - S10
@@ -995,6 +1177,7 @@ Gibside - S6
 Gibside - S7
 Gibside - S8
 Gibside - S9
+Gibside National Trust NZ 18056 58768
 "Glad Tidings5, 500m off Seahouses. Northumberland"
 glebe estate Norton Stockton on Tees ts 20 1re
 Glendale sr7 ols
@@ -1002,6 +1185,20 @@ Glendale sr7 ols
 "Golf Course south 1, River Browney"
 "Golf Course south 2, River Browney"
 "Golf Course, 16th"
+Gosforth Nature Reserve - S1
+Gosforth Nature Reserve - S1 & S3
+Gosforth Nature Reserve - S1 & S4
+"Gosforth Nature Reserve - S1, S2 & S4"
+"Gosforth Nature Reserve - S1, S4 & S5"
+Gosforth Nature Reserve - S2
+Gosforth Nature Reserve - S2 & S4
+Gosforth Nature Reserve - S2 & S5
+Gosforth Nature Reserve - S2 & S7
+"Gosforth Nature Reserve - S2, S4 & S5"
+Gosforth Nature Reserve - S3
+Gosforth Nature Reserve - S3 & S4
+Gosforth Nature Reserve - S4
+Gosforth Nature Reserve - S4 & S5
 "Gosforth Park 2, Gosforth"
 "Gosforth Park 3, Gosforth"
 Gosforth Park Nature Reserve - S1
@@ -1012,6 +1209,7 @@ Gosforth Park Nature Reserve - S5
 Gosforth Park Nature Reserve - S6
 "Gosforth Park,No 1 Crater"
 "Gosforth Park,No 2 Crater"
+"Grangetown, Sunderland.  SR2"
 "Grass outside Waterfront 4 offices, newburn Rivrside NE15 8NY"
 "Grassholme Reservoir - Sation 1, Tees"
 "Grassholme Reservoir - Station 1, Tees"
@@ -1024,9 +1222,11 @@ Grassholme Reservoir CWS 6.14
 "Grassholme Reservoir, Close to site 2 at confluence with Eller Beck"
 "Grassholme Reservoir, North of site 6 above"
 "Grassholme Reservoir, South of site 6 above"
+Grassland S of 689 near Mount Pleasant
 "Grasslees Burn 3, Grasslees Burn"
 "Grasslees Burn 4, Coquet"
 Great Eggleshpe Beck CWS 6.4
+"Great Lumley, Chester-le-Street DH3, UK"
 Green Fell End 1 and 2
 Greenabella (Pond 4)
 Greenabella Marsh - S1
@@ -1039,6 +1239,7 @@ Greenabella Marsh - S7
 Greenabella Marsh - S8
 Greenabella Marsh - S9
 "Greenbella Marsh 6, Huntsman Tioxide"
+"Greencroft NR, Anfield Plain NZ 16357 51228"
 Greenlee Farm field1
 Greenlee Farm field2
 Greenlee Farm field3
@@ -1047,10 +1248,12 @@ Greenlee Farm field5
 Greenlee Farm field6
 Greenlee Farm field7
 Greta Valley/Bowes area 05 a
+Guis Walkway -2nd pond wetland (scrub to sluice)
 "Gunnerton Burn 2, Gunnerton Burn"
 "Hadrian Court, Garth 33 NE12 6DD, Killingworth"
 "Hadrian Court, Garth 33, NE12 6DD, Killingworth"
 Hag Bank (9b)
+Hallow Hill SSSI (field around NZ 157 658)
 "Halsall, L39 8RP Garden"
 "Haltwhistle Burn 2, Haltwhistle Burn"
 Hamsterley Forest 6 tree pond
@@ -1069,6 +1272,7 @@ Hardwick Park - S4
 Hardwick Park - S5
 Hardwick Park - S6
 Hardwick Park - S7
+Hardwick Park NZ 34536 29104
 "Haredale Pond 2, Swinsow Dale Beck"
 "Hareshaw Burn 2, Hareshaw Burn"
 Harraton Outhouse 10 F
@@ -1076,6 +1280,7 @@ Hart to Haswell - S2
 Hartburn Ambassador Site (Line 1)
 Hartburn Ambassador Site (Line1)
 Hartburn Ambassador Site (Line2)
+Hartburn Beck NZ 42917 17545
 Hartburn: Sitecode - Nr02.0890
 "Harthope Beck, C. 2 Miles S. Of Wolsingham"
 Harthope Moor; Site m5
@@ -1109,6 +1314,11 @@ Herdship2_1
 Herdship2_2
 Herdship2_3
 Herdship2_4
+"Hesleden Dene NR, DWT NZ 44168 37924"
+Hetton Bogs SSSI NZ 34615 48578
+High Browngill 2.
+High Browngill 3.
+High Browngill 4.
 "High Burnigill 2, River Browney"
 HIGH FORCE. Red site 3 B6277 west of High Force Quarry north verge
 "High Gosforth Park,Blackroad plantation 100 yds West of Driving range"
@@ -1135,11 +1345,14 @@ HOLYWELL POND AND HOLYWELL DENE - S6
 Holywell Pond and Holywell Dene- S9
 "Holywell Subsidence Pond 1, Seaton Delaval"
 "Holywell Subsidence Pond 2, Seaton Delaval"
+Horden SR8
+"Horden SR8, UK"
 Horsleyhope Burn - S1
 Horsleyhope Burn - S2
 Horsleyhope Burn - S3
 Horsleyhope Burn - S4
 Horsleyhope Burn - S5
+Houghall Pond NZ 28089 40759
 "Houxty Burn 1, Houxty Burn"
 Howburn Br: Sitecode - Nr02.1100
 Howick 1; Burn and Pools
@@ -1188,7 +1401,16 @@ Jarrow (Pond 1)
 Jarrow (Pond 2)
 "Jetty (1), River Tees"
 "Jetty (2), River Tees"
+Joyce's butterfly transect s1
+Joyce's transect Doxford farmwalkA S1
+Joyce's transect Doxford farmwalkA S3
+Joyce's transect Doxford farmwalkA S4
+Joyce's transect Doxford farmwalkA S5
+Joyce's transect Doxford farmwalkB S1
 "Jubilee Street, TS3"
+"Kelloe, Durham DH6"
+"Kelloe, Durham DH6, UK"
+"Kenton, Newcastle upon Tyne NE3, UK"
 "Kielder Burn 1, Kielder Burn"
 "Kielder Burn 2, Kielder Burn"
 "Kielder Castle 1, Kielder Burn"
@@ -1217,10 +1439,12 @@ Kyo - S6
 Kyo - S7
 Kyo - S8
 Kyo - S9
+"Lady Haugh, Derwent Walk NZ 17636 59225"
 "Lagoon CL5, Fontburn Water Treatment Works"
 "Lagoon CL6, Fontburn Water Treatment Works"
 Lagoon CL6a Fontburn Water Treatment Works
 Lagoon CL7 Fontburn Water Treatment Works
+Lamesley Pastures NR NZ 25235 57636
 "Land opposite 4 Waterford Crescent, Whitley Bay"
 lane head quarry - S1
 lane head quarry - S10
@@ -1244,6 +1468,7 @@ LANGDON BECK. Red site 12  B6277 adjacent to greenhills junction North verge
 LANGDON BECK. Red site 13  B6277 Bowes close North east verge
 "LANGDON BECK. Red site 14  B6277 North west of Bowes close, North east verge above retaining wall"
 "LANGDON BECK. Red site 15  B6277 North west of Red site 14,  North east verge"
+"LANGDON BECK. Red site 15  B6277 North west of Red site 14,  North east verge "
 "LANGDON BECK. Red site 16  B6277 south east of Lingy Hill, north east verge"
 "LANGDON BECK. Red site 17  B6277 south east of Peases cottage, north east verge"
 "LANGDON BECK. Red site 18  B6277 North west of Peases cottage, north east verge"
@@ -1260,6 +1485,7 @@ LANGDON BECK. Red site 6 B6277 South of Langdon Beck bridge west verge
 Langdon Beck; Site nm3
 "Langleeford, hay meadow near to at 800ft."
 "Langley Burn 1, Langley Burn"
+"Lazenby Bank Conservation Area A1,M1,N2"
 Lazenby Bank Conservation Area E1
 Lazenby Bank Conservation Area E2
 Lazenby Bank Conservation Area G1
@@ -1271,6 +1497,8 @@ Lazenby Bank Conservation Area M1
 Lazenby Bank Conservation Area M2
 Lazenby Bank Conservation Area N1
 Lazenby Bank Conservation Area N2
+Lead Road Healey North&#039;d
+Leazes Park NE1
 Liddells Wood - S1
 Liddells Wood - S10
 Liddells Wood - S11
@@ -1338,11 +1566,14 @@ Low Barns - S6
 Low Barns - S7
 Low Barns - S8
 Low Barns - S9
+Low Barns DWT (NZ 15908 31498)
+Low Barns DWT NZ 15908 31498
 "Low Bishopley Cave 2, Frosterley"
 LOW HARPERLEY. Red Site 1 A689 East of Harperley POW Camp
 LOW HARPERLEY. Red Site 2 A689
 "LOW HARPERLEY. Red Site 3 A689, next to field gate at bottom of bank"
 "Low Newton Junction LNR, Brasside CWS 4.20"
+Low Newton Junction NR NZ 28425 44931
 "Lucite 1, Billingham"
 "Lucite 2, Billingham"
 "Lucite 3, Billingham"
@@ -1362,6 +1593,7 @@ Lynemouth - stone wall by gate 1/2 mile E
 Maidendale Meadow Field 5 (Railway Cottage Field)
 Mainsforth Pond (east) CWS 7.28
 "Makendon, at 1200'"
+Malton Ponds DWT NZ 18246 45810
 "marker post ""24"""
 Marsden Old Hall Quarry LNR - S1
 Marsden Old Hall Quarry LNR - S2
@@ -1387,6 +1619,7 @@ Maze Park - S8
 Maze Park - S9
 Meldon Park: Sitecode - Nr02.0800
 mem. hide 20 ft away
+"Metrology Software Products Ltd, 6F Greensfield Court"
 Mickleton Pond CWS 6.40
 mid South Tynedale (up to Alston) 01 a
 mid South Tynedale (up to Alston) 06 b
@@ -1449,6 +1682,7 @@ Milecastle 39 dip slope to east
 Milecastle 40 valley bog to east
 Milfield 2; Lake
 Milkwellburn Wood - S7
+Milkwellburn Wood DWT NZ 10734 57753
 Mill House Farm Ponds (3)
 Millfield Meadow Saltburn - S1
 Millfield Meadow Saltburn - S2
@@ -1461,6 +1695,7 @@ Millfield Meadow Saltburn - S8
 Mitford: Sitecode - Nr02.0860
 MITFORD1
 "Mohope Burn 2, Mohope Burn"
+Moorhouse 2: RIS Site 582
 "Morpeth 1st School, NE61 1TL"
 "Morpeth, 1 Mile W, R. Wansbeck,"
 Morpeth: Sitecode - Nr02.0780
@@ -1489,9 +1724,14 @@ NCN 1 near Chesters farm nr. Warren Mill
 NCN1 PRoW 203/028 (Restricted byway)
 NCN1 Sugar sands
 "NCN7 behind the Wheatsheaf Inn, Birtley"
+"NE3, Newcastle Upon Tyne, England, GB"
+NE6
+near Darlington (2-3 miles of A1M)
+"Near Stanhope, Weardale, North Pennines AONB_10 Apr 21"
 Neasham Brickworks small ponds (3)
 Ned's Whin 6/7
 Ned's Whin 9/10/12
+"New Kyo South, Stanley Burn NZ 18266 51111"
 New Ridley Road - FH 5 Field 1
 New Ridley Road - H 10 J 2.1.2-J2.2.2
 New Ridley Road - H 11 J2.1.2
@@ -1514,6 +1754,11 @@ Newbiggin Pond 1. Life Belt
 Newbiggin Pond 2. Lake on road
 Newbiggin Pond 3. Typha pond
 Newbiggin; Site nm9
+"Newcastle upon Tyne NE1, UK"
+"Newcastle upon Tyne NE2, UK"
+"Newcastle upon Tyne NE3, UK"
+"Newcastle upon Tyne NE4, UK"
+"Newcastle upon Tyne NE5, UK"
 Newly designated coastal path route (BBS-3-SO14 N end.
 "Newsham Wood, N/E bank of R. Tees NZ38360 10860 to NZ39112 10680"
 "Newton Aycliffe , durham DL1"
@@ -1570,6 +1815,7 @@ North Northumberland (Cheviotland). Newton Point s.8
 "North Northumberland (Cheviotland). The Due, Dunstanburfg NWT Site N16"
 North Northumberland (Cheviotland). Tommy-the-Miller's Field - S1
 North Northumberland (Cheviotland). Tommy-the-Miller's Field - S2
+"North of Wolsingham, Tunstall valley, North Pennines AONB_23 Apr 21"
 "North Shields, A 1058 Coast Road 2x2"
 North York Moors: Soligenous (Oligotrophic Mire 1)
 North York Moors: Soligenous (Oligotrophic Mire 2)
@@ -1577,6 +1823,10 @@ Nr M1 Newton Ayc.
 Nr M1 Newton Ayc.East Side
 Nr QE2 School
 NT6--0--
+"NT9301 Cat Law, 3km. southwest of Holystone"
+"NT9402 North Wood, 1km. west of Holystone"
+"NT9403 Woodhall Wood, 1km. west of Sharperton"
+"NT9405 Well House Farm, 1km. northeast of Harbottle"
 NT9910 S1
 NT9910 S10
 NT9910 S2
@@ -1596,6 +1846,7 @@ NT-NY9889 - S5
 NT-NY9889 - S6
 NT-NY9889 - S7
 NT-NY9889 - S8
+NT-NY9889 - S9
 NT-NY9989  S1
 NT-NY9989  S10
 NT-NY9989  S2
@@ -1606,6 +1857,58 @@ NT-NY9989  S6
 NT-NY9989  S7
 NT-NY9989  S8
 NT-NY9989  S9
+NT-NY9989 S1
+NT-NY9989 S2
+NT-NY9989 S3
+NT-NY9989 S4
+NT-NY9989 S5
+NT-NY9989 S6
+NT-NY9989 S8
+NT-NY9989 S9
+NT-NZ0185  - S1
+NT-NZ0185  - S10
+NT-NZ0185  - S2
+NT-NZ0185  - S3
+NT-NZ0185  - S4
+NT-NZ0185  - S5
+NT-NZ0186 - S1
+NT-NZ0186 - S10
+NT-NZ0186 - S2
+NT-NZ0186 - S3
+NT-NZ0186 - S4
+NT-NZ0186 - S5
+NT-NZ0186 - S6
+NT-NZ0186 - S7
+NT-NZ0186 - S8
+NT-NZ0186 - S9
+NT-NZ0285 - S1
+NT-NZ0285 - S10
+NT-NZ0285 - S3
+NT-NZ0285 - S4
+NT-NZ0285 - S5
+NT-NZ0285 - S6
+NT-NZ0285 - S7
+NT-NZ0285 - S8
+NT-NZ0287 - S1
+NT-NZ0287 - S10
+NT-NZ0287 - S2
+NT-NZ0287 - S3
+NT-NZ0287 - S4
+NT-NZ0287 - S5
+NT-NZ0287 - S6
+NT-NZ0287 - S7
+NT-NZ0287 - S8
+NT-NZ0287 - S9
+NT-NZ0288 - S1
+NT-NZ0288 - S10
+NT-NZ0288 - S2
+NT-NZ0288 - S3
+NT-NZ0288 - S4
+NT-NZ0288 - S5
+NT-NZ0288 - S6
+NT-NZ0288 - S7
+NT-NZ0288 - S8
+NT-NZ0288 - S9
 NT-NZ0388 - S1
 NT-NZ0388 - S10
 NT-NZ0388 - S2
@@ -1616,6 +1919,14 @@ NT-NZ0388 - S6
 NT-NZ0388 - S7
 NT-NZ0388 - S8
 NT-NZ0388 - S9
+NT-NZ0392 - S1
+NT-NZ0392 - S2
+NT-NZ0392 - S4
+NT-NZ0392 - S5
+NT-NZ0392 - S6
+NT-NZ0392 - S7
+NT-NZ0392 - S8
+NT-NZ0392 - S9
 NU0126 S1
 NU0126 S10
 NU0126 S2
@@ -1626,6 +1937,14 @@ NU0126 S6
 NU0126 S7
 NU0126 S8
 NU0126 S9
+NU0310 S1
+NU0310 S10
+NU0310 S2
+NU0310 S3
+NU0310 S4
+NU0310 S5
+NU0310 S6
+NU0310 S7
 NU0436 S1
 NU0436 S10
 NU0436 S2
@@ -1636,6 +1955,7 @@ NU0436 S6
 NU0436 S7
 NU0436 S8
 NU0436 S9
+"NU0701 Cragend Hill, 1km. south of Cragside"
 NU0934 S1
 NU0934 S10
 NU0934 S2
@@ -1647,7 +1967,12 @@ NU0934 S7
 NU0934 S8
 NU0934 S9
 NU13/1334 Easington
+NU1805 1km. west of Hazon High Houses
+NU1808 1km. west of Shilbottle
+"NU2009 Longdyke Steading, 1km. northeast of Shilbottle"
 NU2109 1km. northeast of Shilbottle Grange
+NU2208 1km. west of High Buston
+"NU2310 Pine Hill, 1km. south of Hipsburn"
 NU2404 - S1
 NU2404 - S10
 NU2404 - S2
@@ -1658,8 +1983,13 @@ NU2404 - S6
 NU2404 - S7
 NU2404 - S8
 NU2404 - S9
+NU2417 - S3
+"NU2516 Cushat Wood, 1km. south of Howick"
+"NU2617 Rumbling Kern, 1km. east of Howick"
 "Ny 654774, Padda Burn"
 "Ny 681737, R.Irthing"
+NY 941 462
+NY 945 466 Whiteheaps dam
 NY 94726 25074; Riverside
 NY5882 S9
 NY658 520 - across Hut Burn to Gelt Burn - along Gelt Burn
@@ -1669,6 +1999,7 @@ NY7189 S2
 NY7189 S7
 NY7--4--
 NY7482 - S7
+NY7482 - S8
 NY7--5--
 NY7--7--
 NY7968 S6
@@ -1700,6 +2031,10 @@ NY8479 S6
 NY8479 S7
 NY8479 S8
 NY8479 S9
+NY8545-1
+NY8545-2
+NY8545-3
+NY8545-4
 NY8583 - S1
 NY8583 - S10
 NY8583 - S2
@@ -1770,9 +2105,11 @@ NY9971 S6
 NY9971 S7
 NY9971 S8
 NY9971 S9
+NZ 11336 84456
 NZ 17735 59484
 NZ 24 - 10 KM Square
 NZ 25984 60026
+NZ 3205 8125
 NZ 34 - 10 KM Square
 NZ0184 S10
 NZ0184 S7
@@ -1821,9 +2158,15 @@ NZ1822  Hindberries Farm - S7
 NZ1822  Hindberries Farm - S8
 NZ1822  Hindberries Farm - S9
 NZ1822 Hindberries Farm - S1
+NZ1822 Hindberries Farm - S10
 NZ1822 Hindberries Farm - S2
 NZ1822 Hindberries Farm - S3
+NZ1822 Hindberries Farm - S4
+NZ1822 Hindberries Farm - S5
+NZ1822 Hindberries Farm - S6
 NZ1822 Hindberries Farm - S7
+NZ1822 Hindberries Farm - S8
+NZ1822 Hindberries Farm - S9
 NZ1849 S1
 NZ1849 S10
 NZ1849 S2
@@ -1893,9 +2236,12 @@ NZ6321 - S9
 NZ6612 S1
 NZ6612 S5
 NZ6811 S2
+NZ6811 S3
 NZ6811 S9
 Oakensham 3 ponds
 Oakenshaw (100 Acre Plantation)
+Oakenshaw Nature Reserve NZ 20664 36981
+Oakenshaw NR-NZ 20531 37063
 Oakpool_1
 Oakpool_2
 Oakpool_3
@@ -1923,6 +2269,7 @@ Park 2000. Aycliffe
 "Path to Pond 4, Rainton Meadows"
 Pegswood Moor Farm (Area 1)
 Pegswood Moor Farm (Area 3)
+Pelaw Quarry Ponds LNR NZ 31083 62652
 Pesspool Ponds (3) CWS 5.44
 PF1
 PF2
@@ -1944,6 +2291,7 @@ picktree j63
 Pikestone Brow; Site m2
 Pikestone Hurth-1
 Pikestone Hurth-2
+Pity Me Carrs Nature Reserve NZ 26780 45367
 Plankey (9a)
 Plankey Wood Compartment 9b
 "Police Building on Kings Road, North Ormesby , TS3"
@@ -1965,11 +2313,18 @@ Pond 9 - Sacred Heart Pond
 "Ponteland Park 1, River Pont"
 "Ponteland Park 2, River Pont"
 "Ponteland Park 3, River Pont"
+"Pow Hill Country Park, nr Edmundbyers, North Pennines AONB_5 June 21"
 Pow Hill Meadow CWS 3.44
 "Private Garden,5 Towhouse Green, Bardon Mill"
 PRUDHOE1
+Public footpath 218/023
 Puddingthorne Quarries CWS 3.35
 Q E 2 Park Ashington
+Q1533
+Q1534
+Q1535
+Q1536
+Q1537
 "QE 2 PARK, ASHINGTON"
 QE2
 QE2 Country Park
@@ -1987,12 +2342,16 @@ Quarry House Moor 2; Ponds
 Queen Elizabeth 11 Country Park
 Queen Elizabeth 11 Country Park.
 Queens Meadow Pond 7W
+Rabbitbank Wood DWT NZ 11505 48124
 "Railway Land near Thornaby/Middlesborough, NZ47592 19265 to NZ47831 19483"
 Rainton Meadows (Pond 1)
 Rainton Meadows (Pond 2)
 Rainton Meadows (Pond 4)
 Rainton Meadows 2nd Pond
 Rainton Meadows 5th Pond
+Rainton Meadows DWT (NZ 32526 48367)
+Rainton Meadows DWT NZ 32526 48367
+Rainton Meadows Joes Pond DWT NZ 32846 48657
 Rainton Meadows P2 (AK)
 "Rainton Meadows, 2nd Pond"
 "Rainton Meadows, 5th Pond"
@@ -2146,6 +2505,7 @@ River Wear. Upstream of site 5 above
 Road 1/2 mile NE of Linton Pond
 road side bushes a689 near halton-lea-gate
 Road to West Blackdene from Section 1 road
+Roadside b6295 Allendale near road to St Peters.
 "Rock upstream of site 5 above, River Deerness"
 "Rock upstream of site 6 above, River Deerness"
 "ROMALDKIRK. Red Site 19 west of Beer Beck, Crossett Hill B6277 south verge"
@@ -2177,8 +2537,12 @@ RSPB Saltholme - S6
 RSPB Saltholme - S7
 RSPB Saltholme - S8
 RSPB Saltholme - S9
+RSPB Salthome/Dormans Pool NZ 50589 23140
 "Ryal,1.5Km Ese Of"
+"Ryhope, Sunderland SR2, UK"
 Ryton Willows : C5/7
+Sacriston DH7
+"Sacriston DH7, UK"
 "Saline Lagoon, No4 Brinefield"
 "Salter Wood (Transects 4a & 4b), Whinfell Forest"
 "Saltersgill Beck through Pit Wood, NZ42111 10719 to NZ41774 10654"
@@ -2191,6 +2555,8 @@ SayerHill2_2
 SayerHill2_3
 SayerHill2_4
 Scales Cross (A 68)
+"School Aycliffe, Newton Aycliffe DL5"
+"School Aycliffe, Newton Aycliffe DL5, UK"
 "Scotch Ghyll, Pottery Bank, Fulbeck, KEV1 and Northgate"
 Seaham SR7
 "Seaham SR7, UK"
@@ -2198,6 +2564,7 @@ Sect 1 Doxford Farm walk A
 Sect 1 Doxford Farm walk B
 Sect 2 Doxford Farm Walk A
 Sect 2 Doxford Farm Walk A NU188239
+Sect 2 Doxford Farm walk B
 Sect 3 Doxford Farm Walk A
 Sect 3 Doxford Farm Walk B
 Sect 4 Doxford Farm Walk A
@@ -2205,12 +2572,14 @@ Sect 4 Doxford Farm Walk B
 Sect 5 Doxford Farm walk A
 Sect 5 Doxford Farm walk B
 Sect 6 Doxford Farm walk
+Sect 7 Doxford Farm walk A
 Section 1 Tp Heap
 Section 4 Tp Heap
 Section 9 Tp Heap
 "Selset Reservoir - Station 3, Tees"
 "Selset Reservoir - Station 4, Tees"
 "Selset Reservoir- Station 7, Tees"
+"Selset Reservoir, area of M10 mire at western end"
 "Selset Reservoir, Southern edge of reservoir east of site 4 above"
 "Selset Reservoir, Southern edge of reservoir west of site 9 above"
 Seven Houses c2c path
@@ -2240,6 +2609,9 @@ Sherburn Railway - S6
 Sherburn Railway - S7
 Sherburn Railway - S8
 Sherburn Railway - S9
+Shibdon Ponds (NZ 19314 62877)
+Shibdon Ponds NZ 19314 62877
+Shildon DL4
 "Shildon DL4, UK"
 Shiphouse Wood 10 D
 "Shipley Burn 2, Shipley Burn"
@@ -2266,6 +2638,7 @@ Small Burn at approx. point 735 5x5
 small streams above 2000ft.
 "Smiddy Shaw Reservoir - Station 1, Derwent"
 Snailsgill; Site m3
+Snipe Pond/River Skerne NZ 2869 1234
 "Sockburn Farm south of site 3 above, River Tees"
 South Bank of Coquet Site30/12
 South Bank of Coquet Site30/13
@@ -2297,6 +2670,7 @@ Spennymoor DL16 7 TU
 "Staindrop, 2 HC Quarry"
 Stanhope Dene (Stanhope to drift mine NY9939-NY984
 "STANHOPE. Red Site 7, A689 south verge 150m W of B6278"
+Stargate Ponds NZ 16411 63231
 "Station 1, Burnhope Reservoir"
 "Station 2, Burnhope Reservoir"
 Stony Heap/Batling Lime Kilns CWS 1.37
@@ -2310,7 +2684,9 @@ Strother Hills C.6
 SummeryHill_1
 SummeryHill_2
 SummeryHill_3
+Sunderland 2 RIS site 327
 "Sunderland SR6, UK"
+Sunderland Weardale Way Pond a1231
 Sunderland Woodland Survey 10 GH
 Sunderland Woodland Survey 10 I
 Sunderland Woodland Survey 11 C Penshaw and Shiney Row
@@ -2351,9 +2727,12 @@ Sunderland Woodland Survey Areas 8 F
 Sunderland Woodland Survey Areas 8 G Reach Wood; James Steel Park
 Sunderland Woodlnad Survey 11 Penshaw and Shiney Row
 Sustrans NCN1 Mount Hooley section
+"Sutherland Avenue, Newcastle, NE4"
 swallowship woods 959 628
 Swarland 1st School crossroads
 "Swarland Wood, by 1st golf tee"
+"Swinburne Terrace, Dipton, Stanley DH9"
+"Swinburne Terrace, Dipton, Stanley DH9, UK"
 "Swinhoe Crags, NWT Site N40"
 Swinhope Cave 3/3
 Swinhope Mine 2/3
@@ -2366,6 +2745,7 @@ Table 5b D2-11/Site 2
 Table 5b D2-12/Site 1
 Table 5b D2-12/Site 2
 "Tanfield Lea Marsh CWS 1.33, marsh and ditches"
+"Teams, Gateshead NE8"
 "Teams, Gateshead NE8, UK"
 Tees Railway Walk - S1
 Tees Railway Walk - S10
@@ -2379,6 +2759,11 @@ Tees Railway Walk - S8
 Tees Railway Walk - S9
 Teesdale - Langdon Beck 1km
 Teeside Hospice 1 (double)
+Teesmouth - S1
+Teesmouth - S2
+Teesmouth - S3
+Teesmouth - S4
+Teesmouth - S5
 Teesside BrinefieldNo4
 The 2nd/Linden Hall
 The 40 acre wood.
@@ -2386,6 +2771,7 @@ The 40 acre wood. Wallington Hall Estate
 The 5th/Linden Hall
 The 6th/Linden Hall
 "The Avenue(Line 1), Callaly"
+The Drive NE3
 "The Due, Dunstanburfg NWT Site N16"
 The General's Wood 10 E
 The Snipe CWS 7.35
@@ -2405,12 +2791,14 @@ The Whinnies - S6
 The Whinnies - S7
 The Whinnies - S8
 The Whinnies - S9
+The Whinnies DWT NZ 34893 13897
 "Thinhope Burn 12, South Tyne"
 "Thinhope Burn 4, South Tyne"
 "Thinhope Burn 5, South Tyne"
 "Thinhope Burn 6, South Tyne"
 Thornley Wood : C7/3 : Pond
 Thornley Wood C7.3
+Thornley Woods NZ 17933 60288
 Thorsgill Wood CWS 6.37
 Thrislington Plantation - S1
 Thrislington Plantation - S10
@@ -2501,6 +2889,7 @@ Tunstall Reservoir CWS 3.18
 Turret 23A
 Tursdale By-pass (north pond) CWS 4.45
 Tursdale By-pass (south pond) CWS 4.45
+Twizell Woods NZ 22615 51590
 "Tynemouth Garden, 16 Southlands"
 Tynley Charlton burn footpath 112/007
 UKBMS Dunstan Heughs s.10
@@ -2620,6 +3009,7 @@ Upper Weardale (above St John's Chapel)18 b
 Upper Weardale (above St John's Chapel)18 c
 Upper Weardale (above St John's Chapel)19 a
 Upper Weardale (above St John's Chapel)20 a
+UpsallHall1Small
 "Upstream of footbridge at site 2 above, Beamish Burn"
 "Upstream of footbridge at site 3 above, River Gaunless"
 "Upstream of site 1 above, Deepdale Beck"
@@ -2635,17 +3025,27 @@ Vauce Wood Compartment 8a
 Vauce Wood Compartment 8c
 Vauce Wood Compartment 8d
 "Waldridge Fell SSSI Unit 3b, north of road."
+"Walkergate, Newcastle upon Tyne NE6, UK"
 Wallington Hall3
 "Warks Burn 1, Warks Burn"
+Washington Wildfowl Reserve NZ 33656 56448
 "Waskerley Beck, C.5 Miles N. Of Wolsingham"
 Waskerley Beck. South of site 7 above
 "Waskerley Reservoir - Station 5, Waskerley Beck"
 "Waskerley Reservoir - Station 6, Waskerley Beck"
+Waskerley Resevoir & Moor NZ 02307 44394
 Waskerley/A68 area 03 a
 Waskerley/A68 area 03 b
 Waterfall Ponds 2/3
 "Waterfall Ponds 2/3, Pond 2"
 "Wear upsteam of site 5, River Wear"
+Weetslade Country Park 2 - S1
+Weetslade Country Park 2 - S2
+Weetslade Country Park 2 - S3
+Weetslade Country Park 2 - S4
+Weetslade Country Park 2 - S5
+Weetslade Country Park 2 - S6
+Weetslade Country Park 2 - S7
 Weetslade Country Park to Weetslade via 6 Mile Bridge
 "Weir 1, Kielder Burn"
 "Weir 2, Kielder Burn"
@@ -2691,6 +3091,7 @@ West Park Nature Reserve - S6
 West Park Nature Reserve - S7
 West Park Nature Reserve - S8
 West Park Nature Reserve - S9
+West Pasture Quarry NY 98702 40993
 "WESTGATE. Red Site 18, Westgate to rookhope minor road , next to Westrigg mine"
 "Westward House, Gi9lsland"
 "Whinfell Village (Transects 1a & 1b), Whinfell Forest"
@@ -2730,7 +3131,10 @@ Wingate Quarry - S6
 Wingate Quarry - S7
 Wingate Quarry - S8
 Wingate Quarry - S9
+Wingate Quarry NZ 37223 37638
 Wingate2
+Winlanton Mill (Haghill Wood) NZ 18594 61130
+Winlanton Mill Haghill Wood NZ 18594 61130
 "Winlaton Mill, 25 May Avenue ."
 Within 10 MILE of Ho-le-Spring
 Woodbridge Quarry A1 and SR2 (Grassland)
@@ -2750,74 +3154,18 @@ Wynch Bridge; Site nm7
 Wytham Moor2 / Sleightholme Beck
 Wythes Hill; Site lo3a
 Yearby Wood 1 - middle
-Sunderland 2 RIS site 327
-barnes park sunderland sr4
-Sunderland Weardale Way Pond a1231
-Corus pond 1 - lagoon
-Corus pond 3 - shaded ditch
-"Dickens, McClean-Cooks 3in1 pond -Hutton Hall GC"
-"East Loftus (001), Saltburn-by-the-Sea, UK"
-"Sutherland Avenue, Newcastle, NE4"
-UpsallHall1Small
-FlattsLaneNormanby1
-FlattsLaneNormanby2
-Cliff Rigg SSSI (Community 2)
-Guis Walkway -2nd pond wetland (scrub to sluice)
-"Lazenby Bank Conservation Area A1,M1,N2"
-3422.5
-3422.1
-3422.9
-3422.8
-3422.4
-3422.7
-3422.3
-3422.6
-3422.2
-3422.11
-NY7482 - S8
-"Newcastle upon Tyne NE2, UK"
-Coastal path Winstonescarp sect NCC F/P 12/039section 
-Chapel House NE5
-"Newcastle upon Tyne NE3, UK"
-near Darlington (2-3 miles of A1M)
-"Metrology Software Products Ltd, 6F Greensfield Court"
-D2 Haltonlea Fell Midgeholme Quarry
-D2 Haltonlea Fell Midgeholme Quarry : Black Burn (south of track
-E/B 100y East of Stainmore Café
-EGGLESTON BURN. Red Site 2 West of entrance to Burncroft Farm north verge 
-"Ewbank Avenue, Fenham, Ne4"
-High Browngill 2.
-High Browngill 3.
-High Browngill 4.
-"LANGDON BECK. Red site 15  B6277 North west of Red site 14,  North east verge "
-Moorhouse 2: RIS Site 582
-NT-NY9989 S1
-NT-NY9989 S2
-NT-NY9989 S3
-NT-NY9989 S4
-NT-NY9989 S5
-NT-NY9989 S6
-NT-NY9989 S8
-NT-NY9989 S9
-"Selset Reservoir, area of M10 mire at western end"
-QE2 country park
-1km. north of Shilbottle
-2km. northeast of Shilbottle
-1km. west of High Buston
-1km. northwest of High Buston
-Gosforth Nature Reserve - S4
-Gosforth Nature Reserve - S2 & S5
-Gosforth Nature Reserve - S2
-Gosforth Nature Reserve - S1
-Gosforth Nature Reserve - S1 & S4
-Gosforth Nature Reserve - S2 & S4
-"Gosforth Nature Reserve - S1, S4 & S5"
-"Gosforth Nature Reserve - S2, S4 & S5"
-Gosforth Nature Reserve - S1 & S3
-Gosforth Nature Reserve - S2 & S7
-Gosforth Nature Reserve - S3
-Gosforth Nature Reserve - S3 & S4
-Gosforth Nature Reserve - S4 & S5
-"Gosforth Nature Reserve - S1, S2 & S4"
-"Metrology Software Products Ltd, 6F Greensfield Court"
-Castle Eden Dene-No.8 Bridge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
