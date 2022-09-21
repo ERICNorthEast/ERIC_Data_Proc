@@ -176,12 +176,14 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   #Check grid ref
   outputData$flagGR <- is.na(outputData$`Grid Reference` =="") | is.na(str_length(outputData$`Grid Reference`) <=4) | str_length(outputData$`Grid Reference`) %% 2 | str_detect(outputData$`Grid Reference`, "[ .,-]") | !apply(sapply(c("NT","NU","NY","NZ"),grepl,str_sub(outputData$`Grid Reference`,1,2)),1,any)
 
+  #Check date
+  outputData$flagDate <- (outputData$'Date' == "")
 
   #Add dup check column
 
 
   #Return only the columns we want including the flags so we can highlight issues later
-  OutputCols <- c("Recorder","Common Name","Species Name","Date","Grid Reference","Location Name","Abundances","Comments","Row No","flagRec","flagSpecies","flagAbun","flagCom","flagLoc","flagGR", "flagCommon", "flagInvasives")
+  OutputCols <- c("Recorder","Common Name","Species Name","Date","Grid Reference","Location Name","Abundances","Comments","Row No","flagRec","flagSpecies","flagAbun","flagCom","flagLoc","flagGR", "flagCommon", "flagInvasives", "flagDate")
   data_subset <- dplyr::select(outputData,dplyr::all_of(unlist(OutputCols)))
   return(data_subset)
 

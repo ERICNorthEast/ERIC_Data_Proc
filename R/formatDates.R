@@ -1,4 +1,5 @@
 #' formats Dates as far as possible given the variety that may be presented
+#' Seems to correct 1905 dates - e.g. 12/07/1905 was correctly changed to 2020
 #'
 #' @param dateCol Column containing date values
 #'

@@ -81,6 +81,9 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   openxlsx::addWorksheet(XL_wb,sheet_name)
   openxlsx::writeData(XL_wb,sheet_name,outputdata,headerStyle = bold_style)
 
+  #Format date columns
+  openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=2:nrow(outputdata), style=dateStyle)
+
   #Highlight the cells we've flagged
 
   openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=which(outputdata$flagLoc == TRUE)+1,style = highlightStyle)
@@ -92,6 +95,7 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   openxlsx::addStyle(XL_wb,sheet_name,cols=speciesCol,rows=which(outputdata$flagInvasive == TRUE)+1,style = invasiveStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=commonCol,rows=which(outputdata$flagInvasive == TRUE)+1,style = invasiveStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=grCol,rows=which(outputdata$flagGR == TRUE)+1,style = highlightStyle)
+  openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=which(outputdata$flagDate == TRUE)+1,style = highlightStyle)
 
   if (sum(outputdata$flagLoc,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagAbun,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=1,style = highlightBoldStyle)}
@@ -100,9 +104,9 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   if (sum(outputdata$flagCommon,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=commonCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagSpecies,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=speciesCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagGR,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=grCol,rows=1,style = highlightBoldStyle)}
+  if (sum(outputdata$flagDate,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=1,style = highlightBoldStyle)}
 
-  #Format date columns
-  openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=2:nrow(outputdata), style=dateStyle)
+
 
   #Make the columns a decent width
   openxlsx::setColWidths(XL_wb,sheet_name,cols=1:lastCol,widths = 13.4)
