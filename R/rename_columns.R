@@ -52,6 +52,18 @@ rename_columns <- function(data_set,data_format) {
 
     names(data_set)[tolower(names(data_set)) == "comment"] <- "Comments"
     names(data_set)[tolower(names(data_set)) == "comments"] <- "Comments"
+
+    #If we haven't got both species columns add the missing one
+    if (!all(c("Common Name","Species Name") %in% colnames(data_set)))
+    {
+      if ("Common Name" %in% colnames(data_set))
+      {
+        data_set$'Species Name' <- ""
+      } else
+      {
+        data_set$'Common Name' <- ""
+      }
+    }
   }
 
   if (data_format == "irecord") {
