@@ -103,9 +103,12 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   #If dataSource is BirdTrack
   if (inputFormat == "bt") {
 
-    #Get breeding codes
-    breeding_codes <- setup_bto_breeding_codes()
-    raw_data <- dplyr::left_join(raw_data,breeding_codes)
+    #Do we have breeding info?
+    if ("Breeding status" %in% colnames(raw_data)) {
+      #Get breeding codes
+      breeding_codes <- setup_bto_breeding_codes()
+      raw_data <- dplyr::left_join(raw_data,breeding_codes)
+    }
 
     #Setup a column for the observer name
     raw_data$Recorder <- recorderName
@@ -116,11 +119,20 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
     #Remove NA throughout
     raw_data[is.na(raw_data)]<-""
 
-    #Build comment field
-    raw_data$Comments<-str_trim(paste(raw_data$Comments, raw_data$Plumage,ifelse(raw_data$`Breeding details`=="",ifelse(raw_data$`Status`=="","",paste("Breeding status:",raw_data$`Status`)),raw_data$`Breeding details`)))
+
+    #Build comment field allowing for optional fields
+    #raw_data$Comments<-str_trim(paste(raw_data$Comments, raw_data$Plumage,ifelse(raw_data$`Breeding details`=="",ifelse(raw_data$`Status`=="","",paste("Breeding status:",raw_data$`Status`)),raw_data$`Breeding details`)))
+
+    if ("Plumage" %in% colnames(raw_data)) raw_data$Comments<-str_trim(paste(raw_data$Comments, raw_data$Plumage))
+    if ("Breeding details" %in% colnames(raw_data))  raw_data$Comments<-str_trim(paste(raw_data$Comments, ifelse(raw_data$'Breeding details' == "","",raw_data$`Breeding details`)))
+    if ("Breeding status" %in% colnames(raw_data))  raw_data$Comments<-str_trim(paste(raw_data$Comments, ifelse(raw_data$'Status' == "","",raw_data$`Status`)))
+
 
     #Get the grid ref from one of two columns
-    raw_data$`Grid Reference`<- ifelse(raw_data$Pinpoint=="",raw_data$`Grid Reference`,raw_data$Pinpoint)
+    #Pinpoint field is optional
+    if ("Pinpoint" %in% colnames(raw_data)) raw_data$`Grid Reference`<- ifelse(raw_data$Pinpoint=="",raw_data$`Grid Reference`,raw_data$Pinpoint)
+
+
 
     }
 
