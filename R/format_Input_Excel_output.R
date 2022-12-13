@@ -62,6 +62,7 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   highlightStyle <- openxlsx::createStyle(fgFill="#FFFF00")
   highlightBoldStyle <- openxlsx::createStyle(fgFill="#FFFF00",textDecoration = "Bold")
   invasiveStyle <- openxlsx::createStyle(fgFill="salmon", fontColour = "royalblue")
+  GPStyle <- openxlsx::createStyle(fgFill="springgreen1")
 
 
   dateStyle <- openxlsx::createStyle(numFmt="DATE")
@@ -87,6 +88,7 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   #Highlight the cells we've flagged
 
   openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=which(outputdata$flagLoc == TRUE)+1,style = highlightStyle)
+  openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=which(outputdata$flagGP == TRUE)+1,style = GPStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=which(outputdata$flagAbun == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=which(outputdata$flagCom == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=recorderCol,rows=which(outputdata$flagRec == TRUE)+1,style = highlightStyle)
@@ -97,6 +99,7 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   openxlsx::addStyle(XL_wb,sheet_name,cols=grCol,rows=which(outputdata$flagGR == TRUE)+1,style = highlightStyle)
   openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=which(outputdata$flagDate == TRUE)+1,style = highlightStyle)
 
+  if (sum(outputdata$flagGP,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagLoc,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagAbun,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagCom,na.rm=TRUE)>0 ) {openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=1,style = highlightBoldStyle)}

@@ -179,7 +179,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   outputData <- check_house_numbers(outputData,locsToReplace,locsToIgnore)
 
   #Check for "Gosforth Park"
-  outputData$flag1 <- outputData$flag1 | stringr::str_detect(outputData$`Location Name`,'[Gg]osforth [Pp]ark') | stringr::str_detect(outputData$`Location Name`,'[Gg][Pp][Nn][Rr]')
+  outputData$flagGP <- outputData$flag1 | stringr::str_detect(outputData$`Location Name`,'[Gg]osforth [Pp]ark') | stringr::str_detect(outputData$`Location Name`,'[Gg][Pp][Nn][Rr]')
 
   #Check for blank location name
   if (locCheck) {
@@ -199,7 +199,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
 
 
   #Return only the columns we want including the flags so we can highlight issues later
-  OutputCols <- c("Recorder","Common Name","Species Name","Date","Grid Reference","Location Name","Abundances","Comments","Row No","flagRec","flagSpecies","flagAbun","flagCom","flagLoc","flagGR", "flagCommon", "flagInvasives", "flagDate")
+  OutputCols <- c("Recorder","Common Name","Species Name","Date","Grid Reference","Location Name","Abundances","Comments","Row No","flagRec","flagSpecies","flagAbun","flagCom","flagLoc","flagGR", "flagCommon", "flagInvasives", "flagDate","flagGP")
   data_subset <- dplyr::select(outputData,dplyr::all_of(unlist(OutputCols)))
   return(data_subset)
 
