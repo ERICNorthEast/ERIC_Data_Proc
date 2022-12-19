@@ -179,7 +179,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   outputData <- check_house_numbers(outputData,locsToReplace,locsToIgnore)
 
   #Check for "Gosforth Park"
-  outputData$flagGP <- outputData$flag1 | stringr::str_detect(outputData$`Location Name`,'[Gg]osforth [Pp]ark') | stringr::str_detect(outputData$`Location Name`,'[Gg][Pp][Nn][Rr]')
+  outputData$flagGP <- stringr::str_detect(outputData$`Location Name`,'[Gg]osforth [Pp]ark') | stringr::str_detect(outputData$`Location Name`,'[Gg][Pp][Nn][Rr]')
 
   #Check for blank location name
   if (locCheck) {
