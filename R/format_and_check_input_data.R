@@ -149,8 +149,8 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   outputData$Recorder <- str_replace(outputData$Recorder,"[.,]$","")
 
 
-  #Check recorder for blanks, email addresses, ampersands or "Mr and mrs" type but ignore allowed values
-  outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") | stringr::str_detect(tolower(outputData$Recorder)," and ") | stringr::str_detect(outputData$Recorder,"&") & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
+  #Check recorder for blanks, email addresses, "anon", "unknown",  ampersands or "Mr and mrs" type but ignore allowed values
+  outputData$flagRec <- is.na(outputData$Recorder == "") | is.na(outputData$Recorder) | !str_detect(outputData$Recorder," ") | stringr::str_detect(outputData$Recorder,"@") | stringr::str_detect(tolower(outputData$Recorder)," and ") | stringr::str_detect(outputData$Recorder,"&") | stringr::str_detect(outputData$Recorder,"[Aa]nonymous") | stringr::str_detect(outputData$Recorder,"[Aa]non[, ]") | stringr::str_detect(outputData$Recorder,"[Uu]nknown") | stringr::str_detect(outputData$Recorder,"[Mm]r ") | stringr::str_detect(outputData$Recorder,"[Mm]s ")| stringr::str_detect(outputData$Recorder,"[Mm]rs ") | stringr::str_detect(outputData$Recorder,"[Mm]iss ")  & is.na(match(outputData$`Recorder`,table = recordersToIgnore$`Recorder`))
 
   #Check species
   outputData$flagSpecies <- is.na(outputData$`Common Name`== "" & outputData$`Species Name` == "") |  stringr::str_detect(tolower(outputData$'Species Name'),paste(c(tolower(scientific$term)),collapse = "|"))
