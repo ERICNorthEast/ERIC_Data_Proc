@@ -63,6 +63,10 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
     #Replace "present" in Abundances
     raw_data["Abundances"][(raw_data["Abundances"])=="Present"] <- ""
 
+    #Replace "to" in Dates
+    raw_data$Date<-str_replace(raw_data$Date," to ", " - ")
+
+
     #Remove NA throughout
     raw_data[is.na(raw_data)]<-""
 
@@ -193,7 +197,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   outputData$flagGR <- is.na(outputData$`Grid Reference` =="") | is.na(str_length(outputData$`Grid Reference`) <=4) | str_length(outputData$`Grid Reference`) %% 2 | str_detect(outputData$`Grid Reference`, "[ .,-]") | !apply(sapply(c("NT","NU","NY","NZ"),grepl,str_sub(outputData$`Grid Reference`,1,2)),1,any)
 
   #Check date
-  outputData$flagDate <- (outputData$'Date' == "")
+  outputData$flagDate <- (outputData$'Date' == "") | stringr::str_detect(outputData$`Date`,' to ')
 
   #Add dup check column
 
