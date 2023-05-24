@@ -200,7 +200,7 @@ format_and_check_input_data <- function(raw_data,locCheck,inputFormat,recorderNa
   outputData$flagGR <- is.na(outputData$`Grid Reference` =="") | is.na(str_length(outputData$`Grid Reference`) <=4) | str_length(outputData$`Grid Reference`) %% 2 | str_detect(outputData$`Grid Reference`, "[ .,-]") | !apply(sapply(c("NT","NU","NY","NZ"),grepl,str_sub(outputData$`Grid Reference`,1,2)),1,any)
 
   #Check date
-  outputData$flagDate <- (outputData$'Date' == "") | stringr::str_detect(outputData$`Date`,' to ')
+  outputData$flagDate <- (outputData$'Date' == "") | stringr::str_detect(outputData$`Date`,' to ') | stringr::str_detect(outputData$`Date`,'[abcdefghijklmnopqrstuvwxyz]/')
 
   #Add dup check column
 
