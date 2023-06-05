@@ -78,6 +78,7 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   dateCol<-unlist(input_config["dateCol"])
   lastCol<-unlist(input_config["lastCol"])
   grCol<-unlist(input_config["grCol"])
+  keyCol<-unlist(input_config["keyCol"])
 
   #Add key
   outputdata$key <- paste ("CONCATENATE(",paste(paste0("A", 1:nrow(outputdata) + 1L), paste0(paste(paste0("if(c",1:nrow(outputdata) + 1L,"=\"\" "),paste0("B", 1:nrow(outputdata) + 1L), paste0("C", 1:nrow(outputdata) + 1L), sep = " , "),")"),paste0("d", 1:nrow(outputdata) + 1L),paste0("e", 1:nrow(outputdata) + 1L), sep = " , "),")")
@@ -118,7 +119,8 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   if (sum(outputdata$flagGR,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=grCol,rows=1,style = highlightBoldStyle)}
   if (sum(outputdata$flagDate,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=1,style = highlightBoldStyle)}
 
-
+  #Highlight duplicate keys
+  openxlsx::conditionalFormatting(XL_wb, sheet_name, cols = keyCol, rows = 1:nrow(outputdata), type = "duplicates")
 
   #Make the columns a decent width
   openxlsx::setColWidths(XL_wb,sheet_name,cols=1:lastCol,widths = 13.4)
