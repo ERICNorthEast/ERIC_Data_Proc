@@ -79,8 +79,17 @@ format_input_Excel_output <- function(XL_wb,sheet_name, outputdata, input_config
   lastCol<-unlist(input_config["lastCol"])
   grCol<-unlist(input_config["grCol"])
 
+  #Add key
+  outputdata$key <- paste ("CONCATENATE(",paste(paste0("A", 1:nrow(outputdata) + 1L), paste0(paste(paste0("if(c",1:nrow(outputdata) + 1L,"=\"\" "),paste0("B", 1:nrow(outputdata) + 1L), paste0("C", 1:nrow(outputdata) + 1L), sep = " , "),")"),paste0("d", 1:nrow(outputdata) + 1L),paste0("e", 1:nrow(outputdata) + 1L), sep = " , "),")")
+  class(outputdata$key) <- c(class(outputdata$key), "formula")
+
+  #Reorder columns
+  outputdata <- outputdata[,c(1:9,ncol(outputdata),11:ncol(outputdata)-1)]
+
   openxlsx::addWorksheet(XL_wb,sheet_name)
   openxlsx::writeData(XL_wb,sheet_name,outputdata,headerStyle = bold_style)
+
+
 
   #Format date columns
   openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=2:nrow(outputdata), style=dateStyle)
