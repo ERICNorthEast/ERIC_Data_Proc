@@ -63,17 +63,19 @@ format_EA_SLA_Excel_output <- function(XL_wb, sheet_name,outputdata,SLA_config) 
 
   bold_style <- openxlsx::createStyle(textDecoration = "Bold")
   highlightStyle <- openxlsx::createStyle(fgFill="#FFFF00")
-  highlightBoldStyle <- openxlsx::createStyle(fgFill="#FFFF00",textDecoration = "Bold")
+  #highlightBoldStyle <- openxlsx::createStyle(fgFill="#FFFF00",textDecoration = "Bold")
 
-  dateStyle <- openxlsx::createStyle(numFmt="DATE")
-  numberStyle <- openxlsx::createStyle(numFmt="0")
+ # dateStyle <- openxlsx::createStyle(numFmt="DATE")
+ # numberStyle <- openxlsx::createStyle(numFmt="0")
 
 
   locationCol <- unlist(SLA_config["locationCol"])
-  abundanceCol <- unlist(SLA_config["abundanceCol"])
-  commentCol <- unlist(SLA_config["commentCol"])
-  dateCol <- unlist(SLA_config["dateCol"])
+  #abundanceCol <- unlist(SLA_config["abundanceCol"])
+  #commentCol <- unlist(SLA_config["commentCol"])
+  #dateCol <- unlist(SLA_config["dateCol"])
   lastCol <- unlist(SLA_config["lastCol"])
+  recorderCol <- unlist(SLA_config["recorderCol"])
+  identifierCol <- unlist(SLA_config["identifierCol"])
 
 
   openxlsx::addWorksheet(XL_wb,sheet_name)
@@ -81,18 +83,22 @@ format_EA_SLA_Excel_output <- function(XL_wb, sheet_name,outputdata,SLA_config) 
 
   #Highlight the cells we've flagged
   openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=which(outputdata$flag1 == TRUE)+1,style = highlightStyle)
-  openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=which(outputdata$flag2 == TRUE)+1,style = highlightStyle)
-  openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=which(outputdata$flag3 == TRUE)+1,style = highlightStyle)
-  openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=which(outputdata$flag4 == TRUE)+1,style = highlightStyle)
+  #openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=which(outputdata$flag2 == TRUE)+1,style = highlightStyle)
+  #openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=which(outputdata$flag3 == TRUE)+1,style = highlightStyle)
+  #openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=which(outputdata$flag4 == TRUE)+1,style = highlightStyle)
+  openxlsx::addStyle(XL_wb,sheet_name,cols=recorderCol,rows=which(outputdata$flag4 == TRUE)+1,style = highlightStyle)
+  openxlsx::addStyle(XL_wb,sheet_name,cols=identifierCol,rows=which(outputdata$flag5 == TRUE)+1,style = highlightStyle)
 
   if (sum(outputdata$flag1,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=locationCol,rows=1,style = highlightStyle)}
-  if (sum(outputdata$flag2,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=1,style = highlightStyle)}
-  if (sum(outputdata$flag3,na.rm=TRUE)+sum(outputdata$flag4,na.rm=TRUE)>0 ) {openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=1,style = highlightStyle)}
+  if (sum(outputdata$flag4,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=recorderCol,rows=1,style = highlightStyle)}
+  if (sum(outputdata$flag5,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=identifierCol,rows=1,style = highlightStyle)}
+  #if (sum(outputdata$flag2,na.rm=TRUE)>0) {openxlsx::addStyle(XL_wb,sheet_name,cols=abundanceCol,rows=1,style = highlightStyle)}
+  #if (sum(outputdata$flag3,na.rm=TRUE)+sum(outputdata$flag4,na.rm=TRUE)>0 ) {openxlsx::addStyle(XL_wb,sheet_name,cols=commentCol,rows=1,style = highlightStyle)}
 
 
   #Format the date column
-  openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=2:nrow(outputdata), style=dateStyle)
-  openxlsx::setColWidths(XL_wb,1,cols=1:lastCol,widths=13.4)
+  #openxlsx::addStyle(XL_wb,sheet_name,cols=dateCol,rows=2:nrow(outputdata), style=dateStyle)
+  #openxlsx::setColWidths(XL_wb,1,cols=1:lastCol,widths=13.4)
 
   openxlsx::addFilter(XL_wb,1,rows=1, cols = 1:lastCol)
 

@@ -38,30 +38,35 @@ format_and_check_EA_SLA_data <- function(raw_data,EAOutputCols,newColNames) {
 
   locsToReplace <- setup_locs_to_replace()
   locsToIgnore <- setup_locs_to_ignore()
-  swearWords <- setup_profanity_config()
+  #swearWords <- setup_profanity_config()
 
   outputdata <- dplyr::select(raw_data,dplyr::all_of(unlist(EAOutputCols)))
 
   #Rename columns so we can reuse some functions
   colnames(outputdata) <- unlist(newColNames)
 
+  #Add Vitality column - hard-coded for 2023
+  outputdata$vitality <-"Not recorded"
+
   outputdata <- check_house_numbers(outputdata,locsToReplace,locsToIgnore)
 
   #Check for 0 counts that we haven't already sorted
-  outputdata$flag2 <- tolower(outputdata$Abundances) =="0 count"
+  #outputdata$flag2 <- tolower(outputdata$Abundances) =="0 count"
 
 
   #Check for swear words
-  outputdata$flag3 <- stringr::str_detect(tolower(outputdata$Comments),paste(c(swearWords$word),collapse = "|"))
+  #outputdata$flag3 <- stringr::str_detect(tolower(outputdata$Comments),paste(c(swearWords$word),collapse = "|"))
 
 
   #Check for e-mail addresses
-  outputdata$flag4 <- stringr::str_detect(outputdata$Comments,"@")
+  outputdata$flag4 <- stringr::str_detect(outputdata$recordedBy,"@")
+  outputdata$flag5 <- stringr::str_detect(outputdata$identifiedBy,"@")
 
 
   #Rename cols back to EA format
 
-  newEACols <- append(unlist(EAOutputCols),c("Replacement","flag1","flag2","flag3","flag4"))
+  #newEACols <- append(unlist(EAOutputCols),c("Replacement","flag1","flag2","flag3","flag4"))
+  newEACols <- append(unlist(EAOutputCols),c("vitality","Replacement","flag1","flag4","flag5"))
   colnames(outputdata) <- unlist(newEACols)
 
   return (outputdata)
