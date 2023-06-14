@@ -46,7 +46,7 @@ format_and_check_EA_SLA_data <- function(raw_data,EAOutputCols,newColNames) {
   colnames(outputdata) <- unlist(newColNames)
 
   #Add Vitality column - hard-coded for 2023
-  outputdata$vitality <-"Not recorded"
+  outputdata$vitality <-"not recorded"
 
   outputdata <- check_house_numbers(outputdata,locsToReplace,locsToIgnore)
 
