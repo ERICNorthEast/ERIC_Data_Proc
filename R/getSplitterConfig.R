@@ -36,6 +36,6 @@ getSplitterConfig <- function(LA,SLA_Split_config) {
                      "Additional Information")
 
   #Setup the worksheet/criteria mapping depending on the LA
-  switch(LA,getDurhamConfig(bat_sp,plant_sp,Other_LA_Cols),getGatesheadConfig(bat_sp,plant_sp,Other_LA_Cols),getNorthumberlandConfig(plant_sp,Other_LA_Cols,pearl_mussel_select,protected_mammals,non_inverts,s41_mammals),getSouthTynesideConfig(bat_sp,plant_sp),getSunderlandConfig(bat_sp,plant_sp))
+  switch(LA,getDurhamConfig(bat_sp,plant_sp,Other_LA_Cols),getGatesheadConfig(bat_sp,plant_sp,Other_LA_Cols),getNorthumberlandConfig(plant_sp,Other_LA_Cols,pearl_mussel_select,protected_mammals,non_inverts,s41_mammals),getSouthTynesideConfig(bat_sp,plant_sp),getSunderlandConfig(bat_sp,plant_sp),getTeesValleyConfig(bat_sp,plant_sp))
 
 }
