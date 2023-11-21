@@ -13,8 +13,8 @@
 getTeesValleyConfig <- function(bat_sp,plant_sp){
   #Sunderland, South Tyneside and Tees Valley are identical apart from sheet name
 
-  Sun_ST_split <- setup_Sun_ST_split(bat_sp,plant_sp)
-  Sun_ST_Cols <- setup_Sun_ST_cols()
-  return (list("Source","Teesvalley_All_data",Sun_ST_split,Sun_ST_Cols))
+  Sun_TV_split <- setup_TV_split(bat_sp,plant_sp)
+  Sun_TV_Cols <- setup_Sun_ST_cols()
+  return (list("Source","Teesvalley_All_data",Sun_TV_split,Sun_TV_Cols))
 
 }
